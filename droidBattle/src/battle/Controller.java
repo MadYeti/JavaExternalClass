@@ -14,12 +14,13 @@ public class Controller {
     }
 
     public void startBattle(){
-        model.startFirstRound();
-        view.printWinnerOfTheFirstRound(model.getWinnerOfTheFirstRound());
-        model.startSecondRound();
-        view.printWinnerOfTheSecondRound(model.getWinnerOfTheSecondRound());
-        model.startFinalRound();
-        view.printWinnerOfTheBattle(model.getWinnerOfTheBattle());
+        model.chooseFighters();
+        for(int i = 0; i < model.getFighters().length; i++){
+            view.printFighters(i+1, model.getFighters()[i].getName());
+        }
+        view.printWinnerOfTheFirstRound(model.firstRoundFight().getName());
+        view.printWinnerOfTheSecondRound(model.secondRoundFight().getName());
+        view.printWinnerOfTheBattle(model.finalRoundFight().getName());
     }
 
 }

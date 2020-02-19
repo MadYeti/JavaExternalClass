@@ -25,21 +25,10 @@ public abstract class Droid {
         return health;
     }
 
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setAttackDamage(int attackDamage) {
-        this.attackDamage = attackDamage;
-    }
-
     public void setHealth(int health) {
         this.health = health + armor;
     }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
-
     public abstract void attack(Droid droid);
+
 }
