@@ -1,4 +1,4 @@
-package battle;
+package battle.mvc;
 
 /**
  * Created by MadYeti on 18.02.2020.

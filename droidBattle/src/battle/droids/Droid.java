@@ -1,10 +1,13 @@
-package battle;
+package battle.droids;
+
+import battle.strategy.AttackBehavior;
 
 /**
  * Created by MadYeti on 16.02.2020.
  */
 public abstract class Droid {
 
+    AttackBehavior attackBehavior;
     int attackDamage;
     int armor;
     int health;
@@ -29,6 +32,8 @@ public abstract class Droid {
         this.health = health + armor;
     }
 
-    public abstract void attack(Droid droid);
+    public void performAttack(Droid defender, int damage){
+        attackBehavior.attack(defender, damage);
+    }
 
 }

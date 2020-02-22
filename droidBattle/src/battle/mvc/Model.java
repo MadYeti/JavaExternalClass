@@ -1,4 +1,6 @@
-package battle;
+package battle.mvc;
+
+import battle.droids.*;
 
 /**
  * Created by MadYeti on 18.02.2020.
@@ -40,12 +42,12 @@ public class Model {
 
     public Droid firstRoundFight(){
         while(true){
-            fighters[0].attack(fighters[1]);
+            fighters[0].performAttack(fighters[1], fighters[0].getAttackDamage());
             if(fighters[1].getHealth() <= 0){
                 winnerOfTheFirstRound = fighters[0];
                 break;
             }
-            fighters[1].attack(fighters[0]);
+            fighters[1].performAttack(fighters[0], fighters[1].getAttackDamage());
             if(fighters[0].getHealth() <= 0){
                 winnerOfTheFirstRound = fighters[1];
                 break;
@@ -56,12 +58,12 @@ public class Model {
 
     public Droid secondRoundFight(){
         while(true){
-            fighters[2].attack(fighters[3]);
+            fighters[2].performAttack(fighters[3], fighters[2].getAttackDamage());
             if(fighters[3].getHealth() <= 0){
                 winnerOfTheSecondRound = fighters[2];
                 break;
             }
-            fighters[3].attack(fighters[2]);
+            fighters[3].performAttack(fighters[2], fighters[3].getAttackDamage());
             if(fighters[2].getHealth() <= 0){
                 winnerOfTheSecondRound = fighters[3];
                 break;
@@ -72,11 +74,11 @@ public class Model {
 
     public Droid finalRoundFight(){
         while(true){
-            winnerOfTheFirstRound.attack(winnerOfTheSecondRound);
+            winnerOfTheFirstRound.performAttack(winnerOfTheSecondRound, winnerOfTheFirstRound.getAttackDamage());
             if(winnerOfTheSecondRound.getHealth() <= 0){
-                return winnerOfTheSecondRound;
+                return winnerOfTheFirstRound;
             }
-            winnerOfTheSecondRound.attack(winnerOfTheFirstRound);
+            winnerOfTheSecondRound.performAttack(winnerOfTheFirstRound, winnerOfTheSecondRound.getAttackDamage());
             if(winnerOfTheFirstRound.getHealth() <= 0){
                 return winnerOfTheSecondRound;
             }

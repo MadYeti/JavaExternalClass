@@ -1,4 +1,8 @@
-package battle;
+package battle.droids;
+
+import battle.strategy.Attack;
+import battle.strategy.AttackBehavior;
+import battle.strategy.DoubleAttack;
 
 /**
  * Created by MadYeti on 16.02.2020.
@@ -6,14 +10,11 @@ package battle;
 public class SuperBattleDroid extends Droid {
 
     public SuperBattleDroid() {
+        this.attackBehavior = new DoubleAttack();
         this.attackDamage = (int)(Math.random() * 40 + 10);
         this.armor = (int)(Math.random() * 25);
         this.health = (int)(Math.random() * 120 + 10) + this.armor;
         this.name = "SuperBattleDroid";
     }
 
-    @Override
-    public void attack(Droid droid) {
-        droid.setHealth(droid.getHealth() - (this.getAttackDamage() * 2));
-    }
 }
