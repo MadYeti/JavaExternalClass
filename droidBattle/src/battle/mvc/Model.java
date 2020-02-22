@@ -1,6 +1,7 @@
 package battle.mvc;
 
 import battle.droids.*;
+import battle.factory.DroidFactory;
 
 /**
  * Created by MadYeti on 18.02.2020.
@@ -20,23 +21,8 @@ public class Model {
 
     public void chooseFighters(){
         for(int i = 0; i < FIGHTERS_AMOUNT; i++){
-            int random = (int)(Math.random() * robotCollection.length + 1);
-            switch(random){
-                case 1:
-                    fighters[i] = new BattleDroid();
-                    break;
-                case 2:
-                    fighters[i] = new RepairDroid();
-                    break;
-                case 3:
-                    fighters[i] = new TankDroid();
-                    break;
-                case 4:
-                    fighters[i] = new SuperBattleDroid();
-                    break;
-                default:
-                    break;
-            }
+            int random = (int)(Math.random() * robotCollection.length);
+            fighters[i] = DroidFactory.createDroid(robotCollection[random]);
         }
     }
 
