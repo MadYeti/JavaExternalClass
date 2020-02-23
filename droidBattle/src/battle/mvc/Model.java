@@ -15,12 +15,16 @@ public class Model {
     private Droid winnerOfTheFirstRound = null;
     private Droid winnerOfTheSecondRound = null;
 
+    public Model(){
+
+    }
+
     public Droid[] getFighters() {
         return fighters;
     }
 
     public void chooseFighters(){
-        for(int i = 0; i < FIGHTERS_AMOUNT; i++){
+        for(int i = 0; i < fighters.length; i++){
             int random = (int)(Math.random() * robotCollection.length);
             fighters[i] = DroidFactory.createDroid(robotCollection[random]);
         }

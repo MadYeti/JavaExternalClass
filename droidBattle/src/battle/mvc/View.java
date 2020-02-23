@@ -11,6 +11,8 @@ public class View {
     public static final String SECOND_ROUND_WINNER = " wins second round";
     public static final String CHAMPION_ANNOUNCED = " is the champion";
     public static final String FIGHTER_NUMBER = "Fighter #";
+    public static final String WELCOME_WINDOW = "Press 1 if you like to registrate yourself or 2 if you want to log in:";
+    public static final String VERIFICATION_WRONG_NUMBER = "Please input number 1 to sign up or 2 to sigh in:";
 
     public View(){
 
@@ -34,6 +36,14 @@ public class View {
 
     public void printWinnerOfTheBattle(String fighterName){
         printMessage(fighterName + CHAMPION_ANNOUNCED);
+    }
+
+    public void printWelcomeWindow(){
+        printMessage(WELCOME_WINDOW);
+    }
+
+    public void printVerificationWrongNumber(){
+        printMessage(VERIFICATION_WRONG_NUMBER);
     }
 
 }
