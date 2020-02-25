@@ -19,6 +19,8 @@ public class View {
     public static final String REGISTRATION_COMPLETE= "Registration complete successfully";
     public static final String PICKING_DROID= "Pick your droid";
     public static final String INVALID_PICKING_DROID_INPUT= "Enter 1, 2, 3 or 4 to pick your droid";
+    public static final String YOUR_DROID_CHAMPION= "Congratulation your droid is the champion";
+    public static final String YOUR_DROID_LOSER= "Sorry your droid is the loser";
 
     public View(){
 
@@ -26,6 +28,14 @@ public class View {
 
     public void printMessage(String message){
         System.out.println(message);
+    }
+
+    public void printYourDroidChampion(){
+        printMessage(YOUR_DROID_CHAMPION);
+    }
+
+    public void printYourDroidLoser(){
+        printMessage(YOUR_DROID_LOSER);
     }
 
     public void printPickingDroid(){

@@ -18,7 +18,12 @@ public class AuthorizationController {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("users.txt")));
             String data;
             while ((data = bufferedReader.readLine()) != null){
+                if(data.equals("admin;" + RegistrationController.getHashPassword("admin"))){
+                    isAdmin = true;
+                    return true;
+                }
                 if(data.equals(login + ";" + RegistrationController.getHashPassword(password))){
+                    isAdmin = false;
                     return true;
                 }
             }
@@ -30,10 +35,7 @@ public class AuthorizationController {
         return false;
     }
 
-    public boolean isAdmin(String login, String password) {
-        if(login.equals("admin") && password.equals("admin")){
-            return true;
-        }
-        return false;
+    public boolean isAdmin() {
+        return isAdmin;
     }
 }

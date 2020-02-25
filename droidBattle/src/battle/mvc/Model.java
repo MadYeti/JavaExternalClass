@@ -18,6 +18,7 @@ public class Model {
     private Droid[] fighters = new Droid[FIGHTERS_AMOUNT];
     private Droid winnerOfTheFirstRound = null;
     private Droid winnerOfTheSecondRound = null;
+    private Droid champion = null;
     private String login = null;
     private String password = null;
     private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -74,11 +75,11 @@ public class Model {
         while(true){
             winnerOfTheFirstRound.performAttack(winnerOfTheSecondRound, winnerOfTheFirstRound.getAttackDamage());
             if(winnerOfTheSecondRound.getHealth() <= 0){
-                return winnerOfTheFirstRound;
+                return champion = winnerOfTheFirstRound;
             }
             winnerOfTheSecondRound.performAttack(winnerOfTheFirstRound, winnerOfTheSecondRound.getAttackDamage());
             if(winnerOfTheFirstRound.getHealth() <= 0){
-                return winnerOfTheSecondRound;
+                return champion = winnerOfTheSecondRound;
             }
         }
     }
@@ -113,11 +114,19 @@ public class Model {
         return password;
     }
 
-    public Droid getYourDroid() throws IOException {
+    public Droid pickYourDroid() throws IOException {
         int number = Integer.parseInt(bufferedReader.readLine());
         if(number >= 1 && number <= 4){
             return yourDroid = fighters[number - 1];
         }
         return yourDroid;
+    }
+
+    public Droid getYourDroid() {
+        return yourDroid;
+    }
+
+    public Droid getChampion() {
+        return champion;
     }
 }
