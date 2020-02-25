@@ -31,12 +31,16 @@ public class Controller {
         if(logInParameter == 1){
             RegistrationController registrationController = new RegistrationController();
             registrationController.registrateUser(login, password);
+            view.printRegistrationComplete();
+            launchProgram();
         }else {
             AuthorizationController authorizationController = new AuthorizationController();
-            if(authorizationController.authorizeUser(login, password)){
-                System.out.println("SUCCESS");
+            if(authorizationController.authorizeUser(login, password) && authorizationController.isAdmin(login, password)){
+
+            }else if(authorizationController.authorizeUser(login, password)){
+
             }else{
-                System.out.println("ERROR");
+                launchProgram();
             }
         }
     }
@@ -45,21 +49,18 @@ public class Controller {
         String[] data = new String[2];
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            System.out.println("Input your login:");
+            view.printInputLogin();
             data[0] = bufferedReader.readLine();
-            System.out.println("Input your password:");
+            view.printInputPassword();
             data[1] = bufferedReader.readLine();
+            while(!RegistrationController.validatePassword(data[1])) {
+                view.printInvalidPassword();
+                data[1] = bufferedReader.readLine();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return data;
-    }
-
-    public boolean validatePassword(String password) {
-        String passwordRegex = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!*()_<>@#$%^&+=]).{6,}";
-        Pattern pattern = Pattern.compile(passwordRegex);
-        Matcher matcher = pattern.matcher(password);
-        return matcher.find();
     }
 
     public void startBattle(){

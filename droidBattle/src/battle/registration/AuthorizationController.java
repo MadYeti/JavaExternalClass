@@ -7,6 +7,8 @@ import java.io.*;
  */
 public class AuthorizationController {
 
+    private boolean isAdmin = false;
+
     public AuthorizationController(){
 
     }
@@ -28,4 +30,10 @@ public class AuthorizationController {
         return false;
     }
 
+    public boolean isAdmin(String login, String password) {
+        if(login.equals("admin") && password.equals("admin")){
+            return true;
+        }
+        return false;
+    }
 }
