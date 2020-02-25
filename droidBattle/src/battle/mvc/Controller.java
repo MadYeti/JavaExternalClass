@@ -3,11 +3,7 @@ package battle.mvc;
 import battle.registration.AuthorizationController;
 import battle.registration.RegistrationController;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by MadYeti on 18.02.2020.
@@ -22,71 +18,75 @@ public class Controller {
         this.view = view;
     }
 
-    public void launchProgram(){
+    public void launchProgram() {
         view.printWelcomeWindow();
-        int logInParameter = logInProcces();
-        String[] data = inputLoginAndPassword();
-        String login = data[0];
-        String password = data[1];
+        int logInParameter;
+        while(true) {
+            try {
+                logInParameter = model.logInProcess();
+                if(logInParameter == 1 || logInParameter == 2){
+                    break;
+                }
+                view.printVerificationWrongNumber();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch(NumberFormatException e){
+                view.printVerificationWrongNumber();
+            }
+        }
+        view.printInputLogin();
+        model.enterLogin();
+        view.printInputPassword();
         if(logInParameter == 1){
+            while (!RegistrationController.validatePassword(model.enterPassword())){
+                view.printInvalidPassword();
+            }
             RegistrationController registrationController = new RegistrationController();
-            registrationController.registrateUser(login, password);
+            registrationController.registrateUser(model.getLogin(), model.getPassword());
             view.printRegistrationComplete();
             launchProgram();
         }else {
+            model.enterPassword();
             AuthorizationController authorizationController = new AuthorizationController();
-            if(authorizationController.authorizeUser(login, password) && authorizationController.isAdmin(login, password)){
-
-            }else if(authorizationController.authorizeUser(login, password)){
-
+            if(authorizationController.authorizeUser(model.getLogin(), model.getPassword()) && authorizationController.isAdmin(model.getLogin(), model.getPassword())){
+                this.setModel(new AdminModel());
+                this.setView(new AdminView());
+            }else if(authorizationController.authorizeUser(model.getLogin(), model.getPassword())){
+                initFighters();
+                view.printPickingDroid();
+                try {
+                    while (model.getYourDroid() != null) {
+                        view.printInvalidPickingDroidInput();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (NumberFormatException e) {
+                    view.printInvalidPickingDroidInput();
+                }
             }else{
                 launchProgram();
             }
         }
     }
 
-    public String[] inputLoginAndPassword(){
-        String[] data = new String[2];
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-            view.printInputLogin();
-            data[0] = bufferedReader.readLine();
-            view.printInputPassword();
-            data[1] = bufferedReader.readLine();
-            while(!RegistrationController.validatePassword(data[1])) {
-                view.printInvalidPassword();
-                data[1] = bufferedReader.readLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return data;
-    }
-
     public void startBattle(){
-        model.chooseFighters();
-        for(int i = 0; i < model.getFighters().length; i++){
-            view.printFighters(i+1, model.getFighters()[i].getName());
-        }
         view.printWinnerOfTheFirstRound(model.firstRoundFight().getName());
         view.printWinnerOfTheSecondRound(model.secondRoundFight().getName());
         view.printWinnerOfTheBattle(model.finalRoundFight().getName());
     }
 
-    public int logInProcces(){
-        int number = 0;
-        while(true){
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-                number = Integer.parseInt(bufferedReader.readLine());
-                if(number == 1 || number == 2){
-                    return number;
-                }
-                view.printVerificationWrongNumber();
-            } catch (Exception e) {
-                view.printVerificationWrongNumber();
-            }
-        }
+    public void setModel(Model model) {
+        this.model = model;
     }
 
+    public void setView(View view) {
+        this.view = view;
+    }
+
+    public void initFighters(){
+        model.chooseFighters();
+        for(int i = 0; i < model.getFighters().length; i++){
+            view.printFighters(i+1, model.getFighters()[i].getName());
+        }
+    }
 }

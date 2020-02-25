@@ -17,6 +17,8 @@ public class View {
     public static final String INPUT_PASSWORD = "Input your password:";
     public static final String INVALID_PASSWORD_MESSAGE = "Invalid password. Your password must contain one lowercase letter, one uppercase letter, one number and one symbol ~!*()_<>@#$%^&+= and be atleast 6 characters long.";
     public static final String REGISTRATION_COMPLETE= "Registration complete successfully";
+    public static final String PICKING_DROID= "Pick your droid";
+    public static final String INVALID_PICKING_DROID_INPUT= "Enter 1, 2, 3 or 4 to pick your droid";
 
     public View(){
 
@@ -24,6 +26,14 @@ public class View {
 
     public void printMessage(String message){
         System.out.println(message);
+    }
+
+    public void printPickingDroid(){
+        printMessage(PICKING_DROID);
+    }
+
+    public void printInvalidPickingDroidInput(){
+        printMessage(INVALID_PICKING_DROID_INPUT);
     }
 
     public void printFighters(int fighterNumber, String fighterName){

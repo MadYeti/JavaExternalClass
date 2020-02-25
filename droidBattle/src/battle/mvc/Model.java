@@ -3,6 +3,10 @@ package battle.mvc;
 import battle.droids.*;
 import battle.factory.DroidFactory;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * Created by MadYeti on 18.02.2020.
  */
@@ -14,6 +18,10 @@ public class Model {
     private Droid[] fighters = new Droid[FIGHTERS_AMOUNT];
     private Droid winnerOfTheFirstRound = null;
     private Droid winnerOfTheSecondRound = null;
+    private String login = null;
+    private String password = null;
+    private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    private Droid yourDroid = null;
 
     public Model(){
 
@@ -73,5 +81,43 @@ public class Model {
                 return winnerOfTheSecondRound;
             }
         }
+    }
+
+    public int logInProcess() throws IOException {
+        return Integer.parseInt(bufferedReader.readLine());
+    }
+
+    public String enterLogin(){
+        try {
+            login = bufferedReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return login;
+    }
+
+    public String enterPassword(){
+        try {
+            password = bufferedReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Droid getYourDroid() throws IOException {
+        int number = Integer.parseInt(bufferedReader.readLine());
+        if(number >= 1 && number <= 4){
+            return yourDroid = fighters[number - 1];
+        }
+        return yourDroid;
     }
 }
