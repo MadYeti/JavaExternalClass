@@ -11,8 +11,8 @@ public class View {
     public static final String SECOND_ROUND_WINNER = " wins second round";
     public static final String CHAMPION_ANNOUNCED = " is the champion";
     public static final String FIGHTER_NUMBER = "Fighter #";
-    public static final String WELCOME_WINDOW = "Press 1 if you like to registrate yourself or 2 if you want to log in:";
-    public static final String VERIFICATION_WRONG_NUMBER = "Please input number 1 to sign up or 2 to sigh in:";
+    public static final String WELCOME_WINDOW = "Enter \"reg\" if you like to registrate yourself or \"auth\" if you want to log in:";
+    public static final String VERIFICATION_WRONG_PARAMETER = "Please enter \"reg\" to sign up or \"auth\" to sigh in:";
     public static final String INPUT_LOGIN = "Input your login:";
     public static final String INPUT_PASSWORD = "Input your password:";
     public static final String INVALID_PASSWORD_MESSAGE = "Invalid password. Your password must contain one lowercase letter, one uppercase letter, one number and one symbol ~!*()_<>@#$%^&+= and be atleast 6 characters long.";
@@ -66,8 +66,8 @@ public class View {
         printMessage(WELCOME_WINDOW);
     }
 
-    public void printVerificationWrongNumber(){
-        printMessage(VERIFICATION_WRONG_NUMBER);
+    public void printVerificationWrongParameter(){
+        printMessage(VERIFICATION_WRONG_PARAMETER);
     }
 
     public void printInputLogin(){

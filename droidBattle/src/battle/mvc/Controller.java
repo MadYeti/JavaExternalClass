@@ -20,28 +20,32 @@ public class Controller {
 
     public void launchProgram() {
         view.printWelcomeWindow();
-        int logInParameter = logInIssue();
+        String logInParameter = logInIssue();
         view.printInputLogin();
         model.enterLogin();
         view.printInputPassword();
-        if(logInParameter == 1){
+        if(logInParameter.equals("reg")){
             while (!RegistrationController.validatePassword(model.enterPassword())){
                 view.printInvalidPassword();
             }
-            this.registrationIssue();
-        }else {
+            model.registrationIssue();
+            view.printRegistrationComplete();
+            launchProgram();
+        }else if(logInParameter.equals("auth")) {
             model.enterPassword();
             AuthorizationController authorizationController = new AuthorizationController();
             if(authorizationController.authorizeUser(model.getLogin(), model.getPassword())){
+                model.chooseFighters();
+                showFighters();
                 if(authorizationController.isAdmin()){
                     Model adminModel = new AdminModel();
                     View adminView = new AdminView();
-                    this.setModel(adminModel);
-                    this.setView(adminView);
-
+                    setModel(adminModel);
+                    setView(adminView);
+                    ((AdminView)view).printOperationsToDo();
+                    performAdminOperations();
                 }else{
-                    this.initFighters();
-                    this.startBattle();
+                    startBattle();
                 }
             }else{
                 launchProgram();
@@ -49,21 +53,21 @@ public class Controller {
         }
     }
 
-    public int logInIssue(){
-        int logInParameter;
-        while(true) {
-            try {
-                logInParameter = model.logInProcess();
-                if(logInParameter == 1 || logInParameter == 2){
-                    return logInParameter;
+    public String logInIssue(){
+        String logInParameter = null;
+        try {
+            logInParameter = model.logInProcess();
+            while(true) {
+                if(logInParameter.equals("reg") || logInParameter.equals("auth")){
+                   break;
                 }
-                view.printVerificationWrongNumber();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch(NumberFormatException e){
-                view.printVerificationWrongNumber();
+                view.printVerificationWrongParameter();
+                logInParameter = model.logInProcess();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return logInParameter;
     }
 
     public void startBattle(){
@@ -95,17 +99,53 @@ public class Controller {
         this.view = view;
     }
 
-    public void initFighters(){
-        model.chooseFighters();
+    public void showFighters(){
         for(int i = 0; i < model.getFighters().length; i++){
             view.printFighters(i+1, model.getFighters()[i].getName());
         }
     }
 
-    public void registrationIssue(){
-        RegistrationController registrationController = new RegistrationController();
-        registrationController.registrateUser(model.getLogin(), model.getPassword());
-        view.printRegistrationComplete();
-        launchProgram();
+    public int pickDroidNumber(){
+        int number = 0;
+        try {
+            while(true){
+                number = ((AdminModel) model).pickNumber();
+                if (number == 1|| number == 2 || number == 3 || number == 4){
+                    return number;
+                }
+                ((AdminView)view).printIncorrectNumber();
+            }
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e){
+            ((AdminView)view).printIncorrectNumber();
+        }
+        return number;
+    }
+
+    public void performAdminOperations(){
+        int number = pickDroidNumber();
+        switch(((AdminModel) model).enterAdminOperation()){
+            case "read":
+                ((AdminView) view).printReadOperation();
+                ((AdminView) view).printDroidIndicators(((AdminModel) model).getDroidByNumber(number).getName(),
+                        ((AdminModel) model).getDroidByNumber(number).getAttackDamage(),
+                        ((AdminModel) model).getDroidByNumber(number).getHealth(),
+                        ((AdminModel) model).getDroidByNumber(number).getArmor());
+                break;
+            case "add":
+                ((AdminView) view).printAddOperation();
+                pickDroidNumber();
+                break;
+            case "modify":
+                ((AdminView) view).printModifyOperation();
+                pickDroidNumber();
+                break;
+            case "delete":
+                ((AdminView) view).printDeleteOperation();
+                pickDroidNumber();
+                break;
+        }
     }
 }

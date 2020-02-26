@@ -2,6 +2,7 @@ package battle.mvc;
 
 import battle.droids.*;
 import battle.factory.DroidFactory;
+import battle.registration.RegistrationController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,13 +16,13 @@ public class Model {
     private final int FIGHTERS_AMOUNT = 4;
 
     private String[] robotCollection = {"BattleDroid", "RepairDroid", "TankDroid", "SuperBattleDroid"};
-    private Droid[] fighters = new Droid[FIGHTERS_AMOUNT];
+    protected Droid[] fighters = new Droid[FIGHTERS_AMOUNT];
     private Droid winnerOfTheFirstRound = null;
     private Droid winnerOfTheSecondRound = null;
     private Droid champion = null;
     private String login = null;
     private String password = null;
-    private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    protected BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
     private Droid yourDroid = null;
 
     public Model(){
@@ -40,6 +41,12 @@ public class Model {
     }
 
     public Droid firstRoundFight(){
+        if(fighters[0] == null){
+            return winnerOfTheFirstRound = fighters[1];
+        }
+        if(fighters[1] == null){
+            return winnerOfTheFirstRound = fighters[0];
+        }
         while(true){
             fighters[0].performAttack(fighters[1], fighters[0].getAttackDamage());
             if(fighters[1].getHealth() <= 0){
@@ -56,6 +63,12 @@ public class Model {
     }
 
     public Droid secondRoundFight(){
+        if(fighters[2] == null){
+            return winnerOfTheSecondRound = fighters[3];
+        }
+        if(fighters[3] == null){
+            return winnerOfTheSecondRound = fighters[2];
+        }
         while(true){
             fighters[2].performAttack(fighters[3], fighters[2].getAttackDamage());
             if(fighters[3].getHealth() <= 0){
@@ -84,8 +97,8 @@ public class Model {
         }
     }
 
-    public int logInProcess() throws IOException {
-        return Integer.parseInt(bufferedReader.readLine());
+    public String logInProcess() throws IOException {
+        return bufferedReader.readLine();
     }
 
     public String enterLogin(){
@@ -128,5 +141,10 @@ public class Model {
 
     public Droid getChampion() {
         return champion;
+    }
+
+    public void registrationIssue(){
+        RegistrationController registrationController = new RegistrationController();
+        registrationController.registrateUser(login, password);
     }
 }

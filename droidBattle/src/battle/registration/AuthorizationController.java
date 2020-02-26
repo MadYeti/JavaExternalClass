@@ -18,17 +18,15 @@ public class AuthorizationController {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("users.txt")));
             String data;
             while ((data = bufferedReader.readLine()) != null){
-                if(data.equals("admin;" + RegistrationController.getHashPassword("admin"))){
-                    isAdmin = true;
-                    return true;
-                }
                 if(data.equals(login + ";" + RegistrationController.getHashPassword(password))){
                     isAdmin = false;
                     return true;
                 }
+                if(login.equals("admin") && password.equals("admin")){
+                    isAdmin = true;
+                    return true;
+                }
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

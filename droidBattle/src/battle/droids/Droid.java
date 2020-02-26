@@ -36,4 +36,7 @@ public abstract class Droid {
         attackBehavior.attack(defender, damage);
     }
 
+    public int getArmor() {
+        return armor;
+    }
 }
