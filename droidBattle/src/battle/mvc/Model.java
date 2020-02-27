@@ -16,7 +16,7 @@ public class Model {
     private final int FIGHTERS_AMOUNT = 4;
 
     private String[] robotCollection = {"BattleDroid", "RepairDroid", "TankDroid", "SuperBattleDroid"};
-    protected Droid[] fighters = new Droid[FIGHTERS_AMOUNT];
+    private Droid[] fighters = new Droid[FIGHTERS_AMOUNT];
     private Droid winnerOfTheFirstRound = null;
     private Droid winnerOfTheSecondRound = null;
     private Droid champion = null;
@@ -41,12 +41,6 @@ public class Model {
     }
 
     public Droid firstRoundFight(){
-        if(fighters[0] == null){
-            return winnerOfTheFirstRound = fighters[1];
-        }
-        if(fighters[1] == null){
-            return winnerOfTheFirstRound = fighters[0];
-        }
         while(true){
             fighters[0].performAttack(fighters[1], fighters[0].getAttackDamage());
             if(fighters[1].getHealth() <= 0){
@@ -63,12 +57,6 @@ public class Model {
     }
 
     public Droid secondRoundFight(){
-        if(fighters[2] == null){
-            return winnerOfTheSecondRound = fighters[3];
-        }
-        if(fighters[3] == null){
-            return winnerOfTheSecondRound = fighters[2];
-        }
         while(true){
             fighters[2].performAttack(fighters[3], fighters[2].getAttackDamage());
             if(fighters[3].getHealth() <= 0){

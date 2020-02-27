@@ -12,6 +12,8 @@ public class Controller {
 
     private Model model;
     private View view;
+    private AdminModel adminModel;
+    private AdminView adminView;
 
     public Controller(Model model, View view) {
         this.model = model;
@@ -35,15 +37,13 @@ public class Controller {
             model.enterPassword();
             AuthorizationController authorizationController = new AuthorizationController();
             if(authorizationController.authorizeUser(model.getLogin(), model.getPassword())){
-                model.chooseFighters();
                 showFighters();
                 if(authorizationController.isAdmin()){
-                    Model adminModel = new AdminModel();
-                    View adminView = new AdminView();
-                    setModel(adminModel);
-                    setView(adminView);
-                    ((AdminView)view).printOperationsToDo();
+                    adminModel = new AdminModel();
+                    adminView = new AdminView();
+                    adminView.printOperationsToDo();
                     performAdminOperations();
+                    launchProgram();
                 }else{
                     startBattle();
                 }
@@ -51,6 +51,10 @@ public class Controller {
                 launchProgram();
             }
         }
+    }
+
+    public void initFighters(){
+        model.chooseFighters();
     }
 
     public String logInIssue(){
@@ -91,14 +95,6 @@ public class Controller {
         view.printYourDroidLoser();
     }
 
-    public void setModel(Model model) {
-        this.model = model;
-    }
-
-    public void setView(View view) {
-        this.view = view;
-    }
-
     public void showFighters(){
         for(int i = 0; i < model.getFighters().length; i++){
             view.printFighters(i+1, model.getFighters()[i].getName());
@@ -107,44 +103,85 @@ public class Controller {
 
     public int pickDroidNumber(){
         int number = 0;
-        try {
-            while(true){
-                number = ((AdminModel) model).pickNumber();
-                if (number == 1|| number == 2 || number == 3 || number == 4){
+        while(true) {
+            try {
+                number = adminModel.pickNumber();
+                if (number == 1 || number == 2 || number == 3 || number == 4) {
                     return number;
                 }
-                ((AdminView)view).printIncorrectNumber();
+                adminView.printIncorrectNumber();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                adminView.printIncorrectNumber();
             }
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e){
-            ((AdminView)view).printIncorrectNumber();
         }
-        return number;
     }
 
     public void performAdminOperations(){
-        int number = pickDroidNumber();
-        switch(((AdminModel) model).enterAdminOperation()){
+        switch(adminModel.enterAdminOperation()){
             case "read":
-                ((AdminView) view).printReadOperation();
-                ((AdminView) view).printDroidIndicators(((AdminModel) model).getDroidByNumber(number).getName(),
-                        ((AdminModel) model).getDroidByNumber(number).getAttackDamage(),
-                        ((AdminModel) model).getDroidByNumber(number).getHealth(),
-                        ((AdminModel) model).getDroidByNumber(number).getArmor());
+                adminView.printReadOperation();
+                int number = pickDroidNumber();
+                try {
+                    adminView.printDroidIndicators(model.getFighters()[number - 1].getName(),
+                            model.getFighters()[number - 1].getAttackDamage(),
+                            model.getFighters()[number - 1].getHealth(),
+                            model.getFighters()[number - 1].getArmor());
+                }catch(NullPointerException e){
+                    adminView.printNullDroid();
+                }
                 break;
             case "add":
-                ((AdminView) view).printAddOperation();
-                pickDroidNumber();
+                adminView.printAddOperationNumber();
+                int numberToReplace = pickDroidNumber();
+                adminView.printAddOperation();
+                model.getFighters()[numberToReplace - 1] = adminModel.createDroid(adminModel.enterDroidName());
+                showFighters();
                 break;
             case "modify":
-                ((AdminView) view).printModifyOperation();
-                pickDroidNumber();
+                try {
+                    adminView.printModifyOperation();
+                    int droidNumber = pickDroidNumber();
+                    adminView.printSetDroidAttack();
+                    try {
+                        model.getFighters()[droidNumber - 1].setAttackDamage(adminModel.setIndicator());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        adminView.printNotANumber();
+                        model.getFighters()[droidNumber - 1].setAttackDamage(10);
+                    }
+                    adminView.printSetDroidArmor();
+                    try {
+                        model.getFighters()[droidNumber - 1].setArmor(adminModel.setIndicator());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        adminView.printNotANumber();
+                        model.getFighters()[droidNumber - 1].setArmor(10);
+                    }
+                    adminView.printSetDroidHealth();
+                    try {
+                        model.getFighters()[droidNumber - 1].setHealth(adminModel.setIndicator());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        adminView.printNotANumber();
+                        model.getFighters()[droidNumber - 1].setHealth(10);
+                    }
+                }catch (NullPointerException e){
+                    adminView.printNullDroid();
+                }
                 break;
             case "delete":
-                ((AdminView) view).printDeleteOperation();
-                pickDroidNumber();
+                adminView.printDeleteOperation();
+                int numberToDelete = pickDroidNumber();
+                model.getFighters()[numberToDelete - 1].setName("DeletedDroid");
+                model.getFighters()[numberToDelete - 1].setHealth(0);
+                model.getFighters()[numberToDelete - 1].setArmor(0);
+                model.getFighters()[numberToDelete - 1].setAttackDamage(0);
+                adminView.printDeleteDroid();
                 break;
         }
     }

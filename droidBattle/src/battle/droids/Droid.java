@@ -29,7 +29,7 @@ public abstract class Droid {
     }
 
     public void setHealth(int health) {
-        this.health = health + armor;
+        this.health = health;
     }
 
     public void performAttack(Droid defender, int damage){
@@ -38,5 +38,17 @@ public abstract class Droid {
 
     public int getArmor() {
         return armor;
+    }
+
+    public void setAttackDamage(int attackDamage) {
+        this.attackDamage = attackDamage;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

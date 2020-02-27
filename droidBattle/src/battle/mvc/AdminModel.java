@@ -1,6 +1,7 @@
 package battle.mvc;
 
 import battle.droids.Droid;
+import battle.factory.DroidFactory;
 
 import java.io.IOException;
 
@@ -30,7 +31,27 @@ public class AdminModel extends Model {
         return Integer.parseInt(bufferedReader.readLine());
     }
 
-    public Droid getDroidByNumber(int number){
-        return fighters[number];
+    public String enterDroidName(){
+        while(true) {
+            try {
+                String droidName = bufferedReader.readLine();
+                if(droidName.equals("BattleDroid") ||
+                        droidName.equals("RepairDroid") ||
+                        droidName.equals("TankDroid") ||
+                        droidName.equals("SuperBattleDroid")){
+                    return droidName;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public Droid createDroid(String droidType){
+        return DroidFactory.createDroid(droidType);
+    }
+
+    public int setIndicator() throws IOException {
+        return Integer.parseInt(bufferedReader.readLine());
     }
 }
