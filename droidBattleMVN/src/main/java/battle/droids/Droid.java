@@ -87,4 +87,13 @@ public abstract class Droid implements Comparable<Droid>{
             this.engineIsOn = engineIsOn;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Droid{" +
+                "attackDamage=" + attackDamage +
+                ", armor=" + armor +
+                ", health=" + health +
+                '}';
+    }
 }

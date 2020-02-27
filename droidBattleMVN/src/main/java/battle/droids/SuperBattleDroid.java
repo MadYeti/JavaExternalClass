@@ -18,4 +18,12 @@ public class SuperBattleDroid extends Droid implements Unfriendable {
         this.name = "SuperBattleDroid";
     }
 
+    @Override
+    public String toString() {
+        return "SuperBattleDroid{" +
+                "attackDamage=" + attackDamage +
+                ", armor=" + armor +
+                ", health=" + health +
+                '}';
+    }
 }

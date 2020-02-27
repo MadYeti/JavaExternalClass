@@ -17,4 +17,12 @@ public class BattleDroid extends Droid implements Unfriendable {
         this.name = "BattleDroid";
     }
 
+    @Override
+    public String toString() {
+        return "BattleDroid{" +
+                "attackDamage=" + attackDamage +
+                ", armor=" + armor +
+                ", health=" + health +
+                '}';
+    }
 }
