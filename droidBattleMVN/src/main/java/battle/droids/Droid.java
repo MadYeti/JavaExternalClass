@@ -5,8 +5,9 @@ import battle.strategy.AttackBehavior;
 /**
  * Created by MadYeti on 16.02.2020.
  */
-public abstract class Droid {
+public abstract class Droid implements Comparable<Droid>{
 
+    Engine engine;
     AttackBehavior attackBehavior;
     int attackDamage;
     int armor;
@@ -14,6 +15,16 @@ public abstract class Droid {
     String name;
 
     public Droid() {
+    }
+
+    @Override
+    public int compareTo(Droid droid) {
+        if((this.attackDamage + this.armor + this.health) > (droid.attackDamage + droid.armor + droid.health)){
+            return 1;
+        }else if((this.attackDamage + this.armor + this.health) == (droid.attackDamage + droid.armor + droid.health)){
+            return 0;
+        }
+        return -1;
     }
 
     public String getName() {
@@ -50,5 +61,30 @@ public abstract class Droid {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    class Engine{
+
+        private boolean engineIsOn;
+
+        public Engine(){
+
+        }
+
+        public boolean isEngineIsOn() {
+            return engineIsOn;
+        }
+
+        public void setEngineIsOn(boolean engineIsOn) {
+            this.engineIsOn = engineIsOn;
+        }
     }
 }
