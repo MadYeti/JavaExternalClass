@@ -2,13 +2,15 @@ package battle.droids;
 
 import battle.strategy.AttackBehavior;
 
+import java.io.Serializable;
+
 /**
  * Created by MadYeti on 16.02.2020.
  */
-public abstract class Droid implements Comparable<Droid>{
+public abstract class Droid implements Comparable<Droid>, Serializable{
 
-    Engine engine;
-    AttackBehavior attackBehavior;
+    transient Engine engine;
+    transient AttackBehavior attackBehavior;
     int attackDamage;
     int armor;
     int health;
