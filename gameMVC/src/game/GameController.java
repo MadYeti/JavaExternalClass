@@ -3,6 +3,8 @@ package game;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Created by MadYeti on 06.02.2020.
@@ -60,18 +62,27 @@ public class GameController {
         } catch (IOException e) {
             //TODO
         }
+        ResourceBundle resourceBundle = null;
         switch(number){
             case 1:
+                resourceBundle =
+                        ResourceBundle.getBundle("messages", new Locale("uk", "UA"));
                 break;
             case 2:
+                resourceBundle =
+                        ResourceBundle.getBundle("messages", new Locale("ru", "RU"));
                 break;
             case 3:
+                resourceBundle =
+                        ResourceBundle.getBundle("messages", new Locale("en", "EN"));
                 break;
             default:
                 break;
         }
+        GameView.setResourceBundle(resourceBundle);
 
         while(!model.isNumberFinded()) {
+            view.printNumberToFindMessage();
             try {
                 number = Integer.parseInt(bufferedReader.readLine());
                 if(isNumberInsideRange(number, model.getLowerLimit(), model.getHigherLimit())){
@@ -94,9 +105,7 @@ public class GameController {
                 }else{
                     view.printNumberOutOfRange();
                 }
-            } catch (IOException e) {
-                view.printIncorrectInputType();
-            } catch (NumberFormatException e){
+            } catch (IOException | NumberFormatException e) {
                 view.printIncorrectInputType();
             }
         }
