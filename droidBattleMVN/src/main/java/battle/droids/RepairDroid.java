@@ -17,12 +17,25 @@ public class RepairDroid extends Droid implements Friendable {
         this.name = "RepairDroid";
     }
 
+    public RepairDroid(int attackDamage, int armor, int health) {
+        this.attackBehavior = new PoisonAttack();
+        this.attackDamage = attackDamage;
+        this.armor = armor;
+        this.health = health;
+        this.name = "RepairDroid";
+    }
+
     @Override
     public String toString() {
+        /*
         return "RepairDroid{" +
                 "attackDamage=" + attackDamage +
                 ", armor=" + armor +
                 ", health=" + health +
-                '}';
+                '}';*/
+        return "RepairDroid" +
+                "," + attackDamage +
+                "," + armor +
+                "," + health;
     }
 }

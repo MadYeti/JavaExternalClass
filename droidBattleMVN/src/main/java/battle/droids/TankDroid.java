@@ -17,12 +17,25 @@ public class TankDroid extends Droid implements Friendable {
         this.name = "TankDroid";
     }
 
+    public TankDroid(int attackDamage, int armor, int health) {
+        this.attackBehavior = new Attack();
+        this.attackDamage = attackDamage;
+        this.armor = armor;
+        this.health = health;
+        this.name = "TankDroid";
+    }
+
     @Override
     public String toString() {
+        /*
         return "TankDroid{" +
                 "attackDamage=" + attackDamage +
                 ", armor=" + armor +
                 ", health=" + health +
-                '}';
+                '}';*/
+        return "TankDroid" +
+                "," + attackDamage +
+                "," + armor +
+                "," + health;
     }
 }
