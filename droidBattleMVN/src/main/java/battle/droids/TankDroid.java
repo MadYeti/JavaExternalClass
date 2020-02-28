@@ -26,6 +26,11 @@ public class TankDroid extends Droid implements Friendable {
     }
 
     @Override
+    public TankDroid build(){
+        return this;
+    }
+
+    @Override
     public String toString() {
         /*
         return "TankDroid{" +

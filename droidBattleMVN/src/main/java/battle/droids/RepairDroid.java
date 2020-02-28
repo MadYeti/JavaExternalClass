@@ -26,6 +26,11 @@ public class RepairDroid extends Droid implements Friendable {
     }
 
     @Override
+    public RepairDroid build(){
+        return this;
+    }
+
+    @Override
     public String toString() {
         /*
         return "RepairDroid{" +

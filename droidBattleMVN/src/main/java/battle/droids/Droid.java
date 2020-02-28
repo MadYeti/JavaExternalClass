@@ -73,6 +73,23 @@ public abstract class Droid implements Comparable<Droid>, Serializable{
         this.engine = engine;
     }
 
+    public Droid addAttackDamage(int attackDamage){
+        this.attackDamage = attackDamage;
+        return this;
+    }
+
+    public Droid addArmor(int armor){
+        this.armor = armor;
+        return this;
+    }
+
+    public Droid addHealth(int health){
+        this.health = health;
+        return this;
+    }
+
+    public abstract Droid build();
+
     class Engine{
 
         private boolean engineIsOn;

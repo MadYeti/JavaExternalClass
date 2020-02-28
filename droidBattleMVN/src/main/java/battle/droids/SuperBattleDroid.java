@@ -27,6 +27,11 @@ public class SuperBattleDroid extends Droid implements Unfriendable {
     }
 
     @Override
+    public SuperBattleDroid build(){
+        return this;
+    }
+
+    @Override
     public String toString() {
         /*
         return "SuperBattleDroid{" +
