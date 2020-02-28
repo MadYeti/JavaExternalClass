@@ -1,7 +1,12 @@
 package battle.mvc;
 
+import battle.exceptions.AuthorizationException;
+import battle.exceptions.RegistrationException;
 import battle.registration.AuthorizationController;
 import battle.registration.RegistrationController;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
@@ -14,6 +19,7 @@ public class Controller {
     private View view;
     private AdminModel adminModel;
     private AdminView adminView;
+    private Logger logger = Logger.getLogger(getClass());
 
     public Controller(Model model, View view) {
         this.model = model;
@@ -21,6 +27,8 @@ public class Controller {
     }
 
     public void launchProgram() {
+        logger.setLevel(Level.ERROR);
+        BasicConfigurator.configure();
         view.printWelcomeWindow();
         String logInParameter = logInIssue();
         view.printInputLogin();
@@ -29,6 +37,11 @@ public class Controller {
         if(logInParameter.equals("reg")){
             while (!RegistrationController.validatePassword(model.enterPassword())){
                 view.printInvalidPassword();
+                try {
+                    throw new RegistrationException();
+                } catch (RegistrationException e) {
+                    logger.error("Enter wrong credentials to registrate");
+                }
             }
             model.registrationIssue();
             view.printRegistrationComplete();
@@ -48,6 +61,11 @@ public class Controller {
                     startBattle();
                 }
             }else{
+                try{
+                    throw new AuthorizationException();
+                }catch (AuthorizationException e){
+                    logger.error("Enter wrong credentials to authorization");
+                }
                 launchProgram();
             }
         }
