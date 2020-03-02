@@ -57,10 +57,18 @@ public class GameController {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         view.printChooseLanguageOption();
         int number = 0;
-        try {
-            number = Integer.parseInt(bufferedReader.readLine());
-        } catch (IOException e) {
-            //TODO
+        while(true) {
+            try {
+                number = Integer.parseInt(bufferedReader.readLine());
+                if(number == 1 || number == 2 || number == 3){
+                    break;
+                }
+                view.printIncorrectInputType();
+            } catch (IOException e) {
+
+            } catch (NumberFormatException e){
+                view.printIncorrectInputType();
+            }
         }
         ResourceBundle resourceBundle = null;
         switch(number){
