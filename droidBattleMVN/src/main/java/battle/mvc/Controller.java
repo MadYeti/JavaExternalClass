@@ -9,6 +9,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Created by MadYeti on 18.02.2020.
@@ -29,6 +31,25 @@ public class Controller {
     public void launchProgram() {
         logger.setLevel(Level.ERROR);
         BasicConfigurator.configure();
+        view.printSelectLanguage();
+        while(true){
+            try {
+                String language = model.getSelectedLanguage();
+                if(language.equals("Ru")){
+                    ResourceBundle resourceBundle = ResourceBundle.getBundle("messages", new Locale("ru", "RU"));
+                    View.setResourceBundle(resourceBundle);
+                    break;
+                }
+                if(language.equals("En")){
+                    ResourceBundle resourceBundle = ResourceBundle.getBundle("messages", new Locale("en", "EN"));
+                    View.setResourceBundle(resourceBundle);
+                    break;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            view.printInvalidLanguage();
+        }
         view.printWelcomeWindow();
         String logInParameter = logInIssue();
         view.printInputLogin();

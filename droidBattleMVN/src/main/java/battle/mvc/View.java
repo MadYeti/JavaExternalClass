@@ -1,26 +1,34 @@
 package battle.mvc;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 /**
  * Created by MadYeti on 18.02.2020.
  */
 public class View {
 
-    public static final String SPACE_SING = " ";
+    protected static ResourceBundle resourceBundle =
+            ResourceBundle.getBundle("messages", new Locale("en", "EN"));
 
-    public static final String FIRST_ROUND_WINNER = " wins first round";
-    public static final String SECOND_ROUND_WINNER = " wins second round";
-    public static final String CHAMPION_ANNOUNCED = " is the champion";
-    public static final String FIGHTER_NUMBER = "Fighter #";
-    public static final String WELCOME_WINDOW = "Enter \"reg\" if you like to registrate yourself or \"auth\" if you want to log in:";
-    public static final String VERIFICATION_WRONG_PARAMETER = "Please enter \"reg\" to sign up or \"auth\" to sigh in:";
-    public static final String INPUT_LOGIN = "Input your login:";
-    public static final String INPUT_PASSWORD = "Input your password:";
-    public static final String INVALID_PASSWORD_MESSAGE = "Invalid password. Your password must contain one lowercase letter, one uppercase letter, one number and one symbol ~!*()_<>@#$%^&+= and be atleast 6 characters long.";
-    public static final String REGISTRATION_COMPLETE= "Registration complete successfully";
-    public static final String PICKING_DROID= "Pick your droid";
-    public static final String INVALID_PICKING_DROID_INPUT= "Enter 1, 2, 3 or 4 to pick your droid";
-    public static final String YOUR_DROID_CHAMPION= "Congratulation your droid is the champion";
-    public static final String YOUR_DROID_LOSER= "Sorry your droid is the loser";
+    public static final String SPACE_SING = "_";
+
+    public static final String FIRST_ROUND_WINNER = "output.winner.first.round";
+    public static final String SELECT_LANGUAGE = "input.pick.language";
+    public static final String SECOND_ROUND_WINNER = "output.winner.second.round";
+    public static final String CHAMPION_ANNOUNCED = "output.champion";
+    public static final String FIGHTER_NUMBER = "output.fighter.number";
+    public static final String WELCOME_WINDOW = "input.start.operation";
+    public static final String VERIFICATION_WRONG_PARAMETER = "wrong.input.start.operation";
+    public static final String INPUT_LOGIN = "input.login";
+    public static final String INPUT_PASSWORD = "input.password";
+    public static final String INVALID_PASSWORD_MESSAGE = "output.wrong.password.message";
+    public static final String REGISTRATION_COMPLETE = "output.registration.complete";
+    public static final String PICKING_DROID = "input.droid";
+    public static final String INVALID_PICKING_DROID_INPUT = "wrong.input.droid.number";
+    public static final String YOUR_DROID_CHAMPION = "output.your.droid.champion";
+    public static final String YOUR_DROID_LOSER = "output.your.droid.loser";
+    public static final String INVALID_LANGUAGE = "output.invalid.language";
 
     public View(){
 
@@ -31,58 +39,70 @@ public class View {
     }
 
     public void printYourDroidChampion(){
-        printMessage(YOUR_DROID_CHAMPION);
+        printMessage(resourceBundle.getString(YOUR_DROID_CHAMPION));
+    }
+
+    public void printInvalidLanguage(){
+        printMessage(resourceBundle.getString(INVALID_LANGUAGE));
+    }
+
+    public void printSelectLanguage(){
+        printMessage(resourceBundle.getString(SELECT_LANGUAGE));
     }
 
     public void printYourDroidLoser(){
-        printMessage(YOUR_DROID_LOSER);
+        printMessage(resourceBundle.getString(YOUR_DROID_LOSER));
     }
 
     public void printPickingDroid(){
-        printMessage(PICKING_DROID);
+        printMessage(resourceBundle.getString(PICKING_DROID));
     }
 
     public void printInvalidPickingDroidInput(){
-        printMessage(INVALID_PICKING_DROID_INPUT);
+        printMessage(resourceBundle.getString(INVALID_PICKING_DROID_INPUT));
     }
 
     public void printFighters(int fighterNumber, String fighterName){
-        printMessage(FIGHTER_NUMBER + fighterNumber + SPACE_SING + fighterName);
+        printMessage(resourceBundle.getString(FIGHTER_NUMBER) + fighterNumber + resourceBundle.getString(SPACE_SING) + fighterName);
     }
 
     public void printWinnerOfTheFirstRound(String fighterName){
-        printMessage(fighterName + FIRST_ROUND_WINNER);
+        printMessage(fighterName + resourceBundle.getString(FIRST_ROUND_WINNER));
     }
 
     public void printWinnerOfTheSecondRound(String fighterName){
-        printMessage(fighterName + SECOND_ROUND_WINNER);
+        printMessage(fighterName + resourceBundle.getString(SECOND_ROUND_WINNER));
     }
 
     public void printWinnerOfTheBattle(String fighterName){
-        printMessage(fighterName + CHAMPION_ANNOUNCED);
+        printMessage(fighterName + resourceBundle.getString(CHAMPION_ANNOUNCED));
     }
 
     public void printWelcomeWindow(){
-        printMessage(WELCOME_WINDOW);
+        printMessage(resourceBundle.getString(WELCOME_WINDOW));
     }
 
     public void printVerificationWrongParameter(){
-        printMessage(VERIFICATION_WRONG_PARAMETER);
+        printMessage(resourceBundle.getString(VERIFICATION_WRONG_PARAMETER));
     }
 
     public void printInputLogin(){
-        printMessage(INPUT_LOGIN);
+        printMessage(resourceBundle.getString(INPUT_LOGIN));
     }
 
     public void printInputPassword(){
-        printMessage(INPUT_PASSWORD);
+        printMessage(resourceBundle.getString(INPUT_PASSWORD));
     }
 
     public void printRegistrationComplete(){
-        printMessage(REGISTRATION_COMPLETE);
+        printMessage(resourceBundle.getString(REGISTRATION_COMPLETE));
     }
 
     public void printInvalidPassword(){
-        printMessage(INVALID_PASSWORD_MESSAGE);
+        printMessage(resourceBundle.getString(INVALID_PASSWORD_MESSAGE));
+    }
+
+    public static void setResourceBundle(ResourceBundle resourceBundle) {
+        View.resourceBundle = resourceBundle;
     }
 }

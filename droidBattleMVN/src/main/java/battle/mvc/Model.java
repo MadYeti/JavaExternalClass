@@ -131,6 +131,10 @@ public class Model {
         return champion;
     }
 
+    public String getSelectedLanguage() throws IOException {
+        return bufferedReader.readLine();
+    }
+
     public void registrationIssue(){
         RegistrationController registrationController = new RegistrationController();
         registrationController.registrateUser(login, password);
