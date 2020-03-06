@@ -2,15 +2,18 @@ package battle.mvc;
 
 import battle.exceptions.AuthorizationException;
 import battle.exceptions.RegistrationException;
+import battle.registration.Admin;
 import battle.registration.AuthorizationController;
 import battle.registration.RegistrationController;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.Level;
+import battle.registration.User;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
+
+import static java.util.ResourceBundle.Control.FORMAT_PROPERTIES;
 
 /**
  * Created by MadYeti on 18.02.2020.
@@ -29,8 +32,7 @@ public class Controller {
     }
 
     public void launchProgram() {
-        logger.setLevel(Level.ERROR);
-        BasicConfigurator.configure();
+        PropertyConfigurator.configure("src/main/resources/logconfig");
         view.printSelectLanguage();
         while(true){
             try {
@@ -73,12 +75,14 @@ public class Controller {
             if(authorizationController.authorizeUser(model.getLogin(), model.getPassword())){
                 showFighters();
                 if(authorizationController.isAdmin()){
+                    Admin admin = new Admin();
                     adminModel = new AdminModel();
                     adminView = new AdminView();
                     adminView.printOperationsToDo();
                     performAdminOperations();
                     launchProgram();
                 }else{
+                    User user = new User(model.getLogin(), model.getPassword());
                     startBattle();
                 }
             }else{
