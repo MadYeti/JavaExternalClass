@@ -15,9 +15,9 @@ public class Controller {
 
     public void startProgramm(){
         for(int i = 0; i < 4; i++){
-            //view.printLoadingShipArrives();
+            view.printLoadingShipArrives();
             model.createLoadingShip();
-            //view.printUnloadingShipArrives();
+            view.printUnloadingShipArrives();
             model.createUnloadingShip();
         }
     }
