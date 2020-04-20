@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><bank><bankAccount><name>Bank of America</name><country>America</country><accountDetails><type>Time Deposit</type><depositor>George Washington</depositor><accountID>2</accountID><amount>1560000.0</amount><profitability>22.0</profitability><constraintTime>15</constraintTime></accountDetails></bankAccount></bank>

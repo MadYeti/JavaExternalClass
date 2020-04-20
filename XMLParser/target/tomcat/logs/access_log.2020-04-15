@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [15/Apr/2020:18:22:10 +0300] "GET / HTTP/1.1" 200 445 http-bio-8888-exec-1 981
+0:0:0:0:0:0:0:1 - - [15/Apr/2020:18:22:15 +0300] "POST / HTTP/1.1" 200 1600 http-bio-8888-exec-2 344
+0:0:0:0:0:0:0:1 - - [15/Apr/2020:18:23:11 +0300] "GET /XMLProcessingAdminServlet?fileid=5&operation=delete&parser=StAX HTTP/1.1" 200 1701 http-bio-8888-exec-3 75
+0:0:0:0:0:0:0:1 - - [15/Apr/2020:18:27:00 +0300] "GET /XMLProcessingAdminServlet?fileid=4&operation=read&parser=DOM HTTP/1.1" 200 1701 http-bio-8888-exec-5 32

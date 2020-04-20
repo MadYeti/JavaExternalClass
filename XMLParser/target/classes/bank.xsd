@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="bank" type="bankType"/>
+    <xsd:complexType name="bankType">
+      <xsd:sequence>
+        <xsd:element name="bankAccount" type="bankAccountType" maxOccurs="unbounded" minOccurs="3"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  <xsd:complexType name="bankAccountType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="country" type="xsd:string"/>
+      <xsd:element name="accountDetails" type="accountDetailsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="accountDetailsType">
+    <xsd:sequence>
+      <xsd:element name="type">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Estimated Deposit"/>
+            <xsd:enumeration value="Time Deposit"/>
+            <xsd:enumeration value="Saving Deposit"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="depositor" type="xsd:string"/>
+      <xsd:element name="accountID" type="xsd:ID"/>
+      <xsd:element name="amount" type="xsd:double"/>
+      <xsd:element name="profitability" type="xsd:double"/>
+      <xsd:element name="constraintTime" type="xsd:positiveInteger"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
