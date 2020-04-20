@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bank>
+    <bankAccount>
+        <name>Bank of England</name>
+        <country>England</country>
+        <accountDetails>
+            <type>Saving Deposit</type>
+            <depositor>Elizabeth II Queen</depositor>
+            <accountID>3</accountID>
+            <amount>850000.00</amount>
+            <profitability>8.00</profitability>
+            <constraintTime>7</constraintTime>
+        </accountDetails>
+    </bankAccount>
+</bank>

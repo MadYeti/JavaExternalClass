@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><bank><bankAccount><name>Sberbank</name><country>Russia</country><accountDetails><type>Estimated Deposit</type><depositor>Ivanov Ivan Ivanovich</depositor><accountID>4</accountID><amount>123000.0</amount><profitability>8.5</profitability><constraintTime>5</constraintTime></accountDetails></bankAccount></bank>

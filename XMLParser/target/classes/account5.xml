@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><bank><bankAccount><name>Bank of France</name><country>France</country><accountDetails><type>Time Deposit</type><depositor>Napoleon Bonapart</depositor><accountID>5</accountID><amount>235000.0</amount><profitability>4.0</profitability><constraintTime>3</constraintTime></accountDetails></bankAccount></bank>
