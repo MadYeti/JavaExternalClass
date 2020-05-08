@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>30</id>
+    <clientId>1</clientId>
+    <weight>123.0</weight>
+    <volume>12312.0</volume>
+    <cargoType>FMCG</cargoType>
+    <cargoCost>123123.0</cargoCost>
+    <sendingPoint>Kiev</sendingPoint>
+    <destinationPoint>Madrid</destinationPoint>
+    <arrivalDate>2020-06-12</arrivalDate>
+    <notes>qwerqweqwer</notes>
+    <price>236711.4</price>
+    <bidStatus>processing</bidStatus>
+    <paymentStatus>paid</paymentStatus>
+</Bid>

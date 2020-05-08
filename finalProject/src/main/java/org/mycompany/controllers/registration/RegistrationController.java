@@ -58,35 +58,35 @@ public class RegistrationController {
 
         if(email.isEmpty()) {
             error = true;
-            errorEmailMessage = "Email is empty";
+            errorEmailMessage = "1";
         }else if(email.length() > 40) {
             error = true;
-            errorEmailMessage = "Email is too long";
+            errorEmailMessage = "2";
         }else if(!validateEmail(email)) {
             error = true;
-            errorEmailMessage = "Email is incorrect";
+            errorEmailMessage = "3";
         }
 
         if(password.isEmpty()) {
             error = true;
-            errorPasswordMessage = "Password is empty";
+            errorPasswordMessage = "1";
         }else if(password.length() < 6) {
             error = true;
-            errorPasswordMessage = "Password must be atleast 6 characters long or longer";
+            errorPasswordMessage = "2";
         }else if(password.length() > 40) {
             error = true;
-            errorPasswordMessage = "Password is too long";
+            errorPasswordMessage = "3";
         }else if(!validatePassword(password)){
             error = true;
-            errorEmailMessage = "Invalid password. Your password must contain one lowercase letter, one uppercase letter, one number and one symbol ~!*()_<>@#$%^&+= and be atleast 6 characters long.";
+            errorPasswordMessage = "4";
         }
 
         if(retypedPassword.isEmpty()) {
             error = true;
-            errorRetypedPasswordMessage = "Retyped password is empty";
+            errorRetypedPasswordMessage = "1";
         }else if(!retypedPassword.equals(password)) {
             error = true;
-            errorRetypedPasswordMessage = "Retyped password is not matched with password field";
+            errorRetypedPasswordMessage = "2";
         }
 
         return error;
@@ -95,24 +95,24 @@ public class RegistrationController {
     public boolean validatePasswords(String password, String retypedPassword){
         if(password.isEmpty()) {
             error = true;
-            errorPasswordMessage = "Password is empty";
+            errorPasswordMessage = "1";
         }else if(password.length() < 6) {
             error = true;
-            errorPasswordMessage = "Password must be atleast 6 characters long or longer";
+            errorPasswordMessage = "2";
         }else if(password.length() > 40) {
             error = true;
-            errorPasswordMessage = "Password is too long";
+            errorPasswordMessage = "3";
         }else if(!validatePassword(password)){
             error = true;
-            errorEmailMessage = "Invalid password. Your password must contain one lowercase letter, one uppercase letter, one number and one symbol ~!*()_<>@#$%^&+= and be atleast 6 characters long.";
+            errorPasswordMessage = "4";
         }
 
         if(retypedPassword.isEmpty()) {
             error = true;
-            errorRetypedPasswordMessage = "Retyped password is empty";
+            errorRetypedPasswordMessage = "1";
         }else if(!retypedPassword.equals(password)) {
             error = true;
-            errorRetypedPasswordMessage = "Retyped password is not matched with password field";
+            errorRetypedPasswordMessage = "2";
         }
 
         return error;

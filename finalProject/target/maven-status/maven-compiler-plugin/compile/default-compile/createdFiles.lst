@@ -32,5 +32,6 @@ org\mycompany\exceptions\InvalidBidDataException.class
 org\mycompany\controllers\servlets\PasswordRecoveryServlet$1.class
 org\mycompany\controllers\registration\RegistrationController.class
 org\mycompany\exceptions\InvalidCreditCardDataException.class
+org\mycompany\controllers\filters\LocalizationFilter.class
 org\mycompany\exceptions\AuthorizationException.class
 org\mycompany\controllers\servlets\RegistrationServlet.class

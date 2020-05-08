@@ -1,91 +1,99 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored ="false" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
 
 <html>
     <body>
-        <c:set var="bid" scope="request" value="${requestScope.bid}" />
-        <c:set var="errorInput" scope="request" value="${requestScope.errorInput}" />
-        <H2>Admin private office</H2>
-        <form action="AdminBidControllerServlet" method="get">
+        <fmt:bundle basename="messages">
+            <c:set var="bid" scope="request" value="${requestScope.bid}" />
+            <c:set var="errorInput" scope="request" value="${requestScope.errorInput}" />
+            <fmt:message key="msg.adminAccess.privateOffice"/>
             <div>
-                <label>Enter bid id:</label>
-                <div class="input"><input type="text" name="bidId" value="" id="bidId" /></div>
+                <a href="/admin"><button><fmt:message key="msg.privateOffice.button"/></button></a>
             </div>
-            <div>
-                <input type="radio" checked="true" id="read" name="operation" value="read">
-                <label for="read">Read</label>
-                <input type="radio" id="update" name="operation" value="update">
-                <label for="update">Update</label>
-                <input type="radio" id="delete" name="operation" value="delete">
-                <label for="delete">Delete</label>
-            </div>
-            <div>
-                <button type="submit">Submit</button>
-            </div>
-            <div>
-                <c:choose>
-                    <c:when test = "${errorInput eq true}">
-                        <c:out value = "Operation denied" />
-                    </c:when>
-                    <c:when test = "${errorInput eq false}">
-                        <c:out value = "Operation has been complete successfully" />
-                    </c:when>
-                </c:choose>
-            </div>
-            <c:if test = "${bid ne null}">
+            <form action="AdminBidControllerServlet" method="get">
                 <div>
-                    <table border="1px">
-                        <tr>
-                            <td>Bid number: </td>
-                            <td>${bid.id}</td>
-                        </tr>
-                        <tr>
-                            <td>Cargo weight: </td>
-                            <td>${bid.weight}</td>
-                        </tr>
-                        <tr>
-                            <td>Cargo volume: </td>
-                            <td>${bid.volume}</td>
-                        </tr>
-                        <tr>
-                            <td>Cargo type: </td>
-                            <td>${bid.cargoType}</td>
-                        </tr>
-                        <tr>
-                            <td>Cargo cost: </td>
-                            <td>${bid.cargoCost}</td>
-                        </tr>
-                        <tr>
-                            <td>Sending point: </td>
-                            <td>${bid.sendingPoint}</td>
-                        </tr>
-                        <tr>
-                            <td>Destination point: </td>
-                            <td>${bid.destinationPoint}</td>
-                        </tr>
-                        <tr>
-                            <td>Arrival date: </td>
-                            <td>${bid.arrivalDate}</td>
-                        </tr>
-                        <tr>
-                            <td>Notes: </td>
-                            <td>${bid.notes}</td>
-                        </tr>
-                        <tr>
-                            <td>Bids price: </td>
-                            <td>${bid.price}</td>
-                        </tr>
-                        <tr>
-                            <td>Bids status: </td>
-                            <td>${bid.bidStatus}</td>
-                        </tr>
-                        <tr>
-                            <td>Payment status: </td>
-                            <td>${bid.paymentStatus}</td>
-                        </tr>
-                    </table>
+                    <label><fmt:message key="msg.bidId.label"/></label>
+                    <div class="input"><input type="text" name="bidId" value="" id="bidId" /></div>
                 </div>
-            </c:if>
-        </form>
+                <div>
+                    <input type="radio" checked="true" id="read" name="operation" value="read">
+                    <label for="read"><fmt:message key="msg.admin.operation.read"/></label>
+                    <input type="radio" id="update" name="operation" value="update">
+                    <label for="update"><fmt:message key="msg.admin.operation.update"/></label>
+                    <input type="radio" id="delete" name="operation" value="delete">
+                    <label for="delete"><fmt:message key="msg.admin.operation.delete"/></label>
+                </div>
+                <div>
+                    <button type="submit"><fmt:message key="msg.submit.button"/></button>
+                </div>
+                <div>
+                    <c:choose>
+                        <c:when test = "${errorInput eq true}">
+                            <fmt:message key="msg.admin.operation.error"/>
+                        </c:when>
+                        <c:when test = "${errorInput eq false}">
+                            <fmt:message key="msg.admin.operation.success"/>
+                        </c:when>
+                    </c:choose>
+                </div>
+                <c:if test = "${bid ne null}">
+                    <div>
+                        <table border="1px">
+                            <tr>
+                                <td><fmt:message key="msg.bidNumber.label"/></td>
+                                <td>${bid.id}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.weight.label"/></td>
+                                <td>${bid.weight}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.volume.label"/></td>
+                                <td>${bid.volume}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.cargoType.label"/></td>
+                                <td>${bid.cargoType}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.cargoCost.label"/></td>
+                                <td>${bid.cargoCost}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.sendingPoint.label"/></td>
+                                <td>${bid.sendingPoint}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.destinationPoint.label"/></td>
+                                <td>${bid.destinationPoint}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.arrivalDate.label"/></td>
+                                <td>${bid.arrivalDate}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.notes.label"/></td>
+                                <td>${bid.notes}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.bidPrice.label"/></td>
+                                <td>${bid.price}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.bidStatus.label"/></td>
+                                <td>${bid.bidStatus}</td>
+                            </tr>
+                            <tr>
+                                <td><fmt:message key="msg.paymentStatus.label"/></td>
+                                <td>${bid.paymentStatus}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </c:if>
+            </form>
+        </fmt:bundle>
     </body>
 </html>
