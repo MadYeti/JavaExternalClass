@@ -7,6 +7,8 @@ import org.mycompany.controllers.registration.RegistrationController;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.RegistrationException;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
+import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,13 +34,15 @@ public class RegistrationServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletRequest.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         String email = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("password");
         String retypedPassword = httpServletRequest.getParameter("retypedPassword");
         RegistrationController registrationController = new RegistrationController();
         if(!registrationController.validateData(email, password, retypedPassword)){
-            ClientDAO clientDAO = new ClientDAO(DBCPDataSource.getConnection());
+            DAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
             clientDAO.addClient(email, password);
             requestDispatcher = httpServletRequest.getRequestDispatcher("/WEB-INF/view/index.jsp");
         }else{

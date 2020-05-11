@@ -19,6 +19,8 @@ public class LogoutServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletRequest.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         HttpSession httpSession = httpServletRequest.getSession();
         httpServletRequest.removeAttribute("client");

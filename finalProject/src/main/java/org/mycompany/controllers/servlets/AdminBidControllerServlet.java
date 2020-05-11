@@ -7,6 +7,7 @@ import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.dao.bidDAO.DAO;
+import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,12 +28,14 @@ public class AdminBidControllerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletRequest.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         String bidId = httpServletRequest.getParameter("bidId");
         String operation = httpServletRequest.getParameter("operation");
         try {
             int id = Integer.parseInt(bidId);
-            DAO bidDAO = new BidDAO(DBCPDataSource.getConnection());
+            DAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
             JAXBParser jaxbParser = new JAXBParser();
             switch (operation){
                 case "read":

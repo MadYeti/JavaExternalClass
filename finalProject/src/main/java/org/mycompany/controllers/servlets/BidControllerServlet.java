@@ -11,6 +11,7 @@ import org.mycompany.models.bid.Bid;
 import org.mycompany.models.dao.bidDAO.DAO;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.client.Client;
+import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,6 +44,8 @@ public class BidControllerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletRequest.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         String weight = httpServletRequest.getParameter("weight");
         String volume = httpServletRequest.getParameter("volume");
@@ -138,9 +141,9 @@ public class BidControllerServlet extends HttpServlet {
                         .addBidStatus("processing")
                         .addPaymentStatus("not paid")
                         .build();
-                DAO bidDAO = new BidDAO(DBCPDataSource.getConnection());
+                DAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
                 bidDAO.create(bid);
-                BidDAO bidDAO2 = new BidDAO(DBCPDataSource.getConnection());
+                BidDAO bidDAO2 = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
                 bid.setId(bidDAO2.getLastInsertedId());
                 JAXBParser jaxbParser = new JAXBParser();
                 jaxbParser.creteXMLBasedOnObject(bid);

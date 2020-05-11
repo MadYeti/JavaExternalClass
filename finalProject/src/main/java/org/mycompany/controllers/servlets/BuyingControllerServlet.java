@@ -8,6 +8,7 @@ import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.InvalidCreditCardDataException;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.dao.bidDAO.BidDAO;
+import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,13 +29,15 @@ public class BuyingControllerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletRequest.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(httpServletRequest.getParameter("bidNumber"));
         String creditCardNumber = httpServletRequest.getParameter("creditCardNumber");
         String creditCardExpirationDate = httpServletRequest.getParameter("creditCardDate");
         String creditCardCVVCode = httpServletRequest.getParameter("cvv");
         CreditCardDataController creditCardDataController = new CreditCardDataController();
         if(!creditCardDataController.validateCreditCardData(creditCardNumber, creditCardExpirationDate, creditCardCVVCode)){
-            BidDAO bidDAO = new BidDAO(DBCPDataSource.getConnection());
+            BidDAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
             bidDAO.updateBidPaymentStatus(id);
             JAXBParser jaxbParser = new JAXBParser();
             Bid bid = jaxbParser.createObjectBasedOnXML(id);
@@ -58,7 +61,7 @@ public class BuyingControllerServlet extends HttpServlet{
                 httpServletRequest.setAttribute("errorCreditCardCVVCode", creditCardDataController.getErrorCreditCardCVVCode());
             }
         }
-        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/WEB-INF/view/buyingPage.jsp");
+        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/buyingPage?pay=".concat(String.valueOf(id)));
         requestDispatcher.forward(httpServletRequest, httpServletResponse);
     }
 

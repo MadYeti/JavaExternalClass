@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:14 +0300] "GET / HTTP/1.1" 404 3215 http-bio-8888-exec-1 192
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:14 +0300] "GET /images/error.svg HTTP/1.1" 200 408 http-bio-8888-exec-2 6
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:14 +0300] "GET /favicon.ico HTTP/1.1" 404 3215 http-bio-8888-exec-3 3
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:15 +0300] "GET /MainPage HTTP/1.1" 200 11846 http-bio-8888-exec-4 7
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:15 +0300] "GET /images/britainFlag.png HTTP/1.1" 200 9746 http-bio-8888-exec-5 6
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:15 +0300] "GET /images/ukraineFlag.png HTTP/1.1" 200 562 http-bio-8888-exec-6 4
+0:0:0:0:0:0:0:1 - - [11/May/2020:22:39:15 +0300] "GET /images/truck.svg HTTP/1.1" 200 417 http-bio-8888-exec-7 1

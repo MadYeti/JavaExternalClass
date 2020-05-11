@@ -109,3 +109,351 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-08 11:13:38 ERROR    BidControllerServlet:85 - empty String
 2020-05-08 11:13:38 ERROR    BidControllerServlet:159 - Invalid bid data to get price or format the bid
 2020-05-08 11:14:01 ERROR    PasswordRecoveryServlet:78 - Invalid email input
+2020-05-08 14:56:42 ERROR    BidControllerServlet:74 - empty String
+2020-05-08 14:56:42 ERROR    BidControllerServlet:85 - empty String
+2020-05-08 14:56:42 ERROR    BidControllerServlet:99 - empty String
+2020-05-08 14:56:42 ERROR    BidControllerServlet:159 - Invalid bid data to get price or format the bid
+2020-05-08 14:56:46 ERROR    BidControllerServlet:74 - empty String
+2020-05-08 14:56:46 ERROR    BidControllerServlet:85 - empty String
+2020-05-08 14:56:46 ERROR    BidControllerServlet:99 - empty String
+2020-05-08 14:56:46 ERROR    BidControllerServlet:159 - Invalid bid data to get price or format the bid
+2020-05-08 17:49:19 ERROR    BidControllerServlet:76 - empty String
+2020-05-08 17:49:19 ERROR    BidControllerServlet:87 - empty String
+2020-05-08 17:49:19 ERROR    BidControllerServlet:101 - empty String
+2020-05-08 17:49:19 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-08 17:49:44 ERROR    BidControllerServlet:76 - empty String
+2020-05-08 17:49:44 ERROR    BidControllerServlet:87 - empty String
+2020-05-08 17:49:44 ERROR    BidControllerServlet:101 - empty String
+2020-05-08 17:49:44 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 14:35:22 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 14:35:22 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 14:35:22 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 14:35:22 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:03:17 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:03:17 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:03:17 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:03:17 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:23:48 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:23:48 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:23:48 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:23:48 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:23:57 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:23:57 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:23:57 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:23:57 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:45:58 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:45:58 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:45:58 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:45:58 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:49:49 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:49:49 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:49:49 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:49:49 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:50:27 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:50:27 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:50:27 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:50:27 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:51:32 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:51:32 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:51:32 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:51:32 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 20:51:36 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 20:51:36 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 20:51:36 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 20:51:36 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:24:30 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:24:30 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:24:30 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:24:30 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:31:15 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:31:15 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:31:15 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:31:15 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:31:17 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:31:17 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:31:17 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:31:17 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:31:20 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:31:20 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:31:20 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:31:20 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:31:31 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:31:31 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:31:31 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:31:31 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:32:13 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:32:13 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:32:13 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:32:13 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:32:14 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:32:14 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:32:14 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:32:14 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:34:01 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:34:01 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:34:01 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:34:01 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:34:02 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:34:02 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:34:02 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:34:02 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:34:06 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:34:06 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:34:06 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:34:06 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:34:11 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:34:11 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:34:11 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:34:11 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:34:32 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:34:32 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:34:32 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:34:32 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:34:51 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:34:51 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:34:51 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:34:51 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:37:06 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:37:06 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:37:06 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:37:06 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:38:22 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:38:22 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:38:22 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:38:22 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:38:33 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:38:33 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:38:33 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:38:33 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:39:21 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:39:21 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:39:21 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:39:21 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:39:32 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:39:32 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:39:32 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:39:32 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:39:55 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:39:55 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:39:55 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:39:55 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:42:00 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:42:00 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:42:00 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:42:00 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:42:55 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:42:55 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:42:55 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:42:55 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:43:23 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:43:23 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:43:23 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:43:23 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:45:40 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:45:40 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:45:40 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:45:40 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:46:55 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:46:55 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:46:55 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:46:55 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:46:58 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:46:58 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:46:58 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:46:58 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:47:47 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:47:47 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:47:47 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:47:47 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:48:38 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:48:38 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:48:38 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:48:38 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:49:05 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:49:05 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:49:05 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:49:07 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:49:07 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:49:07 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:49:07 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 21:49:31 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 21:49:31 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 21:49:31 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 21:49:31 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 22:06:16 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 22:06:16 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 22:06:16 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 22:06:16 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-09 23:04:55 ERROR    BidControllerServlet:76 - empty String
+2020-05-09 23:04:55 ERROR    BidControllerServlet:87 - empty String
+2020-05-09 23:04:55 ERROR    BidControllerServlet:101 - empty String
+2020-05-09 23:04:55 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-10 10:39:19 ERROR    BidControllerServlet:76 - empty String
+2020-05-10 10:39:19 ERROR    BidControllerServlet:87 - empty String
+2020-05-10 10:39:19 ERROR    BidControllerServlet:101 - empty String
+2020-05-10 10:39:19 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-10 12:16:41 ERROR    BidControllerServlet:76 - empty String
+2020-05-10 12:16:41 ERROR    BidControllerServlet:87 - empty String
+2020-05-10 12:16:41 ERROR    BidControllerServlet:101 - empty String
+2020-05-10 12:16:41 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-10 12:32:12 ERROR    BidControllerServlet:76 - empty String
+2020-05-10 12:32:12 ERROR    BidControllerServlet:87 - empty String
+2020-05-10 12:32:12 ERROR    BidControllerServlet:101 - empty String
+2020-05-10 12:32:12 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-10 13:31:06 ERROR    AdminBidControllerServlet:55 - For input string: "4r"
+2020-05-10 13:32:52 ERROR    AdminBidControllerServlet:55 - For input string: "4r"
+2020-05-10 13:32:56 ERROR    AdminBidControllerServlet:55 - For input string: "4r"
+2020-05-10 13:35:49 ERROR    AdminBidControllerServlet:55 - For input string: "4r"
+2020-05-10 13:37:07 ERROR    AdminBidControllerServlet:55 - For input string: "4r"
+2020-05-10 13:42:32 ERROR    AdminBidControllerServlet:55 - For input string: ""
+2020-05-10 14:50:09 ERROR    BidControllerServlet:76 - empty String
+2020-05-10 14:50:09 ERROR    BidControllerServlet:87 - empty String
+2020-05-10 14:50:09 ERROR    BidControllerServlet:101 - empty String
+2020-05-10 14:50:09 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-10 14:50:29 ERROR    BidControllerServlet:76 - empty String
+2020-05-10 14:50:29 ERROR    BidControllerServlet:87 - empty String
+2020-05-10 14:50:29 ERROR    BidControllerServlet:101 - empty String
+2020-05-10 14:50:29 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-10 15:24:16 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:31:05 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:31:36 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:34:11 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:34:19 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:35:41 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:36:54 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:38:18 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:07 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:10 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:10 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:10 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:11 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:11 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:11 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:12 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:12 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:13 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:13 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:13 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:14 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:14 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:39:14 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:42:50 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:42:52 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:42:53 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:43:47 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:43:49 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-10 15:43:59 ERROR    BuyingControllerServlet:50 - Invalid credit card data input to pay the bid
+2020-05-11 13:17:53 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 13:17:59 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:20:03 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:20:59 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:23:32 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:24:55 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:25:48 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:26:42 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 13:35:01 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:40:27 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:40:51 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:42:12 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:42:49 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:43:46 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:45:47 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:46:17 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:47:08 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:48:01 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:49:02 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:49:21 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:50:53 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:53:38 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:53:49 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:55:59 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:56:13 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 13:57:06 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 14:34:13 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 14:35:37 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 14:46:52 ERROR    DBCPDataSource:43 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2020-05-11 14:46:52 ERROR    ClientDAO:49 - Connection is null.
+2020-05-11 14:46:52 ERROR    ClientDAO:53 - Connection is null.
+2020-05-11 14:47:03 ERROR    DBCPDataSource:43 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2020-05-11 14:47:03 ERROR    ClientDAO:49 - Connection is null.
+2020-05-11 14:47:03 ERROR    ClientDAO:53 - Connection is null.
+2020-05-11 14:47:22 ERROR    DBCPDataSource:43 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2020-05-11 14:47:22 ERROR    ClientDAO:73 - Connection is null.
+2020-05-11 14:47:22 ERROR    ClientDAO:77 - Connection is null.
+2020-05-11 14:48:07 ERROR    DBCPDataSource:43 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2020-05-11 14:48:07 ERROR    ClientDAO:49 - Connection is null.
+2020-05-11 14:48:07 ERROR    ClientDAO:53 - Connection is null.
+2020-05-11 14:48:41 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 14:49:02 ERROR    DBCPDataSource:43 - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2020-05-11 14:49:02 ERROR    ClientDAO:49 - Connection is null.
+2020-05-11 14:49:02 ERROR    ClientDAO:53 - Connection is null.
+2020-05-11 14:49:23 ERROR    DBCPDataSource:43 - Cannot create PoolableConnectionFactory (Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.)
+2020-05-11 14:50:55 ERROR    PasswordRecoveryServlet:80 - Invalid email input
+2020-05-11 15:01:53 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:02:25 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:03:09 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:03:52 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:05:29 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:05:58 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:06:02 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:07:32 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:10:03 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:10:20 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:11:08 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:11:18 ERROR    ResetPasswordServlet:48 - Invalid password/retyped password in recovery password section
+2020-05-11 15:27:23 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:27:45 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:28:30 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:29:15 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:29:19 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:30:22 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:30:47 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:31:14 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:31:20 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:32:42 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:32:58 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 15:33:07 ERROR    AuthorizationServlet:65 - Invalid credentials input to log in
+2020-05-11 16:34:21 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:34:29 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:34:33 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:35:54 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:01 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:06 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:08 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:21 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:21 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:49 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:36:51 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-11 16:37:12 ERROR    BidControllerServlet:76 - empty String
+2020-05-11 16:37:12 ERROR    BidControllerServlet:87 - empty String
+2020-05-11 16:37:12 ERROR    BidControllerServlet:101 - empty String
+2020-05-11 16:37:12 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-11 16:37:24 ERROR    BidControllerServlet:87 - For input string: "asd"
+2020-05-11 16:37:24 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
+2020-05-11 16:55:37 ERROR    AdminBidControllerServlet:55 - For input string: ""

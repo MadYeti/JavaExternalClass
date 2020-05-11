@@ -1,0 +1,14 @@
+package org.mycompany.models.factory;
+
+
+import org.mycompany.models.dao.bidDAO.BidDAO;
+import org.mycompany.models.dao.clientDAO.ClientDAO;
+
+import java.sql.Connection;
+
+public interface DAOFactory {
+
+    ClientDAO createClientDAO(Connection connection);
+    BidDAO createBidDAO(Connection connection);
+
+}

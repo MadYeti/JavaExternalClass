@@ -9,6 +9,7 @@ import org.mycompany.exceptions.AuthorizationException;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
 import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,6 +36,8 @@ public class AuthorizationServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        httpServletResponse.setCharacterEncoding("UTF-8");
+        httpServletRequest.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         HttpSession httpSession;
         Client client;
@@ -43,7 +46,7 @@ public class AuthorizationServlet extends HttpServlet{
         String rememberMe = httpServletRequest.getParameter("rememberMe");
         AuthorizationController authorizationController = new AuthorizationController();
         if(authorizationController.validateData(email, password)){
-            DAO clientDAO = new ClientDAO(DBCPDataSource.getConnection());
+            DAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
             client = clientDAO.getClient(email, password);
             if(client != null){
                 httpSession = httpServletRequest.getSession(true);
