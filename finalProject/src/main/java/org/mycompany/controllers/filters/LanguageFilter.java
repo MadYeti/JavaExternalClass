@@ -1,15 +1,14 @@
 package org.mycompany.controllers.filters;
 
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Locale;
 
-@WebFilter(filterName = "SessionLocaleFilter", urlPatterns = {"/*"})
-public class LocalizationFilter implements Filter{
+@WebFilter(filterName = "LanguageFilter", urlPatterns = {"/*"})
+public class LanguageFilter implements Filter{
+
+    private static final String LANG_PARAM = "lang";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -19,10 +18,11 @@ public class LocalizationFilter implements Filter{
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        if(httpServletRequest.getParameter("lang") != null){
-            httpServletRequest.getSession().setAttribute("lang", httpServletRequest.getParameter("lang"));
-            Locale.setDefault(new Locale(httpServletRequest.getParameter("lang")));
+
+        if(httpServletRequest.getParameter(LANG_PARAM)!=null){
+            httpServletRequest.getSession().setAttribute(LANG_PARAM, httpServletRequest.getParameter(LANG_PARAM));
         }
+
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

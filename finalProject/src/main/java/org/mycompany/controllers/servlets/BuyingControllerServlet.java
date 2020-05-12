@@ -29,8 +29,8 @@ public class BuyingControllerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletRequest.setCharacterEncoding("UTF-8");
+        httpServletResponse.setCharacterEncoding("UTF-8");
         int id = Integer.parseInt(httpServletRequest.getParameter("bidNumber"));
         String creditCardNumber = httpServletRequest.getParameter("creditCardNumber");
         String creditCardExpirationDate = httpServletRequest.getParameter("creditCardDate");

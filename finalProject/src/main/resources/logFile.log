@@ -457,3 +457,46 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-11 16:37:24 ERROR    BidControllerServlet:87 - For input string: "asd"
 2020-05-11 16:37:24 ERROR    BidControllerServlet:161 - Invalid bid data to get price or format the bid
 2020-05-11 16:55:37 ERROR    AdminBidControllerServlet:55 - For input string: ""
+2020-05-12 14:45:15 ERROR    BidControllerServlet:85 - For input string: "=123"
+2020-05-12 14:52:10 ERROR    BidControllerServlet:182 - Invalid bid data to get price or format the bid
+2020-05-12 14:52:20 ERROR    BidControllerServlet:97 - empty String
+2020-05-12 14:52:20 ERROR    BidControllerServlet:108 - empty String
+2020-05-12 14:52:20 ERROR    BidControllerServlet:122 - empty String
+2020-05-12 14:52:20 ERROR    BidControllerServlet:182 - Invalid bid data to get price or format the bid
+2020-05-12 14:53:41 ERROR    BidControllerServlet:97 - empty String
+2020-05-12 14:53:41 ERROR    BidControllerServlet:108 - empty String
+2020-05-12 14:53:41 ERROR    BidControllerServlet:122 - empty String
+2020-05-12 14:53:41 ERROR    BidControllerServlet:182 - Invalid bid data to get price or format the bid
+2020-05-12 14:53:46 ERROR    BidControllerServlet:97 - empty String
+2020-05-12 14:53:46 ERROR    BidControllerServlet:108 - empty String
+2020-05-12 14:53:46 ERROR    BidControllerServlet:122 - empty String
+2020-05-12 14:53:46 ERROR    BidControllerServlet:182 - Invalid bid data to get price or format the bid
+2020-05-12 14:56:36 ERROR    BidControllerServlet:97 - empty String
+2020-05-12 14:56:36 ERROR    BidControllerServlet:108 - empty String
+2020-05-12 14:56:36 ERROR    BidControllerServlet:122 - empty String
+2020-05-12 14:56:36 ERROR    BidControllerServlet:182 - Invalid bid data to get price or format the bid
+2020-05-12 14:56:43 ERROR    BidControllerServlet:182 - Invalid bid data to get price or format the bid
+2020-05-12 15:13:54 ERROR    BidControllerServlet:98 - empty String
+2020-05-12 15:13:54 ERROR    BidControllerServlet:109 - empty String
+2020-05-12 15:13:54 ERROR    BidControllerServlet:123 - empty String
+2020-05-12 15:13:54 ERROR    BidControllerServlet:183 - Invalid bid data to get price or format the bid
+2020-05-12 15:14:06 ERROR    BidControllerServlet:98 - empty String
+2020-05-12 15:14:06 ERROR    BidControllerServlet:109 - empty String
+2020-05-12 15:14:06 ERROR    BidControllerServlet:123 - empty String
+2020-05-12 15:14:06 ERROR    BidControllerServlet:183 - Invalid bid data to get price or format the bid
+2020-05-12 15:14:18 ERROR    BidControllerServlet:98 - empty String
+2020-05-12 15:14:18 ERROR    BidControllerServlet:109 - empty String
+2020-05-12 15:14:18 ERROR    BidControllerServlet:123 - empty String
+2020-05-12 15:14:18 ERROR    BidControllerServlet:183 - Invalid bid data to get price or format the bid
+2020-05-12 15:16:10 ERROR    BidControllerServlet:99 - empty String
+2020-05-12 15:16:10 ERROR    BidControllerServlet:110 - empty String
+2020-05-12 15:16:10 ERROR    BidControllerServlet:124 - empty String
+2020-05-12 15:16:10 ERROR    BidControllerServlet:184 - Invalid bid data to get price or format the bid
+2020-05-12 15:16:16 ERROR    BidControllerServlet:99 - empty String
+2020-05-12 15:16:16 ERROR    BidControllerServlet:110 - empty String
+2020-05-12 15:16:16 ERROR    BidControllerServlet:124 - empty String
+2020-05-12 15:16:16 ERROR    BidControllerServlet:184 - Invalid bid data to get price or format the bid
+2020-05-12 15:16:20 ERROR    BidControllerServlet:99 - empty String
+2020-05-12 15:16:20 ERROR    BidControllerServlet:110 - empty String
+2020-05-12 15:16:20 ERROR    BidControllerServlet:124 - empty String
+2020-05-12 15:16:20 ERROR    BidControllerServlet:184 - Invalid bid data to get price or format the bid

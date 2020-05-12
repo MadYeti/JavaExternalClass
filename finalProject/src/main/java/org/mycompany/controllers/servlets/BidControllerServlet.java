@@ -23,6 +23,8 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.util.Arrays;
 import java.util.Properties;
 
 @WebServlet(name = "/BidControllerServlet", urlPatterns = "/BidControllerServlet")
@@ -44,17 +46,37 @@ public class BidControllerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setCharacterEncoding("UTF-8");
-        httpServletRequest.setCharacterEncoding("UTF-8");
+        String[] parameters = httpServletRequest.getQueryString().split("&");
         RequestDispatcher requestDispatcher;
-        String weight = httpServletRequest.getParameter("weight");
-        String volume = httpServletRequest.getParameter("volume");
-        String type = httpServletRequest.getParameter("type");
-        String cost = httpServletRequest.getParameter("cost");
-        String sendingPoint = httpServletRequest.getParameter("sendingPoint");
-        String destinationPoint = httpServletRequest.getParameter("destinationPoint");
-        String notes = httpServletRequest.getParameter("notes");
-        boolean submit = Boolean.valueOf(httpServletRequest.getParameter("submit"));
+        String weight = null;
+        String volume = null;
+        String type = null;
+        String cost = null;
+        String sendingPoint = null;
+        String destinationPoint = null;
+        String notes = null;
+        boolean submit = false;
+        for(String parameter: parameters){
+            if(parameter.contains("weight")){
+                weight = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("volume")){
+                volume = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("type")){
+                type = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("cost")){
+                cost = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("sendingPoint")){
+                sendingPoint = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("destinationPoint")){
+                destinationPoint = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("notes")){
+                notes = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
+            }else if(parameter.contains("submit")){
+                submit = Boolean.valueOf(URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8"));
+            }
+        }
+        System.out.println(httpServletRequest.getLocale());
+        System.out.println(httpServletRequest.getParameter("lang"));
         double weightValue = 0;
         double volumeValue = 0;
         double costValue = 0;
@@ -89,9 +111,6 @@ public class BidControllerServlet extends HttpServlet {
                 volumeInputError = true;
             }
         }
-        if (type.equals("Choose cargo type")) {
-            typeInputError = true;
-        }
         if (cost != null) {
             try {
                 costValue = Double.parseDouble(cost);
@@ -103,10 +122,13 @@ public class BidControllerServlet extends HttpServlet {
                 costInputError = true;
             }
         }
-        if (sendingPoint.equals("Choose sending point")) {
+        if (type.equals("Choose cargo type") || type.equals("Виберіть тип вантажу")) {
+            typeInputError = true;
+        }
+        if (sendingPoint.equals("Choose sending point") || sendingPoint.equals("Виберіть місце відправлення")) {
             sendingPointInputError = true;
         }
-        if (destinationPoint.equals("Choose destination point")) {
+        if (destinationPoint.equals("Choose destination point") || destinationPoint.equals("Виберіть місце призначення")) {
             destinationPointInputError = true;
         }
         if (sendingPoint.equals(destinationPoint)) {

@@ -28,8 +28,8 @@ public class AdminBidControllerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletRequest.setCharacterEncoding("UTF-8");
+        httpServletResponse.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         String bidId = httpServletRequest.getParameter("bidId");
         String operation = httpServletRequest.getParameter("operation");

@@ -36,8 +36,8 @@ public class AuthorizationServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletRequest.setCharacterEncoding("UTF-8");
+        httpServletResponse.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         HttpSession httpSession;
         Client client;

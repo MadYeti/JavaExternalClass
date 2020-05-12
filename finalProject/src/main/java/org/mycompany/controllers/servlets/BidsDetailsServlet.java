@@ -19,8 +19,8 @@ public class BidsDetailsServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletRequest.setCharacterEncoding("UTF-8");
+        httpServletResponse.setCharacterEncoding("UTF-8");
         HttpSession httpSession = httpServletRequest.getSession();
         int id = ((Client)httpSession.getAttribute("client")).getId();
         BidsHolderImpl bidsHolderImpl = new BidsHolderImpl(DBCPDataSource.getConnection());

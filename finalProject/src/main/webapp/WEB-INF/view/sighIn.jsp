@@ -3,6 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page isELIgnored ="false" %>
 <fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:requestEncoding value="UTF-8" />
 
 <html>
     <head>

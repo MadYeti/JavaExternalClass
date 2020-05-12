@@ -11,6 +11,7 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Customer.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidCreditCardDataException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\ResetPasswordException.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\factory\MySqlDAOFactory.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\dateProccesing\DateController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\RegistrationException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BidsDetailsServlet.java
@@ -21,13 +22,16 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BidControllerServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\AuthorizationException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\clientDAO\DAO.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\filters\EncodingFilter.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\registration\RegistrationController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\dbConnect\DBCPDataSource.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidEmailInputForPasswordRecoveryException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\bidDAO\DAO.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\RegistrationServlet.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\factory\DAOFactory.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\bidDAO\BidDAO.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\AuthorizationServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidBidDataException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\creditCard\CreditCardDataController.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\mail\MailController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\repository\BidsHolderImpl.java
