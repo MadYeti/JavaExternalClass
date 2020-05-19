@@ -33,14 +33,12 @@ public class PasswordRecoveryServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletRequest.setCharacterEncoding("UTF-8");
-        httpServletResponse.setCharacterEncoding("UTF-8");
         String email = httpServletRequest.getParameter("email");
         if(AuthorizationController.validateEmail(email)){
             ClientDAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
             String token = clientDAO.createToken(email);
             MailController mailController = new MailController(email, token);
-            mailController.sendEmail();
+            mailController.sendPasswordRecoveryEmail();
         }else{
             try {
                 throw new InvalidEmailInputForPasswordRecoveryException("Invalid email input");

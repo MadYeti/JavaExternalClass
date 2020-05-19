@@ -12,6 +12,7 @@ import org.mycompany.models.dao.bidDAO.DAO;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.factory.MySqlDAOFactory;
+import org.mycompany.resourceBundle.ResourceBundleConfig;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +27,7 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 @WebServlet(name = "/BidControllerServlet", urlPatterns = "/BidControllerServlet")
 public class BidControllerServlet extends HttpServlet {
@@ -75,8 +77,6 @@ public class BidControllerServlet extends HttpServlet {
                 submit = Boolean.valueOf(URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8"));
             }
         }
-        System.out.println(httpServletRequest.getLocale());
-        System.out.println(httpServletRequest.getParameter("lang"));
         double weightValue = 0;
         double volumeValue = 0;
         double costValue = 0;
@@ -122,13 +122,14 @@ public class BidControllerServlet extends HttpServlet {
                 costInputError = true;
             }
         }
-        if (type.equals("Choose cargo type") || type.equals("Виберіть тип вантажу")) {
+        ResourceBundle resourceBundle = ResourceBundleConfig.getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
+        if (type.equals(resourceBundle.getString("msg.cargoType.field"))) {
             typeInputError = true;
         }
-        if (sendingPoint.equals("Choose sending point") || sendingPoint.equals("Виберіть місце відправлення")) {
+        if (sendingPoint.equals(resourceBundle.getString("msg.sendingPoint.field"))) {
             sendingPointInputError = true;
         }
-        if (destinationPoint.equals("Choose destination point") || destinationPoint.equals("Виберіть місце призначення")) {
+        if (destinationPoint.equals(resourceBundle.getString("msg.destinationPoint.field"))) {
             destinationPointInputError = true;
         }
         if (sendingPoint.equals(destinationPoint)) {
@@ -160,8 +161,8 @@ public class BidControllerServlet extends HttpServlet {
                         .addArrivalDate(DateController.getArrivalDate(Integer.parseInt(cityDistanceProperties.getProperty(cityDistance))))
                         .addNotes(notes)
                         .addPrice(totalPrice)
-                        .addBidStatus("processing")
-                        .addPaymentStatus("not paid")
+                        .addBidStatus(resourceBundle.getString("msg.bidStatus.processing.label"))
+                        .addPaymentStatus(resourceBundle.getString("msg.paymentStatus.notPaid.label"))
                         .build();
                 DAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
                 bidDAO.create(bid);

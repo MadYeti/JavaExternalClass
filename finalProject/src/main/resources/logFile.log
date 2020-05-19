@@ -500,3 +500,19 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-12 15:16:20 ERROR    BidControllerServlet:110 - empty String
 2020-05-12 15:16:20 ERROR    BidControllerServlet:124 - empty String
 2020-05-12 15:16:20 ERROR    BidControllerServlet:184 - Invalid bid data to get price or format the bid
+2020-05-12 17:49:39 ERROR    BidControllerServlet:101 - empty String
+2020-05-12 17:49:39 ERROR    BidControllerServlet:112 - empty String
+2020-05-12 17:49:39 ERROR    BidControllerServlet:123 - empty String
+2020-05-13 14:05:54 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
+2020-05-13 18:03:14 ERROR    BidControllerServlet:99 - For input string: "123t5t"
+2020-05-13 18:03:14 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
+2020-05-13 18:03:17 ERROR    BidControllerServlet:99 - empty String
+2020-05-13 18:03:17 ERROR    BidControllerServlet:110 - empty String
+2020-05-13 18:03:17 ERROR    BidControllerServlet:121 - empty String
+2020-05-13 18:03:17 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
+2020-05-13 18:03:33 ERROR    RegistrationServlet:50 - Invalid input data to register user
+2020-05-13 18:04:14 ERROR    BidControllerServlet:99 - empty String
+2020-05-13 18:04:14 ERROR    BidControllerServlet:110 - empty String
+2020-05-13 18:04:14 ERROR    BidControllerServlet:121 - empty String
+2020-05-13 18:04:14 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
+2020-05-13 18:05:06 ERROR    BuyingControllerServlet:65 - Invalid credit card data input to pay the bid

@@ -5,9 +5,11 @@ import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.xmlParser.JAXBParser;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.bid.Bid;
+import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.dao.bidDAO.DAO;
 import org.mycompany.models.factory.MySqlDAOFactory;
+import org.mycompany.models.observer.Subject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,8 +30,6 @@ public class AdminBidControllerServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        httpServletRequest.setCharacterEncoding("UTF-8");
-        httpServletResponse.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher;
         String bidId = httpServletRequest.getParameter("bidId");
         String operation = httpServletRequest.getParameter("operation");

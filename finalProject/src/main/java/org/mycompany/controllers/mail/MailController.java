@@ -41,7 +41,13 @@ public class MailController {
         this.token = token;
     }
 
-    public void sendEmail(){
+    public MailController(String emailTo){
+        this.emailTo = emailTo;
+        this.emailFrom = mailCredentialsProperties.getProperty("mail.address.from");
+        this.emailSenderPassword = mailCredentialsProperties.getProperty("mail.address.password");
+    }
+
+    public void sendPasswordRecoveryEmail(){
         Session session = Session.getDefaultInstance(mailConfigProperties, new Authenticator() {
 
             @Override
@@ -60,6 +66,27 @@ public class MailController {
                                 "Follow the next link to reset password: " +
                                 "http://localhost:8888/resetPassword?token=" + token +
                                 " . If it wasn't you just ignore this letter.");
+            Transport.send(mimeMessage);
+        } catch (MessagingException e) {
+            logger.error(e.getMessage());
+        }
+    }
+
+    public void sendPaymentNotificationEmail(int id){
+        Session session = Session.getDefaultInstance(mailConfigProperties, new Authenticator() {
+
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(emailFrom, emailSenderPassword);
+            }
+
+        });
+        MimeMessage mimeMessage = new MimeMessage(session);
+        try {
+            mimeMessage.setFrom(new InternetAddress(emailFrom));
+            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailTo));
+            mimeMessage.setSubject("Bid payment");
+            mimeMessage.setText("Your bid #" + id + " has been successfully paid.");
             Transport.send(mimeMessage);
         } catch (MessagingException e) {
             logger.error(e.getMessage());

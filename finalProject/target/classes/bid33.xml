@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>33</id>
+    <clientId>1</clientId>
+    <weight>123.0</weight>
+    <volume>123.0</volume>
+    <cargoType>Health &amp; care</cargoType>
+    <cargoCost>123.0</cargoCost>
+    <sendingPoint>Kiev</sendingPoint>
+    <destinationPoint>Madrid</destinationPoint>
+    <arrivalDate>2020-06-18</arrivalDate>
+    <notes>1231231231</notes>
+    <price>4863.599999999999</price>
+    <bidStatus>processing</bidStatus>
+    <paymentStatus>not paid</paymentStatus>
+</Bid>

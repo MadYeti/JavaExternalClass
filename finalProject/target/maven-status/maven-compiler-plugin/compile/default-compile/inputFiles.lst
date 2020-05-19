@@ -1,5 +1,6 @@
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\ResetPasswordServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Client.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\filters\LanguageFilter.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\LogoutServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\bid\Bid.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\authorization\AuthorizationController.java
@@ -17,6 +18,7 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BidsDetailsServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BuyingControllerServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Admin.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\observer\Subject.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\repository\Repository.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\xmlParser\JAXBParser.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BidControllerServlet.java
@@ -33,5 +35,6 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\AuthorizationServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidBidDataException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\creditCard\CreditCardDataController.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\resourceBundle\ResourceBundleConfig.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\mail\MailController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\repository\BidsHolderImpl.java

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>36</id>
+    <clientId>1</clientId>
+    <weight>5765.0</weight>
+    <volume>5675.0</volume>
+    <cargoType>Автозапчастини</cargoType>
+    <cargoCost>5675.0</cargoCost>
+    <sendingPoint>Київ</sendingPoint>
+    <destinationPoint>Лондон</destinationPoint>
+    <arrivalDate>2020-06-06</arrivalDate>
+    <notes>5675675675</notes>
+    <price>58572.0</price>
+    <bidStatus>обробка</bidStatus>
+    <paymentStatus>paid</paymentStatus>
+</Bid>

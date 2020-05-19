@@ -89,7 +89,8 @@
                                 </table>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <c:if test = "${bids.paymentStatus eq 'not paid'}">
+                                <fmt:message key="msg.paymentStatus.notPaid.label" var="notPaidPaymentStatus"/>
+                                <c:if test = "${bids.paymentStatus eq notPaidPaymentStatus}">
                                     <a href="/buyingPage?pay=${bids.id}"><button class="btn btn-lg btn-block btn-primary" style="width: 120;" type="submit" name="pay" value="${bids.id}"><fmt:message key="msg.payBid.button"/></button></a>
                                 </c:if>
                             </div>

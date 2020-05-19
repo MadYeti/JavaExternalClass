@@ -1,8 +1,15 @@
 package org.mycompany.models.client;
 
 
-public abstract class Client {
+import org.mycompany.controllers.mail.MailController;
+import org.mycompany.models.observer.Subject;
 
+import java.util.Observable;
+import java.util.Observer;
+
+public abstract class Client implements Observer{
+
+    protected Observable observable;
     protected int id;
     protected String email;
     protected String password;
@@ -40,6 +47,10 @@ public abstract class Client {
         this.id = id;
     }
 
+    public void setObservable(Observable observable) {
+        this.observable = observable;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -60,5 +71,12 @@ public abstract class Client {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        Subject subject = (Subject) o;
+        MailController mailController = new MailController(email);
+        mailController.sendPaymentNotificationEmail(subject.getId());
     }
 }
