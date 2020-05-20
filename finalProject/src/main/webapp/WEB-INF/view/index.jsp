@@ -30,7 +30,7 @@
                     <a class="py-2 d-none d-md-inline-block" href="/MainPage?lang=en_EN"><img src="/images/britainFlag.png" style="wight: 20px; height: 20px" alt="EN"></a>
                     <a class="py-2 d-none d-md-inline-block" href="/MainPage?lang=uk_UA"><img src="/images/ukraineFlag.png" style="wight: 20px; height: 20px" alt="UA"></a>
                     <c:if test = "${client ne null}">
-                        <a class="py-2 d-none d-md-inline-block" href="/LogoutServlet"><fmt:message key="msg.logOut.button"/></a>
+                        <a class="py-2 d-none d-md-inline-block" href="/LogoutController"><fmt:message key="msg.logOut.button"/></a>
                     </c:if>
                 </div>
             </nav>
@@ -63,7 +63,7 @@
                         <h4 class="mb-3"><fmt:message key="msg.serviceCalculator.label"/></h4>
 
                         <div class="my-3 p-3 bg-white rounded shadow-sm">
-                            <form class="needs-validation" action="BidControllerServlet" method="get">
+                            <form class="needs-validation" action="BidOrderPriceController" method="get">
                                 <div class="mb-3" style="padding-left: 0px;">
                                     <label><fmt:message key="msg.weight.label"/></label>
                                     <input type="text" class="form-control" name="weight" value="${weightValue}" id="weight" />

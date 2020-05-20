@@ -38,7 +38,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="col-md-8 order-md-1">
                         <div class="my-3 p-3 bg-white rounded shadow-sm">
-                            <form class="needs-validation" id="sighUpForm" action="RegistrationServlet" method="post">
+                            <form class="needs-validation" id="sighUpForm" action="RegistrationController" method="post">
 
                                 <div class="mb-3">
                                     <label><fmt:message key="msg.email.input.label"/></label>

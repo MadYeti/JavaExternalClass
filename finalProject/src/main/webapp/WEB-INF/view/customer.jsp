@@ -19,10 +19,10 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
                     </a>
                     <a class="py-2 d-none d-md-inline-block" href="/MainPage"><fmt:message key="msg.mainPage.button"/></a>
-                    <a class="py-2 d-none d-md-inline-block" href="/BidsDetailsServlet"><fmt:message key="msg.viewBidsDetail.button"/></a>
+                    <a class="py-2 d-none d-md-inline-block" href="/BidsDetailsController"><fmt:message key="msg.viewBidsDetail.button"/></a>
                     <a class="py-2 d-none d-md-inline-block" href="#"><fmt:message key="msg.support.button"/></a>
                     <a class="py-2 d-none d-md-inline-block" href="#"><fmt:message key="msg.pricing.button"/></a>
-                    <a class="py-2 d-none d-md-inline-block" href="/LogoutServlet"><fmt:message key="msg.logOut.button"/></a>
+                    <a class="py-2 d-none d-md-inline-block" href="/LogoutController"><fmt:message key="msg.logOut.button"/></a>
                 </div>
             </nav>
             <div class="container">
@@ -49,7 +49,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="col-md-8 order-md-1">
                         <div class="my-3 p-3 bg-white rounded shadow-sm">
-                            <form class="needs-validation" action="BidControllerServlet" method="get">
+                            <form class="needs-validation" action="BidController" method="get">
                                 <div class="mb-3" style="padding-left: 0px;">
                                     <label><fmt:message key="msg.weight.label"/></label>
                                     <input type="text" class="form-control" name="weight" value="${weightValue}" id="weight" />

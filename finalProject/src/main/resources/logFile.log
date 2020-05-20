@@ -516,3 +516,98 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-13 18:04:14 ERROR    BidControllerServlet:121 - empty String
 2020-05-13 18:04:14 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
 2020-05-13 18:05:06 ERROR    BuyingControllerServlet:65 - Invalid credit card data input to pay the bid
+2020-05-19 16:40:18 ERROR    BidControllerServlet:99 - empty String
+2020-05-19 16:40:18 ERROR    BidControllerServlet:110 - empty String
+2020-05-19 16:40:18 ERROR    BidControllerServlet:121 - empty String
+2020-05-19 16:40:18 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
+2020-05-19 18:07:29 ERROR    BidControllerServlet:99 - empty String
+2020-05-19 18:07:29 ERROR    BidControllerServlet:110 - empty String
+2020-05-19 18:07:29 ERROR    BidControllerServlet:121 - empty String
+2020-05-19 18:07:29 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
+2020-05-20 14:04:23 ERROR    BidControllerServlet:101 - empty String
+2020-05-20 14:04:23 ERROR    BidControllerServlet:112 - empty String
+2020-05-20 14:04:23 ERROR    BidControllerServlet:123 - empty String
+2020-05-20 14:04:23 ERROR    BidControllerServlet:187 - Invalid bid data to get price or format the bid
+2020-05-20 14:08:29 ERROR    BidControllerServlet:100 - empty String
+2020-05-20 14:08:29 ERROR    BidControllerServlet:111 - empty String
+2020-05-20 14:08:29 ERROR    BidControllerServlet:122 - empty String
+2020-05-20 14:08:29 ERROR    BidControllerServlet:186 - Invalid bid data to get price or format the bid
+2020-05-20 14:30:20 ERROR    AdminBidController:48 - For input string: ""
+2020-05-20 14:42:50 ERROR    AuthorizationController:52 - Invalid credentials input to log in
+2020-05-20 15:03:05 ERROR    BuyingController:58 - Invalid credit card data input to pay the bid
+2020-05-20 15:04:39 ERROR    BuyingController:58 - Invalid credit card data input to pay the bid
+2020-05-20 15:10:44 ERROR    BuyingController:58 - Invalid credit card data input to pay the bid
+2020-05-20 16:30:17 ERROR    BuyingController:58 - Invalid credit card data input to pay the bid
+2020-05-20 16:32:23 ERROR    BuyingController:59 - Invalid credit card data input to pay the bid
+2020-05-20 17:22:31 ERROR    BuyingController:59 - Invalid credit card data input to pay the bid
+2020-05-20 17:23:27 ERROR    BuyingController:59 - Invalid credit card data input to pay the bid
+2020-05-20 17:23:48 ERROR    BuyingController:59 - Invalid credit card data input to pay the bid
+2020-05-20 17:24:53 ERROR    BuyingController:58 - Invalid credit card data input to pay the bid
+2020-05-20 17:26:22 ERROR    BuyingController:60 - Invalid credit card data input to pay the bid
+2020-05-20 17:29:52 ERROR    BuyingControllerServlet:63 - Invalid credit card data input to pay the bid
+2020-05-20 17:34:15 ERROR    BuyingControllerServlet:68 - Invalid credit card data input to pay the bid
+2020-05-20 17:36:06 ERROR    BidOrderPriceController:99 - empty String
+2020-05-20 17:36:06 ERROR    BidOrderPriceController:110 - empty String
+2020-05-20 17:36:06 ERROR    BidOrderPriceController:121 - empty String
+2020-05-20 17:36:06 ERROR    BidOrderPriceController:185 - Invalid bid data to get price or format the bid
+2020-05-20 17:36:38 ERROR    BuyingControllerServlet:68 - Invalid credit card data input to pay the bid
+2020-05-20 17:39:52 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 17:41:53 ERROR    BuyingController:60 - Invalid credit card data input to pay the bid
+2020-05-20 17:45:16 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 17:46:26 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 17:50:35 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 17:52:10 ERROR    BuyingController:64 - Invalid credit card data input to pay the bid
+2020-05-20 18:28:08 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 18:29:04 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 18:30:44 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 18:38:38 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 18:39:50 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 18:41:20 ERROR    BuyingController:64 - Invalid credit card data input to pay the bid
+2020-05-20 18:42:27 ERROR    BuyingController:61 - Invalid credit card data input to pay the bid
+2020-05-20 18:45:22 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:45:27 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:50:17 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:52:13 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:52:16 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:52:18 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:52:18 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:52:18 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:52:18 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:56:45 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:56:46 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:56:48 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:56:48 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:56:50 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 18:57:57 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 19:01:04 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:01:18 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:01:33 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:03:15 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:03:20 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:03:32 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:03:34 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:03:38 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:08:22 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:21:24 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 19:22:47 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 20:07:53 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 20:14:56 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 20:15:00 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 20:15:47 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 20:15:53 ERROR    BuyingController:63 - Invalid credit card data input to pay the bid
+2020-05-20 20:18:36 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 20:18:40 ERROR    BuyingController:62 - Invalid credit card data input to pay the bid
+2020-05-20 20:34:40 ERROR    BidOrderPriceController:99 - empty String
+2020-05-20 20:34:40 ERROR    BidOrderPriceController:110 - empty String
+2020-05-20 20:34:40 ERROR    BidOrderPriceController:121 - empty String
+2020-05-20 20:34:40 ERROR    BidOrderPriceController:185 - Invalid bid data to get price or format the bid
+2020-05-20 20:42:01 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 20:43:17 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 20:43:25 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 20:43:26 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 20:43:26 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 20:43:26 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 20:43:32 ERROR    PasswordRecoveryServlet:46 - Invalid email input
+2020-05-20 21:50:15 ERROR    RegistrationController:38 - Invalid input data to register user
+2020-05-20 21:50:20 ERROR    RegistrationController:38 - Invalid input data to register user
+2020-05-20 21:50:23 ERROR    RegistrationController:38 - Invalid input data to register user

@@ -2,7 +2,7 @@ package org.mycompany.models.dao.clientDAO;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import org.mycompany.controllers.registration.RegistrationController;
+import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.models.client.Admin;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.client.Customer;
@@ -31,7 +31,7 @@ public class ClientDAO implements DAO {
         Client client = null;
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.SELECTCLIENT.QUERY)){
             preparedStatement.setString(1, email);
-            preparedStatement.setString(2, RegistrationController.getHash(password));
+            preparedStatement.setString(2, RegistrationDataController.getHash(password));
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 if(resultSet.getString("role").equals("admin")){
@@ -66,7 +66,7 @@ public class ClientDAO implements DAO {
     public void addClient(String email, String password) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.INSERTCLIENT.QUERY)){
             preparedStatement.setString(1, email);
-            preparedStatement.setString(2, RegistrationController.getHash(password));
+            preparedStatement.setString(2, RegistrationDataController.getHash(password));
             preparedStatement.executeUpdate();
             connection.commit();
         }catch (SQLException e){
@@ -88,7 +88,7 @@ public class ClientDAO implements DAO {
     public String createToken(String email){
         String token = null;
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.CREATETOKEN.QUERY)){
-            token = RegistrationController.getHash(email + System.currentTimeMillis());
+            token = RegistrationDataController.getHash(email + System.currentTimeMillis());
             preparedStatement.setString(1, token);
             preparedStatement.setString(2, email);
             preparedStatement.executeUpdate();
@@ -112,7 +112,7 @@ public class ClientDAO implements DAO {
 
     public void resetPasswordAndDeleteToken(String password, String token){
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.RESETPASSWORD.QUERY)){
-            preparedStatement.setString(1, RegistrationController.getHash(password));
+            preparedStatement.setString(1, RegistrationDataController.getHash(password));
             preparedStatement.setString(2, token);
             preparedStatement.executeUpdate();
             try(PreparedStatement innerPreparedStatement = connection.prepareStatement(SQLQuery.DELETETOKEN.QUERY)){

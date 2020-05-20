@@ -12,5 +12,5 @@
     <notes>tyertyerty</notes>
     <price>159154.0</price>
     <bidStatus>processing</bidStatus>
-    <paymentStatus>not paid</paymentStatus>
+    <paymentStatus>paid</paymentStatus>
 </Bid>

@@ -40,7 +40,7 @@
                         <c:set var="errorRetypedPassword" scope="request" value="${requestScope.retypedPasswordError}" />
 
                         <c:if test = "${resetPassword eq null || resetPassword eq false}">
-                            <form class="form-signin" action="ResetPasswordServlet" method="post">
+                            <form class="form-signin" action="ResetPasswordController" method="post">
                                 <div class="mb-3">
                                     <input class="form-control" type="hidden" name="token" value="${token}" id="token" />
                                 </div>
