@@ -9,7 +9,7 @@ public class ResetPasswordRedirectController {
 
     @PostMapping("/resetPassword")
     public String getResetPasswordPage(){
-        return "/WEB-INF/view/resetPassword.jsp";
+        return "resetPassword";
     }
 
 }

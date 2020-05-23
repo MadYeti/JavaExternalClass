@@ -9,7 +9,12 @@ public class PasswordRecoveryPageRedirectController {
 
     @PostMapping("/passwordRecovery")
     public String postPasswordRecoveryPage(){
-        return "/WEB-INF/view/passwordRecovery.jsp";
+        return "passwordRecovery";
+    }
+
+    @GetMapping("/passwordRecovery")
+    public String getPasswordRecoveryPage(){
+        return "passwordRecovery";
     }
 
 }

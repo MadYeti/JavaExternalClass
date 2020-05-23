@@ -1,9 +1,12 @@
 package org.mycompany.controllers.creditCard;
 
 
+import org.springframework.stereotype.Component;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class CreditCardDataController {
 
     private String errorCreditCardNumber;

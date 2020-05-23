@@ -3,6 +3,9 @@ package org.mycompany.dbConnect;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileReader;
@@ -11,7 +14,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
 
-
+@Component
+@Scope("prototype")
 public class DBCPDataSource {
 
     private static BasicDataSource dataSource = new BasicDataSource();
@@ -33,8 +37,10 @@ public class DBCPDataSource {
         }
     }
 
-    private DBCPDataSource(){ }
+    public DBCPDataSource(){ }
 
+    @Bean
+    @Scope("prototype")
     public static Connection getConnection(){
         try {
             connection = dataSource.getConnection();

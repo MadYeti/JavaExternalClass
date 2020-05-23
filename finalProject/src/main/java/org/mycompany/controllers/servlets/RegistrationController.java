@@ -6,7 +6,10 @@ import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.RegistrationException;
 import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.factory.MySqlDAOFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -15,10 +18,21 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class RegistrationController {
 
+    private RegistrationDataController registrationDataController;
+    private DAOFactory mySqlDAOFactory;
+    private BeanFactory beanFactory;
+
     private static Logger logger = Logger.getLogger(RegistrationController.class);
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
+    }
+
+    @Autowired
+    public RegistrationController(RegistrationDataController registrationDataController,
+                                  BeanFactory beanFactory){
+        this.registrationDataController = registrationDataController;
+        this.beanFactory = beanFactory;
     }
 
     @PostMapping("/RegistrationController")
@@ -26,14 +40,14 @@ public class RegistrationController {
         String email = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("password");
         String retypedPassword = httpServletRequest.getParameter("retypedPassword");
-        RegistrationDataController registrationDataController = new RegistrationDataController();
         if(!registrationDataController.validateData(email, password, retypedPassword)){
-            DAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
+            mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
+            DAO clientDAO = mySqlDAOFactory.createClientDAO();
             clientDAO.addClient(email, password);
-            return "/WEB-INF/view/index.jsp";
+            return "index";
         }else{
             try {
-                throw new RegistrationException("Invalid input data to register user");
+                throw beanFactory.getBean(RegistrationException.class, "Invalid input data to register user");
             } catch (RegistrationException e) {
                 logger.error(e.getMessage());
             }
@@ -46,7 +60,7 @@ public class RegistrationController {
             if(registrationDataController.getErrorRetypedPasswordMessage() != null){
                 httpServletRequest.setAttribute("retypedPasswordError", registrationDataController.getErrorRetypedPasswordMessage());
             }
-            return "/WEB-INF/view/sighUp.jsp";
+            return "sighUp";
         }
     }
 

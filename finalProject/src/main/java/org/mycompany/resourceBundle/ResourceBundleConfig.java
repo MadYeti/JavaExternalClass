@@ -1,9 +1,12 @@
 package org.mycompany.resourceBundle;
 
 
+import org.springframework.stereotype.Component;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+@Component
 public class ResourceBundleConfig {
 
     private static String DEFAULT_LANG = "en";
@@ -12,7 +15,7 @@ public class ResourceBundleConfig {
 
     }
 
-    public static ResourceBundle getResourceBundle(String lang, String baseName){
+    public ResourceBundle getResourceBundle(String lang, String baseName){
         if(lang==null) {
             lang = DEFAULT_LANG;
         }

@@ -6,7 +6,10 @@ import org.mycompany.controllers.xmlParser.JAXBParser;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.dao.bidDAO.DAO;
+import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.factory.MySqlDAOFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -16,9 +19,19 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminBidController {
 
     private static Logger logger = Logger.getLogger(AdminBidController.class);
+    private DAOFactory mySqlDAOFactory;
+    private JAXBParser jaxbParser;
+    private BeanFactory beanFactory;
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
+    }
+
+    @Autowired
+    public AdminBidController(JAXBParser jaxbParser,
+                              BeanFactory beanFactory){
+        this.jaxbParser = jaxbParser;
+        this.beanFactory = beanFactory;
     }
 
     @GetMapping("/AdminBidController")
@@ -27,8 +40,8 @@ public class AdminBidController {
         String operation = httpServletRequest.getParameter("operation");
         try {
             int id = Integer.parseInt(bidId);
-            DAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
-            JAXBParser jaxbParser = new JAXBParser();
+            mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
+            DAO bidDAO = mySqlDAOFactory.createBidDAO();
             switch (operation){
                 case "read":
                     Bid bid = bidDAO.read(id);
@@ -48,7 +61,7 @@ public class AdminBidController {
             logger.error(e.getMessage());
             httpServletRequest.setAttribute("errorInput", true);
         }
-        return "/WEB-INF/view/adminPrivateOffice.jsp";
+        return "adminPrivateOffice";
     }
 
 }

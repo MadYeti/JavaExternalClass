@@ -9,9 +9,12 @@ import org.mycompany.exceptions.InvalidCreditCardDataException;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidDAO.BidDAO;
+import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.factory.MySqlDAOFactory;
 import org.mycompany.models.observer.Subject;
 import org.mycompany.resourceBundle.ResourceBundleConfig;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,10 +24,28 @@ import java.util.ResourceBundle;
 @Controller
 public class BuyingController {
 
+    private CreditCardDataController creditCardDataController;
+    private JAXBParser jaxbParser;
+    private DAOFactory mySqlDAOFactory;
+    private Subject subject;
+    private BeanFactory beanFactory;
+
     private static Logger logger = Logger.getLogger(BuyingController.class);
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
+    }
+
+
+    @Autowired
+    public BuyingController(CreditCardDataController creditCardDataController,
+                            JAXBParser jaxbParser,
+                            Subject subject,
+                            BeanFactory beanFactory){
+        this.creditCardDataController = creditCardDataController;
+        this.jaxbParser = jaxbParser;
+        this.subject = subject;
+        this.beanFactory = beanFactory;
     }
 
     @PostMapping("/BuyingController")
@@ -33,18 +54,17 @@ public class BuyingController {
         String creditCardNumber = httpServletRequest.getParameter("creditCardNumber");
         String creditCardExpirationDate = httpServletRequest.getParameter("creditCardDate");
         String creditCardCVVCode = httpServletRequest.getParameter("cvv");
-        CreditCardDataController creditCardDataController = new CreditCardDataController();
-        ResourceBundle resourceBundle = ResourceBundleConfig.getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
+        //ResourceBundle resourceBundle = ResourceBundleConfig.getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
+        ResourceBundle resourceBundle = beanFactory.getBean(ResourceBundleConfig.class).getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
         if(!creditCardDataController.validateCreditCardData(creditCardNumber, creditCardExpirationDate, creditCardCVVCode)){
-            BidDAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
+            mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
+            BidDAO bidDAO = mySqlDAOFactory.createBidDAO();
             bidDAO.updateBidPaymentStatus(id);
-            JAXBParser jaxbParser = new JAXBParser();
             Bid bid = jaxbParser.createObjectBasedOnXML(id);
             bid.setPaymentStatus(resourceBundle.getString("msg.paymentStatus.paid.label"));
             jaxbParser.creteXMLBasedOnObject(bid);
             Client client = (Client)httpServletRequest.getSession().getAttribute("client");
             if(client != null) {
-                Subject subject = new Subject();
                 subject.addObserver(client);
                 client.setObservable(subject);
                 subject.setMeasurements(id);
@@ -53,7 +73,7 @@ public class BuyingController {
             httpServletRequest.setAttribute("success", true);
         }else{
             try {
-                throw new InvalidCreditCardDataException("Invalid credit card data input to pay the bid");
+                throw beanFactory.getBean(InvalidCreditCardDataException.class, "Invalid credit card data input to pay the bid");
             } catch (InvalidCreditCardDataException e) {
                 logger.error(e.getMessage());
             }

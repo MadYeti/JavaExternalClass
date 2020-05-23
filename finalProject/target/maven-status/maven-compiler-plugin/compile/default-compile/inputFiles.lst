@@ -14,13 +14,11 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\SighUpPageRedirectController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\dbConnect\DBCPDataSource.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\bidDAO\DAO.java
-C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\RegistrationServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\factory\DAOFactory.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidBidDataException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\registration\RegistrationDataController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\resourceBundle\ResourceBundleConfig.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\mail\MailController.java
-C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\ResetPasswordServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Client.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\RegistrationController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\filters\LanguageFilter.java
@@ -34,6 +32,7 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BidsDetailsController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\clientDAO\ClientDAO.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\BuyingController.java
+C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\ResetPasswordController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\ResetPasswordRedirectController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\AdminPrivateOfficeRedirectController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Admin.java

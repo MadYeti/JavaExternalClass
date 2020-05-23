@@ -53,7 +53,7 @@
                         <h4 class="mb-3"><fmt:message key="msg.serviceCalculator.label"/></h4>
 
                         <div class="my-3 p-3 bg-white rounded shadow-sm">
-                            <form class="needs-validation" action="BidController" method="get">
+                            <form class="needs-validation" action="BidOrderPriceController" method="get">
                                 <div class="mb-3" style="padding-left: 0px;">
                                     <label><fmt:message key="msg.weight.label"/></label>
                                     <input type="text" class="form-control" name="weight" value="${weightValue}" id="weight" />

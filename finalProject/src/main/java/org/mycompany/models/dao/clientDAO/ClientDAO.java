@@ -6,24 +6,33 @@ import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.models.client.Admin;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.client.Customer;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+@Component
+@Scope("prototype")
 public class ClientDAO implements DAO {
 
     private Connection connection;
+    private BeanFactory beanFactory;
     private static Logger logger = Logger.getLogger(ClientDAO.class);
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
-    public ClientDAO(Connection connection){
+    @Autowired
+    public ClientDAO(Connection connection,
+                     BeanFactory beanFactory){
         this.connection = connection;
+        this.beanFactory = beanFactory;
     }
 
     @Override
@@ -35,9 +44,9 @@ public class ClientDAO implements DAO {
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 if(resultSet.getString("role").equals("admin")){
-                    client = new Admin();
+                    client = beanFactory.getBean(Admin.class);
                 }else{
-                    client = new Customer();
+                    client = beanFactory.getBean(Customer.class);
                 }
                 client.setId(resultSet.getInt("id"));
                 client.setEmail(resultSet.getString("email"));

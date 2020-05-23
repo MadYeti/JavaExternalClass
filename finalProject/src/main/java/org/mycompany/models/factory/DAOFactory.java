@@ -8,7 +8,7 @@ import java.sql.Connection;
 
 public interface DAOFactory {
 
-    ClientDAO createClientDAO(Connection connection);
-    BidDAO createBidDAO(Connection connection);
+    ClientDAO createClientDAO();
+    BidDAO createBidDAO();
 
 }

@@ -1,6 +1,9 @@
 package org.mycompany.models.bid;
 
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -8,6 +11,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Bid")
 @XmlAccessorType(XmlAccessType.FIELD)
+@Component
+@Scope("prototype")
 public class Bid {
 
     @XmlElement(name = "id")

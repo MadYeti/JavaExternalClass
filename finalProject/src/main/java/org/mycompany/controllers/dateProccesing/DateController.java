@@ -1,9 +1,12 @@
 package org.mycompany.controllers.dateProccesing;
 
+import org.springframework.stereotype.Component;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+@Component
 public class DateController {
 
     public DateController(){

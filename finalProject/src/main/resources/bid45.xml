@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>45</id>
+    <clientId>1</clientId>
+    <weight>31.0</weight>
+    <volume>31.0</volume>
+    <cargoType>Cloth</cargoType>
+    <cargoCost>31.0</cargoCost>
+    <sendingPoint>Kiev</sendingPoint>
+    <destinationPoint>Berlin</destinationPoint>
+    <arrivalDate>2020-06-05</arrivalDate>
+    <notes>31</notes>
+    <price>2882.0</price>
+    <bidStatus>processing</bidStatus>
+    <paymentStatus>paid</paymentStatus>
+</Bid>

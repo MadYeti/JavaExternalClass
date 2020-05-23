@@ -6,7 +6,10 @@ import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.ResetPasswordException;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
+import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.factory.MySqlDAOFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -15,10 +18,21 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class ResetPasswordController {
 
+    private RegistrationDataController registrationDataController;
+    private DAOFactory mySqlDAOFactory;
+    private BeanFactory beanFactory;
+
     private static Logger logger = Logger.getLogger(ResetPasswordController.class);
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
+    }
+
+    @Autowired
+    public ResetPasswordController(RegistrationDataController registrationDataController,
+                                   BeanFactory beanFactory){
+        this.registrationDataController = registrationDataController;
+        this.beanFactory = beanFactory;
     }
 
     @PostMapping("/ResetPasswordController")
@@ -26,14 +40,14 @@ public class ResetPasswordController {
         String token = httpServletRequest.getParameter("token");
         String password = httpServletRequest.getParameter("password");
         String retypedPassword = httpServletRequest.getParameter("retypedPassword");
-        RegistrationDataController registrationDataController = new RegistrationDataController();
         if(!registrationDataController.validatePasswords(password, retypedPassword)){
-            ClientDAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
+            mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
+            ClientDAO clientDAO = mySqlDAOFactory.createClientDAO();
             clientDAO.resetPasswordAndDeleteToken(password, token);
             httpServletRequest.setAttribute("resetPassword", true);
         }else{
             try {
-                throw new ResetPasswordException("Invalid password/retyped password in recovery password section");
+                throw beanFactory.getBean(ResetPasswordException.class, "Invalid password/retyped password in recovery password section");
             } catch (ResetPasswordException e) {
                 logger.error(e.getMessage());
             }
@@ -45,7 +59,7 @@ public class ResetPasswordController {
                 httpServletRequest.setAttribute("retypedPasswordError", registrationDataController.getErrorRetypedPasswordMessage());
             }
         }
-        return "/WEB-INF/view/resetPassword.jsp";
+        return "resetPassword";
     }
 
 }

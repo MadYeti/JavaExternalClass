@@ -27,10 +27,10 @@ org\mycompany\exceptions\RegistrationException.class
 org\mycompany\models\client\Admin.class
 org\mycompany\controllers\creditCard\CreditCardDataController.class
 org\mycompany\controllers\servlets\ResetPasswordRedirectController.class
+org\mycompany\controllers\servlets\ResetPasswordController.class
 org\mycompany\models\dao\bidDAO\BidDAO.class
 org\mycompany\controllers\mail\MailController.class
 org\mycompany\controllers\servlets\BidOrderPriceController.class
-org\mycompany\controllers\servlets\ResetPasswordServlet.class
 org\mycompany\controllers\servlets\AdminBidController.class
 org\mycompany\controllers\authorization\AuthorizationDataController.class
 org\mycompany\controllers\servlets\SighInPageRedirectController.class
@@ -52,4 +52,3 @@ org\mycompany\controllers\mail\MailController$1.class
 org\mycompany\exceptions\InvalidCreditCardDataException.class
 org\mycompany\controllers\filters\LocalizationFilter.class
 org\mycompany\exceptions\AuthorizationException.class
-org\mycompany\controllers\servlets\RegistrationServlet.class

@@ -16,7 +16,7 @@ public class LogoutController {
             httpSession.removeAttribute("client");
             httpSession.invalidate();
         }
-        return "/WEB-INF/view/index.jsp";
+        return "index";
     }
 
 }

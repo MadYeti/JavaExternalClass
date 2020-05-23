@@ -8,7 +8,7 @@ public class MainPageRedirectController {
 
     @GetMapping("/MainPage")
     public String getMainPage(){
-        return "/WEB-INF/view/index.jsp";
+        return "index";
     }
 
 }

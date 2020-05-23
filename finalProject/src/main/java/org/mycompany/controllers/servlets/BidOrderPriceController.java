@@ -11,8 +11,11 @@ import org.mycompany.models.bid.Bid;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.dao.bidDAO.DAO;
+import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.factory.MySqlDAOFactory;
 import org.mycompany.resourceBundle.ResourceBundleConfig;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -32,6 +35,10 @@ public class BidOrderPriceController {
     private static Properties cityDistanceProperties = new Properties();
     private static Properties cargoTypeProperties = new Properties();
     private static Logger logger = Logger.getLogger(BidOrderPriceController.class);
+    private DAOFactory mySqlDAOFactory;
+    private JAXBParser jaxbParser;
+    private Bid bid;
+    private BeanFactory beanFactory;
 
     static {
         try {
@@ -41,6 +48,15 @@ public class BidOrderPriceController {
             logger.error(e.getMessage());
         }
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
+    }
+
+    @Autowired
+    public BidOrderPriceController(JAXBParser jaxbParser,
+                                   Bid bid,
+                                   BeanFactory beanFactory){
+        this.jaxbParser = jaxbParser;
+        this.bid = bid;
+        this.beanFactory = beanFactory;
     }
 
     @GetMapping("/BidOrderPriceController")
@@ -122,7 +138,8 @@ public class BidOrderPriceController {
                 costInputError = true;
             }
         }
-        ResourceBundle resourceBundle = ResourceBundleConfig.getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
+        //ResourceBundle resourceBundle = ResourceBundleConfig.getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
+        ResourceBundle resourceBundle = beanFactory.getBean(ResourceBundleConfig.class).getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
         if (type.equals(resourceBundle.getString("msg.cargoType.field"))) {
             typeInputError = true;
         }
@@ -150,7 +167,6 @@ public class BidOrderPriceController {
             httpServletRequest.setAttribute("destinationPointValue", destinationPoint);
             httpServletRequest.setAttribute("totalPriceValue", totalPrice);
             if(httpSession.getAttribute("client") != null && submit) {
-                Bid bid = new Bid();
                 bid.addClientId(((Client) httpSession.getAttribute("client")).getId())
                         .addWeight(weightValue)
                         .addVolume(volumeValue)
@@ -164,23 +180,24 @@ public class BidOrderPriceController {
                         .addBidStatus(resourceBundle.getString("msg.bidStatus.processing.label"))
                         .addPaymentStatus(resourceBundle.getString("msg.paymentStatus.notPaid.label"))
                         .build();
-                DAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
+                mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
+                DAO bidDAO = mySqlDAOFactory.createBidDAO();
                 bidDAO.create(bid);
-                BidDAO bidDAO2 = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
-                bid.setId(bidDAO2.getLastInsertedId());
-                JAXBParser jaxbParser = new JAXBParser();
+                mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
+                BidDAO bidDAOIndex = mySqlDAOFactory.createBidDAO();
+                bid.setId(bidDAOIndex.getLastInsertedId());
                 jaxbParser.creteXMLBasedOnObject(bid);
                 String role = ((Client) httpSession.getAttribute("client")).getRole();
                 httpServletRequest.setAttribute("success", true);
-                return "/WEB-INF/view/" + role + ".jsp";
+                return role;
             }else if(httpSession.getAttribute("client") != null && !submit){
-                return "/WEB-INF/view/".concat(((Client) httpSession.getAttribute("client")).getRole()).concat(".jsp");
+                return ((Client) httpSession.getAttribute("client")).getRole();
             }else{
-                return "/WEB-INF/view/index.jsp";
+                return "index";
             }
         }else{
             try {
-                throw new InvalidBidDataException("Invalid bid data to get price or format the bid");
+                throw beanFactory.getBean(InvalidBidDataException.class, "Invalid bid data to get price or format the bid");
             } catch (InvalidBidDataException e) {
                 logger.error(e.getMessage());
             }
@@ -192,9 +209,9 @@ public class BidOrderPriceController {
             httpServletRequest.setAttribute("destinationPointInputError", destinationPointInputError);
             httpServletRequest.setAttribute("isSendingDestinationPointSame", isSendingDestinationPointSame);
             if(httpSession.getAttribute("client") != null) {
-                return "/WEB-INF/view/".concat(((Client) httpSession.getAttribute("client")).getRole()).concat(".jsp");
+                return ((Client) httpSession.getAttribute("client")).getRole();
             }else{
-                return "/WEB-INF/view/index.jsp";
+                return "index";
             }
         }
     }

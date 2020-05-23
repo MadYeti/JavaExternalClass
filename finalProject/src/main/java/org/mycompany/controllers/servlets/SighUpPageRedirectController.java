@@ -8,7 +8,7 @@ public class SighUpPageRedirectController {
 
     @GetMapping("/sighUp")
     public String getSighUpPage(){
-        return "/WEB-INF/view/sighUp.jsp";
+        return "sighUp";
     }
 
 }

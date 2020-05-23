@@ -13,9 +13,9 @@ public class AdminPageRedirectController {
     public String getAdminPage(HttpServletRequest httpServletRequest){
         HttpSession httpSession = httpServletRequest.getSession();
         if(httpSession.getAttribute("client") != null){
-            return "/WEB-INF/view/admin.jsp";
+            return "admin";
         }
-        return "error page";
+        return "notEnoughPrivilegesPage";
     }
 
 }

@@ -2,6 +2,7 @@ package org.mycompany.controllers.registration;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -10,6 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class RegistrationDataController {
 
     private String errorEmailMessage = null;

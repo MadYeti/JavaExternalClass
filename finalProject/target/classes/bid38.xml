@@ -2,15 +2,15 @@
 <Bid>
     <id>38</id>
     <clientId>1</clientId>
-    <weight>123.0</weight>
-    <volume>123.0</volume>
-    <cargoType>Health &amp; care</cargoType>
-    <cargoCost>123.0</cargoCost>
-    <sendingPoint>Beijing</sendingPoint>
-    <destinationPoint>London</destinationPoint>
-    <arrivalDate>2020-08-21</arrivalDate>
-    <notes>12312312</notes>
-    <price>12457.20</price>
+    <weight>12.0</weight>
+    <volume>12.0</volume>
+    <cargoType>Cloth</cargoType>
+    <cargoCost>12.0</cargoCost>
+    <sendingPoint>Madrid</sendingPoint>
+    <destinationPoint>Moscow</destinationPoint>
+    <arrivalDate>2020-07-01</arrivalDate>
+    <notes>123123123</notes>
+    <price>8374.0</price>
     <bidStatus>processing</bidStatus>
-    <paymentStatus>paid</paymentStatus>
+    <paymentStatus>not paid</paymentStatus>
 </Bid>

@@ -3,23 +3,33 @@ package org.mycompany.models.dao.bidDAO;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.models.bid.Bid;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+@Component
+@Scope("prototype")
 public class BidDAO implements DAO{
 
     private Connection connection;
+    private BeanFactory beanFactory;
     private static Logger logger = Logger.getLogger(BidDAO.class);
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
-    public BidDAO(Connection connection){
+    @Autowired
+    public BidDAO(Connection connection,
+                  BeanFactory beanFactory){
         this.connection = connection;
+        this.beanFactory = beanFactory;
     }
 
     @Override
@@ -62,7 +72,7 @@ public class BidDAO implements DAO{
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
-                bid = new Bid();
+                bid = beanFactory.getBean(Bid.class);
                 bid.addId(id)
                         .addClientId(resultSet.getInt("client_id"))
                         .addWeight(resultSet.getDouble("weight"))

@@ -3,6 +3,9 @@ package org.mycompany.controllers.mail;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -12,6 +15,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+@Component
+@Scope("prototype")
 public class MailController {
 
     private static Logger logger = Logger.getLogger(MailController.class);
