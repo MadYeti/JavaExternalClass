@@ -6,8 +6,8 @@ import org.mycompany.controllers.authorization.AuthorizationDataController;
 import org.mycompany.exceptions.AuthorizationException;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
-import org.mycompany.models.factory.MySqlDAOFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,19 +20,21 @@ import javax.servlet.http.HttpSession;
 public class AuthorizationController {
 
     private static Logger logger = Logger.getLogger(AuthorizationController.class);
-    private AuthorizationDataController authorizationDataController;
-    private DAOFactory mySqlDAOFactory;
+    private ControllerFactory controllerFactory;
     private BeanFactory beanFactory;
+    private DAOFactory mySqlDAOFactory;
 
     static{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
     @Autowired
-    public AuthorizationController(AuthorizationDataController authorizationDataController,
-                                   BeanFactory beanFactory){
-        this.authorizationDataController = authorizationDataController;
+    public AuthorizationController(BeanFactory beanFactory,
+                                   DAOFactory mySqlDAOFactory,
+                                   ControllerFactory controllerFactory){
         this.beanFactory = beanFactory;
+        this.mySqlDAOFactory = mySqlDAOFactory;
+        this.controllerFactory = controllerFactory;
     }
 
     @PostMapping("/AuthorizationController")
@@ -40,8 +42,8 @@ public class AuthorizationController {
         String email = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("password");
         String rememberMe = httpServletRequest.getParameter("rememberMe");
+        AuthorizationDataController authorizationDataController = controllerFactory.getAuthorizationDataController();
         if(authorizationDataController.validateData(email, password)){
-            mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
             DAO clientDAO = mySqlDAOFactory.createClientDAO();
             Client client = clientDAO.getClient(email, password);
             if(client != null){

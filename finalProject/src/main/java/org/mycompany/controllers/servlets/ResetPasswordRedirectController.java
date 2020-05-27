@@ -7,8 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ResetPasswordRedirectController {
 
-    @PostMapping("/resetPassword")
+    @GetMapping("/resetPassword")
     public String getResetPasswordPage(){
+        return "resetPassword";
+    }
+
+    @PostMapping("/resetPassword")
+    public String postResetPasswordPage(){
         return "resetPassword";
     }
 

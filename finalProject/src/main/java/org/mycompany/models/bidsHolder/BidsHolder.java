@@ -29,8 +29,4 @@ public class BidsHolder {
         bidsHolder.add(0, bid);
     }
 
-    public void removeBid(Bid bid){
-        bidsHolder.remove(bid);
-    }
-
 }

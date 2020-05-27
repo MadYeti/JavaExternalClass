@@ -1,19 +1,15 @@
 package org.mycompany.controllers.servlets;
 
-
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.dateProccesing.DateController;
 import org.mycompany.controllers.xmlParser.JAXBParser;
-import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.InvalidBidDataException;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.client.Client;
-import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.dao.bidDAO.DAO;
+import org.mycompany.models.dao.bidDAO.DAOHelper;
 import org.mycompany.models.factory.DAOFactory;
-import org.mycompany.models.factory.MySqlDAOFactory;
-import org.mycompany.resourceBundle.ResourceBundleConfig;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,82 +17,47 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Properties;
-import java.util.ResourceBundle;
 
 @Controller
 public class BidOrderPriceController {
 
-    private static Properties cityDistanceProperties = new Properties();
-    private static Properties cargoTypeProperties = new Properties();
     private static Logger logger = Logger.getLogger(BidOrderPriceController.class);
-    private DAOFactory mySqlDAOFactory;
     private JAXBParser jaxbParser;
-    private Bid bid;
     private BeanFactory beanFactory;
+    private DAOFactory mySqlDAOFactory;
 
     static {
-        try {
-            cityDistanceProperties.load(new FileReader(new File("src/main/resources/cityDistance.properties")));
-            cargoTypeProperties.load(new FileReader(new File("src/main/resources/cargoType.properties")));
-        } catch (IOException e) {
-            logger.error(e.getMessage());
-        }
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
     @Autowired
     public BidOrderPriceController(JAXBParser jaxbParser,
-                                   Bid bid,
-                                   BeanFactory beanFactory){
+                                   BeanFactory beanFactory,
+                                   DAOFactory mySqlDAOFactory){
         this.jaxbParser = jaxbParser;
-        this.bid = bid;
         this.beanFactory = beanFactory;
+        this.mySqlDAOFactory = mySqlDAOFactory;
     }
 
     @GetMapping("/BidOrderPriceController")
     public String estimateOrderBid(HttpServletRequest httpServletRequest){
-        String[] parameters = httpServletRequest.getQueryString().split("&");
-        String weight = null;
-        String volume = null;
-        String type = null;
-        String cost = null;
-        String sendingPoint = null;
-        String destinationPoint = null;
-        String notes = null;
-        boolean submit = false;
-        for(String parameter: parameters){
-            try {
-                if (parameter.contains("weight")) {
-                    weight = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("volume")) {
-                    volume = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("type")) {
-                    type = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("cost")) {
-                    cost = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("sendingPoint")) {
-                    sendingPoint = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("destinationPoint")) {
-                    destinationPoint = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("notes")) {
-                    notes = URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8");
-                } else if (parameter.contains("submit")) {
-                    submit = Boolean.valueOf(URLDecoder.decode(parameter.substring(parameter.indexOf("=") + 1), "UTF-8"));
-                }
-            }catch (UnsupportedEncodingException e){
-                logger.error(e.getMessage());
-            }
-        }
+        String weight = httpServletRequest.getParameter("weight");
+        String volume = httpServletRequest.getParameter("volume");
+        String type = httpServletRequest.getParameter("type");
+        String cost = httpServletRequest.getParameter("cost");
+        String sendingPoint = httpServletRequest.getParameter("sendingPoint");
+        String destinationPoint = httpServletRequest.getParameter("destinationPoint");
+        String notes = httpServletRequest.getParameter("notes");
+        boolean submit = Boolean.valueOf(httpServletRequest.getParameter("submit"));
         double weightValue = 0;
         double volumeValue = 0;
         double costValue = 0;
+        double transferPrice;
+        double coefficient;
         double totalPrice;
+        String typeValue;
+        String sendingPointValue;
+        String destinationPointValue;
         boolean weightInputError = false;
         boolean volumeInputError = false;
         boolean typeInputError = false;
@@ -138,53 +99,67 @@ public class BidOrderPriceController {
                 costInputError = true;
             }
         }
-        //ResourceBundle resourceBundle = ResourceBundleConfig.getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
-        ResourceBundle resourceBundle = beanFactory.getBean(ResourceBundleConfig.class).getResourceBundle((String) httpServletRequest.getSession().getAttribute("lang"), "messages");
-        if (type.equals(resourceBundle.getString("msg.cargoType.field"))) {
+        String lang = (String) httpServletRequest.getSession().getAttribute("lang");
+        if(lang == null){
+            lang = "en_EN";
+        }
+        if (type.equals("0")) {
             typeInputError = true;
+        }else{
+            httpServletRequest.setAttribute("cargoType", type);
+            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            typeValue = bidDAOHelper.getCargoTypeValue(Integer.parseInt(type), lang);
+            httpServletRequest.setAttribute("cargoTypeValue", typeValue);
         }
-        if (sendingPoint.equals(resourceBundle.getString("msg.sendingPoint.field"))) {
+        if (sendingPoint.equals("0")) {
             sendingPointInputError = true;
+        }else{
+            httpServletRequest.setAttribute("sendingPoint", sendingPoint);
+            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            sendingPointValue = bidDAOHelper.getSendingPointValue(Integer.parseInt(sendingPoint), lang);
+            httpServletRequest.setAttribute("sendingPointValue", sendingPointValue);
         }
-        if (destinationPoint.equals(resourceBundle.getString("msg.destinationPoint.field"))) {
+        if (destinationPoint.equals("0")) {
             destinationPointInputError = true;
+        }else{
+            httpServletRequest.setAttribute("destinationPoint", destinationPoint);
+            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            destinationPointValue = bidDAOHelper.getDestinationPointValue(Integer.parseInt(destinationPoint), lang);
+            httpServletRequest.setAttribute("destinationPointValue", destinationPointValue);
         }
-        if (sendingPoint.equals(destinationPoint)) {
+        if (!sendingPoint.equals("0") && !destinationPoint.equals("0") && sendingPoint.equals(destinationPoint)) {
             isSendingDestinationPointSame = true;
         }
+        httpServletRequest.setAttribute("weightValue", weightValue);
+        httpServletRequest.setAttribute("volumeValue", volumeValue);
+        httpServletRequest.setAttribute("cargoCostValue", costValue);
         if (!weightInputError && !volumeInputError && !typeInputError &&
                 !costInputError && !sendingPointInputError && !destinationPointInputError &&
                 !isSendingDestinationPointSame) {
-            String cityDistance = sendingPoint.concat("-").concat(destinationPoint);
-            totalPrice = (weightValue + volumeValue + costValue +
-                    Integer.parseInt(cityDistanceProperties.getProperty(cityDistance))) *
-                    Double.parseDouble(cargoTypeProperties.getProperty(type.replace(" ", "_")));
-            httpServletRequest.setAttribute("weightValue", weightValue);
-            httpServletRequest.setAttribute("volumeValue", volumeValue);
-            httpServletRequest.setAttribute("cargoTypeValue", type);
-            httpServletRequest.setAttribute("cargoCostValue", cost);
-            httpServletRequest.setAttribute("sendingPointValue", sendingPoint);
-            httpServletRequest.setAttribute("destinationPointValue", destinationPoint);
+            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            transferPrice = bidDAOHelper.getPriceAccordingToCityDistance(Integer.parseInt(sendingPoint), Integer.parseInt(destinationPoint));
+            DAOHelper bidDAOHelper2 = mySqlDAOFactory.createBidDAO();
+            coefficient = bidDAOHelper2.getCargoTypeCoefficient(Integer.parseInt(type));
+            totalPrice = (weightValue + volumeValue + costValue + transferPrice) * coefficient;
             httpServletRequest.setAttribute("totalPriceValue", totalPrice);
             if(httpSession.getAttribute("client") != null && submit) {
+                Bid bid = beanFactory.getBean(Bid.class);
                 bid.addClientId(((Client) httpSession.getAttribute("client")).getId())
                         .addWeight(weightValue)
                         .addVolume(volumeValue)
-                        .addCargoType(type)
+                        .addCargoType(Integer.parseInt(type))
                         .addCargoCost(costValue)
-                        .addSendingPoint(sendingPoint)
-                        .addDestinationPoint(destinationPoint)
-                        .addArrivalDate(DateController.getArrivalDate(Integer.parseInt(cityDistanceProperties.getProperty(cityDistance))))
+                        .addSendingPoint(Integer.parseInt(sendingPoint))
+                        .addDestinationPoint(Integer.parseInt(destinationPoint))
+                        .addArrivalDate(DateController.getArrivalDate((int)transferPrice))
                         .addNotes(notes)
                         .addPrice(totalPrice)
-                        .addBidStatus(resourceBundle.getString("msg.bidStatus.processing.label"))
-                        .addPaymentStatus(resourceBundle.getString("msg.paymentStatus.notPaid.label"))
+                        .addBidStatus(1)
+                        .addPaymentStatus(1)
                         .build();
-                mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
                 DAO bidDAO = mySqlDAOFactory.createBidDAO();
                 bidDAO.create(bid);
-                mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
-                BidDAO bidDAOIndex = mySqlDAOFactory.createBidDAO();
+                DAOHelper bidDAOIndex = mySqlDAOFactory.createBidDAO();
                 bid.setId(bidDAOIndex.getLastInsertedId());
                 jaxbParser.creteXMLBasedOnObject(bid);
                 String role = ((Client) httpSession.getAttribute("client")).getRole();

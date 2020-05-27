@@ -11,26 +11,22 @@ import org.springframework.stereotype.Component;
 import java.sql.Connection;
 
 @Component
-@Scope("prototype")
 public class MySqlDAOFactory implements DAOFactory{
 
-    private Connection connection;
     private BeanFactory beanFactory;
 
     @Autowired
-    public MySqlDAOFactory(Connection connection,
-                           BeanFactory beanFactory){
-        this.connection = connection;
+    public MySqlDAOFactory(BeanFactory beanFactory){
         this.beanFactory = beanFactory;
     }
 
     @Override
     public ClientDAO createClientDAO() {
-        return beanFactory.getBean(ClientDAO.class, connection, beanFactory);
+        return beanFactory.getBean(ClientDAO.class);
     }
 
     @Override
     public BidDAO createBidDAO() {
-        return beanFactory.getBean(BidDAO.class, connection, beanFactory);
+        return beanFactory.getBean(BidDAO.class);
     }
 }

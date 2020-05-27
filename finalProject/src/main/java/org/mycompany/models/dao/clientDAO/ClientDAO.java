@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
 @Component
 @Scope("prototype")
-public class ClientDAO implements DAO {
+public class ClientDAO implements DAO, DAOHelper {
 
     private Connection connection;
     private BeanFactory beanFactory;
@@ -94,6 +94,7 @@ public class ClientDAO implements DAO {
         }
     }
 
+    @Override
     public String createToken(String email){
         String token = null;
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.CREATETOKEN.QUERY)){
@@ -119,6 +120,7 @@ public class ClientDAO implements DAO {
         return token;
     }
 
+    @Override
     public void resetPasswordAndDeleteToken(String password, String token){
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.RESETPASSWORD.QUERY)){
             preparedStatement.setString(1, RegistrationDataController.getHash(password));
@@ -146,7 +148,7 @@ public class ClientDAO implements DAO {
     }
 
     enum SQLQuery{
-        INSERTCLIENT("INSERT INTO clients (email, password, role) VALUES ((?), (?), 'customer')"),
+        INSERTCLIENT("INSERT INTO clients (email, password, role, token) VALUES ((?), (?), 'customer', '')"),
         SELECTCLIENT("SELECT * FROM clients WHERE email = (?) AND password = (?)"),
         CREATETOKEN("UPDATE clients SET token = (?) WHERE email = (?)"),
         RESETPASSWORD("UPDATE clients SET password = (?) WHERE token = (?)"),

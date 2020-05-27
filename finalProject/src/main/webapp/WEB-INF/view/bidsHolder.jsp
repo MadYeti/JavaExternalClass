@@ -51,7 +51,7 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.cargoType.label"/></td>
-                                        <td>${bids.cargoType}</td>
+                                        <td>${bids.cargoTypeValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.cargoCost.label"/></td>
@@ -59,11 +59,11 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.sendingPoint.label"/></td>
-                                        <td>${bids.sendingPoint}</td>
+                                        <td>${bids.sendingPointValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.destinationPoint.label"/></td>
-                                        <td>${bids.destinationPoint}</td>
+                                        <td>${bids.destinationPointValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.arrivalDate.label"/></td>
@@ -79,17 +79,17 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.bidStatus.label"/></td>
-                                        <td>${bids.bidStatus}</td>
+                                        <td>${bids.bidStatusValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.paymentStatus.label"/></td>
-                                        <td>${bids.paymentStatus}</td>
+                                        <td>${bids.paymentStatusValue}</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <fmt:message key="msg.paymentStatus.notPaid.label" var="notPaidPaymentStatus"/>
-                                <c:if test = "${bids.paymentStatus eq notPaidPaymentStatus}">
+                                <c:if test = "${bids.paymentStatus eq '1'}">
                                     <a href="/buyingPage?pay=${bids.id}"><button class="btn btn-lg btn-block btn-primary" style="width: 120;" type="submit" name="pay" value="${bids.id}"><fmt:message key="msg.payBid.button"/></button></a>
                                 </c:if>
                             </div>

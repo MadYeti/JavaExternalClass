@@ -54,7 +54,7 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.cargoType.label"/></td>
-                                        <td>${bid.cargoType}</td>
+                                        <td>${bid.cargoTypeValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.cargoCost.label"/></td>
@@ -62,11 +62,11 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.sendingPoint.label"/></td>
-                                        <td>${bid.sendingPoint}</td>
+                                        <td>${bid.sendingPointValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.destinationPoint.label"/></td>
-                                        <td>${bid.destinationPoint}</td>
+                                        <td>${bid.destinationPointValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.arrivalDate.label"/></td>
@@ -82,11 +82,11 @@
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.bidStatus.label"/></td>
-                                        <td>${bid.bidStatus}</td>
+                                        <td>${bid.bidStatusValue}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.paymentStatus.label"/></td>
-                                        <td>${bid.paymentStatus}</td>
+                                        <td>${bid.paymentStatusValue}</td>
                                     </tr>
                                 </table>
                             </div>

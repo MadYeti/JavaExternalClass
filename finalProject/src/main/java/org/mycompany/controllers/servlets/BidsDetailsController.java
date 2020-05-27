@@ -15,25 +15,27 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class BidsDetailsController {
 
-    private Repository bidsHolderImpl;
-    private BidsHolder bidsHolder;
     private BeanFactory beanFactory;
 
     @Autowired
-    public BidsDetailsController(BidsHolder bidsHolder,
-                                 BeanFactory beanFactory){
-        this.bidsHolder = bidsHolder;
+    public BidsDetailsController(BeanFactory beanFactory){
         this.beanFactory = beanFactory;
     }
 
     @GetMapping("/BidsDetailsController")
     public String getAllOrderedBids(HttpServletRequest httpServletRequest){
         HttpSession httpSession = httpServletRequest.getSession();
-        int id = ((Client)httpSession.getAttribute("client")).getId();
-        bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
-        bidsHolder.setBidsHolder(bidsHolderImpl.getWholeBidHistory(id));
-        httpSession.setAttribute("bidsHolder", bidsHolder);
-        return "bidsHolder";
+        if(httpSession.getAttribute("client") != null) {
+            int id = ((Client) httpSession.getAttribute("client")).getId();
+            String lang = (String) httpServletRequest.getSession().getAttribute("lang");
+            Repository bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
+            ((BidsHolderImpl) bidsHolderImpl).setLang(lang);
+            BidsHolder bidsHolder = beanFactory.getBean(BidsHolder.class);
+            bidsHolder.setBidsHolder(bidsHolderImpl.getWholeBidHistory(id));
+            httpSession.setAttribute("bidsHolder", bidsHolder);
+            return "bidsHolder";
+        }
+        return "notEnoughPrivilegesPage";
     }
 
 }

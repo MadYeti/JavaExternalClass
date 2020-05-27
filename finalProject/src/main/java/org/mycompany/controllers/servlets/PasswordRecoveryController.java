@@ -4,9 +4,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.authorization.AuthorizationDataController;
 import org.mycompany.controllers.mail.MailController;
-import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.InvalidEmailInputForPasswordRecoveryException;
-import org.mycompany.models.dao.clientDAO.ClientDAO;
+import org.mycompany.models.dao.clientDAO.DAOHelper;
+import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.factory.MySqlDAOFactory;
 import org.springframework.beans.factory.BeanFactory;
@@ -19,8 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class PasswordRecoveryController {
 
-    private DAOFactory mySqlDAOFactory;
     private BeanFactory beanFactory;
+    private DAOFactory mySqlDAOFactory;
+    private ControllerFactory controllerFactory;
 
     private static Logger logger = Logger.getLogger(PasswordRecoveryController.class);
 
@@ -29,18 +30,21 @@ public class PasswordRecoveryController {
     }
 
     @Autowired
-    public PasswordRecoveryController(BeanFactory beanFactory){
+    public PasswordRecoveryController(BeanFactory beanFactory,
+                                      DAOFactory mySqlDAOFactory,
+                                      ControllerFactory controllerFactory){
         this.beanFactory = beanFactory;
+        this.mySqlDAOFactory = mySqlDAOFactory;
+        this.controllerFactory = controllerFactory;
     }
 
     @PostMapping("/PasswordRecoveryController")
     public String getPasswordRecoveryInstruction(HttpServletRequest httpServletRequest){
         String email = httpServletRequest.getParameter("email");
         if(AuthorizationDataController.validateEmail(email)){
-            mySqlDAOFactory = beanFactory.getBean(MySqlDAOFactory.class);
-            ClientDAO clientDAO = mySqlDAOFactory.createClientDAO();
+            DAOHelper clientDAO = mySqlDAOFactory.createClientDAO();
             String token = clientDAO.createToken(email);
-            MailController mailController = beanFactory.getBean(MailController.class, email, token);
+            MailController mailController = controllerFactory.getMailController(email, token);
             mailController.sendPasswordRecoveryEmail();
         }else{
             try {

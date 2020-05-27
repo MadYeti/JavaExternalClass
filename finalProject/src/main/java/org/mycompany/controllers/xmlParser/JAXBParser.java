@@ -13,7 +13,6 @@ import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
 @Component
-@Scope("prototype")
 public class JAXBParser {
 
     private static Logger logger = Logger.getLogger(JAXBParser.class);

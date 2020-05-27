@@ -753,3 +753,265 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-23 15:30:35 ERROR    BidDAO:186 - Connection is null.
 2020-05-23 15:30:35 ERROR    BidDAO:190 - Connection is null.
 2020-05-23 15:36:15 ERROR    PasswordRecoveryController:49 - Invalid email input
+2020-05-24 15:13:51 ERROR    BidOrderPriceController:203 - Invalid bid data to get price or format the bid
+2020-05-24 15:17:48 ERROR    BidOrderPriceController:116 - empty String
+2020-05-24 15:17:48 ERROR    BidOrderPriceController:127 - empty String
+2020-05-24 15:17:48 ERROR    BidOrderPriceController:138 - empty String
+2020-05-24 15:17:48 ERROR    BidOrderPriceController:203 - Invalid bid data to get price or format the bid
+2020-05-24 15:17:59 ERROR    BidOrderPriceController:116 - empty String
+2020-05-24 15:17:59 ERROR    BidOrderPriceController:127 - empty String
+2020-05-24 15:17:59 ERROR    BidOrderPriceController:138 - empty String
+2020-05-24 15:17:59 ERROR    BidOrderPriceController:203 - Invalid bid data to get price or format the bid
+2020-05-24 15:19:26 ERROR    BidOrderPriceController:116 - empty String
+2020-05-24 15:19:26 ERROR    BidOrderPriceController:127 - empty String
+2020-05-24 15:19:26 ERROR    BidOrderPriceController:138 - empty String
+2020-05-24 15:19:26 ERROR    BidOrderPriceController:203 - Invalid bid data to get price or format the bid
+2020-05-24 15:19:32 ERROR    BidOrderPriceController:116 - empty String
+2020-05-24 15:19:32 ERROR    BidOrderPriceController:127 - empty String
+2020-05-24 15:19:32 ERROR    BidOrderPriceController:138 - empty String
+2020-05-24 15:19:32 ERROR    BidOrderPriceController:203 - Invalid bid data to get price or format the bid
+2020-05-24 18:29:21 ERROR    BidOrderPriceController:106 - empty String
+2020-05-24 18:29:21 ERROR    BidOrderPriceController:117 - empty String
+2020-05-24 18:29:21 ERROR    BidOrderPriceController:128 - empty String
+2020-05-24 18:29:21 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-24 18:29:33 ERROR    BidOrderPriceController:128 - For input string: "asd"
+2020-05-24 18:29:33 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-24 18:29:43 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (4)' at line 1
+2020-05-24 18:30:10 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-24 18:30:21 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (1)' at line 1
+2020-05-24 18:36:11 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (11)' at line 1
+2020-05-24 18:36:15 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-24 18:36:32 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (9)' at line 1
+2020-05-24 18:36:32 ERROR    BidDAO:53 - Unknown column 'cargo_type' in 'field list'
+2020-05-24 18:36:36 ERROR    BidsHolderImpl:63 - Column 'cargo_type' not found.
+2020-05-24 18:36:38 ERROR    BidsHolderImpl:63 - Column 'cargo_type' not found.
+2020-05-24 18:44:34 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (11)' at line 1
+2020-05-25 01:07:56 ERROR    BidsHolderImpl:108 - Operation not allowed after ResultSet closed
+2020-05-25 01:08:36 ERROR    BidsHolderImpl:108 - Operation not allowed after ResultSet closed
+2020-05-25 01:12:48 ERROR    BidsHolderImpl:108 - Column 'type_en_EN' not found.
+2020-05-25 01:22:12 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 01:22:55 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 01:24:40 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 01:25:46 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 01:29:21 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 01:38:06 ERROR    BidsHolderImpl:108 - Column 'type_en_EN' not found.
+2020-05-25 01:39:45 ERROR    BidsHolderImpl:108 - Column 'type_en_EN' not found.
+2020-05-25 01:40:56 ERROR    BidsHolderImpl:108 - Column 'type_en_EN' not found.
+2020-05-25 11:31:52 ERROR    BidsHolderImpl:108 - Column 'type_en_EN' not found.
+2020-05-25 11:33:36 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 11:37:35 ERROR    BidsHolderImpl:109 - Column 'type_en_EN' not found.
+2020-05-25 11:39:45 ERROR    BidsHolderImpl:110 - Operation not allowed after ResultSet closed
+2020-05-25 12:07:18 ERROR    AdminBidController:61 - For input string: ""
+2020-05-25 12:32:50 ERROR    AdminBidController:60 - Column 'type_null' not found.
+2020-05-25 12:36:59 ERROR    AdminBidController:66 - Column 'type_null' not found.
+2020-05-25 15:22:06 ERROR    BidOrderPriceController:106 - empty String
+2020-05-25 15:22:06 ERROR    BidOrderPriceController:117 - empty String
+2020-05-25 15:22:06 ERROR    BidOrderPriceController:128 - empty String
+2020-05-25 15:22:06 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-25 15:22:18 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (7)' at line 1
+2020-05-25 15:22:57 ERROR    BidOrderPriceController:106 - empty String
+2020-05-25 15:22:57 ERROR    BidOrderPriceController:117 - empty String
+2020-05-25 15:22:57 ERROR    BidOrderPriceController:128 - empty String
+2020-05-25 15:22:57 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-25 15:23:07 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (3)' at line 1
+2020-05-25 15:23:33 ERROR    BidOrderPriceController:196 - Invalid bid data to get price or format the bid
+2020-05-25 15:23:41 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (4)' at line 1
+2020-05-25 15:33:01 ERROR    BidOrderPriceController:81 - empty String
+2020-05-25 15:33:01 ERROR    BidOrderPriceController:92 - empty String
+2020-05-25 15:33:01 ERROR    BidOrderPriceController:103 - empty String
+2020-05-25 15:33:01 ERROR    BidOrderPriceController:169 - Invalid bid data to get price or format the bid
+2020-05-25 15:40:45 ERROR    BidOrderPriceController:76 - empty String
+2020-05-25 15:40:45 ERROR    BidOrderPriceController:87 - empty String
+2020-05-25 15:40:45 ERROR    BidOrderPriceController:98 - empty String
+2020-05-25 15:40:45 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-25 15:40:58 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (2)' at line 1
+2020-05-25 15:41:02 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-25 15:41:16 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (11)' at line 1
+2020-05-25 15:41:22 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-25 15:41:56 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (12)' at line 1
+2020-05-25 15:42:33 ERROR    BidDAO:237 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ANDdestination_point_id = (11)' at line 1
+2020-05-25 15:43:04 ERROR    BidDAO:210 - Unknown column 'payment_status' in 'field list'
+2020-05-25 16:00:43 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:00:48 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:00:58 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:01:15 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:01:16 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:02:41 ERROR    BidDAO:128 - Cannot add or update a child row: a foreign key constraint fails (`cargo`.`bids`, CONSTRAINT `bids_ibfk_2` FOREIGN KEY (`cargo_type_id`) REFERENCES `cargo_type` (`id`))
+2020-05-25 16:09:00 ERROR    BidDAO:128 - Cannot add or update a child row: a foreign key constraint fails (`cargo`.`bids`, CONSTRAINT `bids_ibfk_2` FOREIGN KEY (`cargo_type_id`) REFERENCES `cargo_type` (`id`))
+2020-05-25 16:13:47 ERROR    BidDAO:129 - Cannot add or update a child row: a foreign key constraint fails (`cargo`.`bids`, CONSTRAINT `bids_ibfk_2` FOREIGN KEY (`cargo_type_id`) REFERENCES `cargo_type` (`id`))
+2020-05-25 16:22:21 ERROR    PasswordRecoveryController:49 - Invalid email input
+2020-05-25 16:25:02 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:25:13 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:25:22 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:25:27 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:25:50 ERROR    RegistrationController:52 - Invalid input data to register user
+2020-05-25 16:29:37 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:30:03 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:32:42 ERROR    ClientDAO:82 - Field 'token' doesn't have a default value
+2020-05-25 16:34:10 ERROR    ClientDAO:82 - Field 'token' doesn't have a default value
+2020-05-25 16:35:39 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:35:44 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:35:52 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:36:04 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:37:42 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:37:50 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:37:57 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:38:03 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:39:23 ERROR    ClientDAO:82 - Field 'token' doesn't have a default value
+2020-05-25 16:41:02 ERROR    ClientDAO:82 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''' at line 1
+2020-05-25 16:42:40 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:42:42 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:42:45 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:42:46 ERROR    RegistrationController:53 - Invalid input data to register user
+2020-05-25 16:44:34 ERROR    RegistrationController:54 - Invalid input data to register user
+2020-05-25 16:44:38 ERROR    RegistrationController:54 - Invalid input data to register user
+2020-05-25 16:44:44 ERROR    RegistrationController:54 - Invalid input data to register user
+2020-05-25 16:45:12 ERROR    RegistrationController:54 - Invalid input data to register user
+2020-05-25 16:45:21 ERROR    RegistrationController:54 - Invalid input data to register user
+2020-05-25 16:45:39 ERROR    BuyingController:73 - Invalid credit card data input to pay the bid
+2020-05-25 16:45:50 ERROR    BuyingController:73 - Invalid credit card data input to pay the bid
+2020-05-25 16:45:52 ERROR    BuyingController:73 - Invalid credit card data input to pay the bid
+2020-05-25 16:53:31 ERROR    BidOrderPriceController:76 - empty String
+2020-05-25 16:53:31 ERROR    BidOrderPriceController:87 - empty String
+2020-05-25 16:53:31 ERROR    BidOrderPriceController:98 - empty String
+2020-05-25 16:53:31 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-25 16:54:01 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-25 18:20:20 ERROR    BidOrderPriceController:76 - empty String
+2020-05-25 18:20:20 ERROR    BidOrderPriceController:87 - empty String
+2020-05-25 18:20:20 ERROR    BidOrderPriceController:98 - empty String
+2020-05-25 18:20:20 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-26 13:42:21 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:04:12 ERROR    BidOrderPriceController:72 - empty String
+2020-05-26 14:04:12 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:04:12 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:04:12 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:07:24 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:07:24 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:07:24 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:07:29 ERROR    BidOrderPriceController:72 - For input string: "f"
+2020-05-26 14:07:29 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:07:29 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:07:29 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:09:03 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:09:03 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:09:03 ERROR    BidOrderPriceController:169 - Invalid bid data to get price or format the bid
+2020-05-26 14:09:29 ERROR    BidOrderPriceController:169 - Invalid bid data to get price or format the bid
+2020-05-26 14:11:43 ERROR    BidOrderPriceController:72 - empty String
+2020-05-26 14:11:43 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:11:43 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:11:43 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-26 14:11:54 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:11:54 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:11:54 ERROR    BidOrderPriceController:164 - Invalid bid data to get price or format the bid
+2020-05-26 14:13:12 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:13:12 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:13:12 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:13:29 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:13:29 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:13:36 ERROR    BidOrderPriceController:72 - For input string: "qweq"
+2020-05-26 14:13:36 ERROR    BidOrderPriceController:83 - For input string: "we"
+2020-05-26 14:13:36 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:13:36 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:13:42 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:13:48 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:13:50 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:15:28 ERROR    BidOrderPriceController:72 - empty String
+2020-05-26 14:15:28 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:15:28 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:15:28 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:17:39 ERROR    BidOrderPriceController:83 - empty String
+2020-05-26 14:17:39 ERROR    BidOrderPriceController:94 - empty String
+2020-05-26 14:17:39 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:17:45 ERROR    BidOrderPriceController:72 - For input string: "rwer"
+2020-05-26 14:17:45 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:19:48 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:19:56 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:20:02 ERROR    BidOrderPriceController:83 - For input string: "dbd"
+2020-05-26 14:20:02 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:20:25 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:20:47 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:21:03 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:21:20 ERROR    BidOrderPriceController:94 - For input string: "12t"
+2020-05-26 14:21:20 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:23:37 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:24:41 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:26:01 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:26:06 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:26:23 ERROR    BidOrderPriceController:161 - Invalid bid data to get price or format the bid
+2020-05-26 14:49:02 ERROR    BidOrderPriceController:160 - Invalid bid data to get price or format the bid
+2020-05-26 15:29:42 ERROR    BidOrderPriceController:73 - empty String
+2020-05-26 15:29:42 ERROR    BidOrderPriceController:84 - empty String
+2020-05-26 15:29:42 ERROR    BidOrderPriceController:95 - empty String
+2020-05-26 15:29:42 ERROR    BidOrderPriceController:158 - Invalid bid data to get price or format the bid
+2020-05-26 17:40:51 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:41:02 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:41:09 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:41:16 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:44:52 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:44:59 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:45:13 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:45:15 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:45:21 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:45:32 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:46:09 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:46:23 ERROR    BidOrderPriceController:73 - For input string: "we"
+2020-05-26 17:46:23 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:46:32 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:47:39 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:47:46 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:48:36 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:49:46 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:49:56 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:55:03 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:55:19 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:55:38 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:55:49 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:56:51 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 17:57:13 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 18:04:54 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 18:04:59 ERROR    BidOrderPriceController:171 - Invalid bid data to get price or format the bid
+2020-05-26 18:53:25 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 18:53:39 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 18:59:28 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 18:59:43 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 18:59:47 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 19:00:58 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 19:33:03 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 19:34:35 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-26 19:34:38 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-27 23:09:06 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-27 23:09:11 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-27 23:09:16 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-27 23:09:20 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-27 23:09:25 ERROR    BidOrderPriceController:172 - Invalid bid data to get price or format the bid
+2020-05-27 23:16:38 ERROR    BidOrderPriceController:173 - Invalid bid data to get price or format the bid
+2020-05-27 23:16:44 ERROR    BidOrderPriceController:173 - Invalid bid data to get price or format the bid
+2020-05-27 23:16:48 ERROR    BidOrderPriceController:173 - Invalid bid data to get price or format the bid
+2020-05-27 23:22:57 ERROR    BidOrderPriceController:174 - Invalid bid data to get price or format the bid
+2020-05-27 23:23:01 ERROR    BidOrderPriceController:174 - Invalid bid data to get price or format the bid
+2020-05-27 23:23:27 ERROR    BidOrderPriceController:174 - Invalid bid data to get price or format the bid
+2020-05-27 23:23:31 ERROR    BidOrderPriceController:174 - Invalid bid data to get price or format the bid
+2020-05-27 23:23:33 ERROR    BidOrderPriceController:174 - Invalid bid data to get price or format the bid
+2020-05-27 23:23:34 ERROR    BidOrderPriceController:174 - Invalid bid data to get price or format the bid
+2020-05-27 23:30:56 ERROR    BidOrderPriceController:98 - For input string: "e"
+2020-05-27 23:30:56 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:31:02 ERROR    BidOrderPriceController:98 - For input string: "0.0f4"
+2020-05-27 23:31:02 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:31:20 ERROR    BidOrderPriceController:87 - For input string: "23e"
+2020-05-27 23:31:20 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:02 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:06 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:08 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:13 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:18 ERROR    BidOrderPriceController:98 - For input string: "e"
+2020-05-27 23:50:19 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:34 ERROR    BidOrderPriceController:76 - empty String
+2020-05-27 23:50:34 ERROR    BidOrderPriceController:87 - empty String
+2020-05-27 23:50:34 ERROR    BidOrderPriceController:98 - empty String
+2020-05-27 23:50:34 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:37 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:43 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:45 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:48 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-27 23:50:56 ERROR    BidOrderPriceController:98 - For input string: "e"
+2020-05-27 23:50:56 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
