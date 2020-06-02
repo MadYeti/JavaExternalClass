@@ -2,23 +2,26 @@ package org.mycompany.models.dao.bidDAO;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.mycompany.models.bid.Bid;
-import org.springframework.beans.factory.BeanFactory;
+import org.mycompany.models.cargoType.CargoType;
+import org.mycompany.models.cityDistance.CityDistance;
+import org.mycompany.models.destinationPoint.DestinationPoint;
+import org.mycompany.models.sendingPoint.SendingPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.persistence.Query;
+import javax.persistence.criteria.*;
 
 @Component
 @Scope("prototype")
 public class BidDAO implements DAO, DAOHelper{
 
-    private Connection connection;
-    private BeanFactory beanFactory;
+    private SessionFactory sessionFactory;
     private static Logger logger = Logger.getLogger(BidDAO.class);
 
     static{
@@ -26,227 +29,115 @@ public class BidDAO implements DAO, DAOHelper{
     }
 
     @Autowired
-    public BidDAO(Connection connection,
-                  BeanFactory beanFactory){
-        this.connection = connection;
-        this.beanFactory = beanFactory;
+    public BidDAO(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
     }
 
     @Override
     public void create(Bid bid) {
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.INSERTBID.QUERY)){
-            preparedStatement.setInt(1, bid.getClientId());
-            preparedStatement.setDouble(2, bid.getWeight());
-            preparedStatement.setDouble(3, bid.getVolume());
-            preparedStatement.setInt(4, bid.getCargoType());
-            preparedStatement.setDouble(5, bid.getCargoCost());
-            preparedStatement.setInt(6, bid.getSendingPoint());
-            preparedStatement.setInt(7, bid.getDestinationPoint());
-            preparedStatement.setString(8, bid.getArrivalDate());
-            preparedStatement.setString(9, bid.getNotes());
-            preparedStatement.setDouble(10, bid.getPrice());
-            preparedStatement.setInt(11, bid.getBidStatus());
-            preparedStatement.setInt(12, bid.getPaymentStatus());
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }catch (SQLException e){
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.save(bid);
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
     }
 
     @Override
     public Bid read(int id) {
         Bid bid = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.SELECTBID.QUERY)){
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                bid = beanFactory.getBean(Bid.class);
-                bid.addId(id)
-                        .addClientId(resultSet.getInt("client_id"))
-                        .addWeight(resultSet.getDouble("weight"))
-                        .addVolume(resultSet.getDouble("volume"))
-                        .addCargoType(resultSet.getInt("cargo_type_id"))
-                        .addCargoCost(resultSet.getDouble("cargo_cost"))
-                        .addSendingPoint(resultSet.getInt("sending_point_id"))
-                        .addDestinationPoint(resultSet.getInt("destination_point_id"))
-                        .addArrivalDate(resultSet.getString("arrival_date"))
-                        .addNotes(resultSet.getString("notes"))
-                        .addPrice(resultSet.getDouble("price"))
-                        .addBidStatus(resultSet.getInt("bid_status_id"))
-                        .addPaymentStatus(resultSet.getInt("payment_status_id"))
-                        .build();
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            bid = session.get(Bid.class, id);
+            if(bid != null) {
+                Hibernate.initialize(bid.getClient());
+                Hibernate.initialize(bid.getCargoType());
+                Hibernate.initialize(bid.getSendingPoint());
+                Hibernate.initialize(bid.getDestinationPoint());
+                Hibernate.initialize(bid.getBidStatus());
+                Hibernate.initialize(bid.getPaymentStatus());
             }
-            connection.commit();
-        }catch (SQLException e){
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return bid;
     }
 
     @Override
     public void update(Bid bid) {
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.UPDATEBID.QUERY)){
-            preparedStatement.setInt(1, bid.getClientId());
-            preparedStatement.setDouble(2, bid.getWeight());
-            preparedStatement.setDouble(3, bid.getVolume());
-            preparedStatement.setInt(4, bid.getCargoType());
-            preparedStatement.setDouble(5, bid.getCargoCost());
-            preparedStatement.setInt(6, bid.getSendingPoint());
-            preparedStatement.setInt(7, bid.getDestinationPoint());
-            preparedStatement.setString(8, bid.getArrivalDate());
-            preparedStatement.setString(9, bid.getNotes());
-            preparedStatement.setDouble(10, bid.getPrice());
-            preparedStatement.setInt(11, bid.getBidStatus());
-            preparedStatement.setInt(12, bid.getPaymentStatus());
-            preparedStatement.setInt(13, bid.getId());
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }catch (SQLException e){
-            e.printStackTrace();
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.update(bid);
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
     }
 
     @Override
     public void delete(Bid bid) {
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.DELETEBID.QUERY)){
-            preparedStatement.setInt(1, bid.getId());
-            preparedStatement.setInt(2, bid.getClientId());
-            preparedStatement.setDouble(3, bid.getWeight());
-            preparedStatement.setDouble(4, bid.getVolume());
-            preparedStatement.setInt(5, bid.getCargoType());
-            preparedStatement.setDouble(6, bid.getCargoCost());
-            preparedStatement.setInt(7, bid.getSendingPoint());
-            preparedStatement.setInt(8, bid.getDestinationPoint());
-            preparedStatement.setString(9, bid.getArrivalDate());
-            preparedStatement.setString(10, bid.getNotes());
-            preparedStatement.setDouble(11, bid.getPrice());
-            preparedStatement.setInt(12, bid.getBidStatus());
-            preparedStatement.setInt(13, bid.getPaymentStatus());
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }catch (SQLException e){
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.delete(bid);
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
     }
 
     @Override
     public int getLastInsertedId(){
         int result = 0;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.GETLASTINSERTEDID.QUERY)){
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                result = resultSet.getInt("MAX(id)");
-            }
-            connection.commit();
-        }catch (SQLException e){
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<Bid> root = criteriaQuery.from(Bid.class);
+            criteriaQuery.select(criteriaBuilder.max(root.get("id")));
+            Query query = session.createQuery(criteriaQuery);
+            result = (Integer)query.getSingleResult();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return result;
     }
 
     @Override
     public void updateBidPaymentStatus(int id){
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.UPDATEBIDPAYMENTSTATUS.QUERY)){
-            preparedStatement.setInt(1, id);
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }catch (SQLException e){
-            logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
+        try(Session session = sessionFactory.openSession()){
+            /*
+            session.beginTransaction();
+            CriteriaBuilderImpl criteriaBuilderImpl = new CriteriaBuilderImpl();
+            CriteriaUpdate<Bid> criteriaUpdate = criteriaBuilderImpl.createCriteriaUpdate(Bid.class);
+            Root<Bid> root = criteriaUpdate.from(Bid.class);
+            criteriaUpdate.set(root.get("payment_status_id"), 2);
+            criteriaUpdate.where(criteriaBuilderImpl.equal(root.get("id"), id));
+            Query query = session.createQuery(criteriaUpdate);
+            query.executeUpdate();
+            session.getTransaction().commit();*/
         }
     }
 
     @Override
-    public double getPriceAccordingToCityDistance(int sendingCityId, int destinationCityId) {
+    public double getPriceAccordingToCityDistance(int sendingPoint, int destinationPoint) {
         double result = 0;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.GETPRICE.QUERY)){
-            preparedStatement.setInt(1, sendingCityId);
-            preparedStatement.setInt(2, destinationCityId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                result = resultSet.getDouble("price");
-            }
-            connection.commit();
-        }catch (SQLException e){
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<CityDistance> root = criteriaQuery.from(CityDistance.class);
+            Predicate predicateForSendingPoint = criteriaBuilder.equal(root.get("sendingPointId"), sendingPoint);
+            Predicate predicateForDestinationPoint = criteriaBuilder.equal(root.get("destinationPointId"), destinationPoint);
+            Predicate finalPredicate = criteriaBuilder.and(predicateForSendingPoint, predicateForDestinationPoint);
+            criteriaQuery.select(root.get("price"));
+            criteriaQuery.where(finalPredicate);
+            Query query = session.createQuery(criteriaQuery);
+            result = (Double)query.getSingleResult();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return result;
     }
@@ -254,26 +145,18 @@ public class BidDAO implements DAO, DAOHelper{
     @Override
     public double getCargoTypeCoefficient(int cargoTypeId) {
         double result = 0;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.GETCOEFFICIENT.QUERY)){
-            preparedStatement.setInt(1, cargoTypeId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                result = resultSet.getDouble("coefficient");
-            }
-            connection.commit();
-        }catch (SQLException e){
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<CargoType> root = criteriaQuery.from(CargoType.class);
+            criteriaQuery.select(root.get("coefficient"));
+            criteriaQuery.where(criteriaBuilder.equal(root.get("id"), cargoTypeId));
+            Query query = session.createQuery(criteriaQuery);
+            result = (Double)query.getSingleResult();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return result;
     }
@@ -281,26 +164,23 @@ public class BidDAO implements DAO, DAOHelper{
     @Override
     public String getCargoTypeValue(int id, String lang) {
         String result = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.GETCARGOTYPEVALUE.QUERY)){
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                result = resultSet.getString("type_" + lang);
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<CargoType> root = criteriaQuery.from(CargoType.class);
+            if(lang == null){
+                criteriaQuery.select(root.get("cargoTypeEN"));
+            }else{
+                String[] langArray = lang.split("_");
+                criteriaQuery.select(root.get("cargoType" + langArray[1]));
             }
-            connection.commit();
-        }catch (SQLException e){
+            criteriaQuery.where(criteriaBuilder.equal(root.get("id"), id));
+            Query query = session.createQuery(criteriaQuery);
+            result = (String)query.getSingleResult();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return result;
     }
@@ -308,26 +188,23 @@ public class BidDAO implements DAO, DAOHelper{
     @Override
     public String getSendingPointValue(int id, String lang) {
         String result = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.GETSENDINGPOINTVALUE.QUERY)){
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                result = resultSet.getString("city_name_" + lang);
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<SendingPoint> root = criteriaQuery.from(SendingPoint.class);
+            if(lang == null){
+                criteriaQuery.select(root.get("sendingPointEN"));
+            }else{
+                String[] langArray = lang.split("_");
+                criteriaQuery.select(root.get("sendingPoint" + langArray[1]));
             }
-            connection.commit();
-        }catch (SQLException e){
+            criteriaQuery.where(criteriaBuilder.equal(root.get("id"), id));
+            Query query = session.createQuery(criteriaQuery);
+            result = (String)query.getSingleResult();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return result;
     }
@@ -335,84 +212,25 @@ public class BidDAO implements DAO, DAOHelper{
     @Override
     public String getDestinationPointValue(int id, String lang) {
         String result = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.GETDESTINATIONPOINTVALUE.QUERY)){
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                result = resultSet.getString("city_name_" + lang);
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<DestinationPoint> root = criteriaQuery.from(DestinationPoint.class);
+            if(lang == null){
+                criteriaQuery.select(root.get("destinationPointEN"));
+            }else{
+                String[] langArray = lang.split("_");
+                criteriaQuery.select(root.get("destinationPoint" + langArray[1]));
             }
-            connection.commit();
-        }catch (SQLException e){
+            criteriaQuery.where(criteriaBuilder.equal(root.get("id"), id));
+            Query query = session.createQuery(criteriaQuery);
+            result = (String)query.getSingleResult();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return result;
-    }
-
-    enum SQLQuery{
-        INSERTBID("INSERT INTO bids (client_id, " +
-                                    "weight, " +
-                                    "volume, " +
-                                    "cargo_type_id, " +
-                                    "cargo_cost, " +
-                                    "sending_point_id," +
-                                    "destination_point_id," +
-                                    "arrival_date," +
-                                    "notes," +
-                                    "price," +
-                                    "bid_status_id," +
-                                    "payment_status_id) " +
-                                    "VALUES ((?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?), (?))"),
-        SELECTBID("SELECT * FROM bids WHERE id = (?)"),
-        UPDATEBID("UPDATE bids SET client_id = (?)," +
-                                    "weight = (?)," +
-                                    "volume = (?)," +
-                                    "cargo_type_id = (?)," +
-                                    "cargo_cost = (?)," +
-                                    "sending_point_id = (?)," +
-                                    "destination_point_id = (?)," +
-                                    "arrival_date = (?)," +
-                                    "notes = (?)," +
-                                    "price = (?)," +
-                                    "bid_status_id = (?)," +
-                                    "payment_status_id = (?)" +
-                                    "WHERE id = (?)"),
-        DELETEBID("DELETE FROM bids WHERE id = (?) AND " +
-                                    "client_id = (?) AND " +
-                                    "weight = (?) AND " +
-                                    "volume = (?) AND " +
-                                    "cargo_type_id = (?) AND " +
-                                    "cargo_cost = (?) AND " +
-                                    "sending_point_id = (?) AND " +
-                                    "destination_point_id = (?) AND " +
-                                    "arrival_date = (?) AND " +
-                                    "notes = (?) AND " +
-                                    "price = (?) AND " +
-                                    "bid_status_id = (?) AND " +
-                                    "payment_status_id = (?)"),
-        UPDATEBIDPAYMENTSTATUS("UPDATE bids SET payment_status_id = '2' WHERE id = (?)"),
-        GETLASTINSERTEDID("SELECT MAX(id) FROM bids"),
-        GETPRICE("SELECT price FROM city_distance WHERE sending_point_id = (?) AND destination_point_id = (?)"),
-        GETCOEFFICIENT("SELECT coefficient FROM cargo_type WHERE id = (?)"),
-        GETCARGOTYPEVALUE("SELECT * FROM cargo_type WHERE id = (?)"),
-        GETSENDINGPOINTVALUE("SELECT * FROM sending_points WHERE id = (?)"),
-        GETDESTINATIONPOINTVALUE("SELECT * FROM destination_points WHERE id = (?)");
-
-        String QUERY;
-
-        SQLQuery(String QUERY){
-            this.QUERY = QUERY;
-        }
     }
 
 }

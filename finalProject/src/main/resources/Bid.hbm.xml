@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+
+    <class name="org.mycompany.models.bid.Bid" table="bids">
+        <id name="id" column="id"/>
+        <property name="weight" column="weight"/>
+        <property name="volume" column="volume"/>
+        <property name="cargoCost" column="cargo_cost"/>
+        <property name="arrivalDate" column="arrival_date"/>
+        <property name="notes" column="notes"/>
+        <property name="price" column="price"/>
+
+        <many-to-one name="client" column="client_id"
+                     class="org.mycompany.models.client.Client"
+                     cascade="none" />
+
+        <many-to-one name="cargoType" column="cargo_type_id"
+                     class="org.mycompany.models.cargoType.CargoType"
+                     cascade="none" />
+
+        <many-to-one name="sendingPoint" column="sending_point_id"
+                     class="org.mycompany.models.sendingPoint.SendingPoint"
+                     cascade="none" />
+
+        <many-to-one name="destinationPoint" column="destination_point_id"
+                     class="org.mycompany.models.destinationPoint.DestinationPoint"
+                     cascade="none" />
+
+        <many-to-one name="bidStatus" column="bid_status_id"
+                     class="org.mycompany.models.bidStatus.BidStatus"
+                     cascade="none" />
+
+        <many-to-one name="paymentStatus" column="payment_status_id"
+                     class="org.mycompany.models.paymentStatus.PaymentStatus"
+                     cascade="none" />
+
+    </class>
+</hibernate-mapping>

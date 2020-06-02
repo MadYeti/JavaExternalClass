@@ -2,6 +2,8 @@ package org.mycompany.models.dao.clientDAO;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.models.client.Admin;
 import org.mycompany.models.client.Client;
@@ -11,9 +13,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.Query;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Component
@@ -22,6 +28,7 @@ public class ClientDAO implements DAO, DAOHelper {
 
     private Connection connection;
     private BeanFactory beanFactory;
+    private SessionFactory sessionFactory;
     private static Logger logger = Logger.getLogger(ClientDAO.class);
 
     static{
@@ -30,67 +37,61 @@ public class ClientDAO implements DAO, DAOHelper {
 
     @Autowired
     public ClientDAO(Connection connection,
-                     BeanFactory beanFactory){
+                     BeanFactory beanFactory,
+                     SessionFactory sessionFactory){
         this.connection = connection;
         this.beanFactory = beanFactory;
+        this.sessionFactory = sessionFactory;
+    }
+
+    public ClientDAO(SessionFactory sessionFactory){
+        this.sessionFactory = sessionFactory;
     }
 
     @Override
     public Client getClient(String email, String password) {
         Client client = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.SELECTCLIENT.QUERY)){
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2, RegistrationDataController.getHash(password));
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()){
-                if(resultSet.getString("role").equals("admin")){
-                    client = beanFactory.getBean(Admin.class);
-                }else{
-                    client = beanFactory.getBean(Customer.class);
-                }
-                client.setId(resultSet.getInt("id"));
-                client.setEmail(resultSet.getString("email"));
-                client.setPassword(resultSet.getString("password"));
-                client.setRole(resultSet.getString("role"));
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<Customer> root = criteriaQuery.from(Customer.class);
+            Predicate predicateForEmail = criteriaBuilder.equal(root.get("email"), email);
+            Predicate predicateForPassword = criteriaBuilder.equal(root.get("password"), RegistrationDataController.getHash(password));
+            Predicate finalPredicate = criteriaBuilder.and(predicateForEmail, predicateForPassword);
+            criteriaQuery.select(root);
+            criteriaQuery.where(finalPredicate);
+            Query query = session.createQuery(criteriaQuery);
+            client = (Customer)query.getSingleResult();
+            if(client.getRole().equals("admin")){
+                Client admin = beanFactory.getBean(Admin.class);
+                admin.setId(client.getId());
+                admin.setEmail(client.getEmail());
+                admin.setPassword(client.getPassword());
+                admin.setRole(client.getRole());
+                client = admin;
             }
-            connection.commit();
-        }catch (SQLException e){
+            session.getTransaction().commit();
+        }catch (Exception e){
+            e.printStackTrace();
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return client;
     }
 
     @Override
     public void addClient(String email, String password) {
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.INSERTCLIENT.QUERY)){
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2, RegistrationDataController.getHash(password));
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }catch (SQLException e){
+        Client client = beanFactory.getBean(Customer.class);
+        client.setEmail(email);
+        client.setPassword(RegistrationDataController.getHash(password));
+        client.setToken("");
+        System.out.println(client);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.save(client);
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
     }
 
@@ -148,8 +149,6 @@ public class ClientDAO implements DAO, DAOHelper {
     }
 
     enum SQLQuery{
-        INSERTCLIENT("INSERT INTO clients (email, password, role, token) VALUES ((?), (?), 'customer', '')"),
-        SELECTCLIENT("SELECT * FROM clients WHERE email = (?) AND password = (?)"),
         CREATETOKEN("UPDATE clients SET token = (?) WHERE email = (?)"),
         RESETPASSWORD("UPDATE clients SET password = (?) WHERE token = (?)"),
         DELETETOKEN("UPDATE clients SET token = '' WHERE token = (?)");

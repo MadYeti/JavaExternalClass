@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost/cargo?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.connection.pool_size">16</property>
+        <property name="hibernate.connection.autocommit">false</property>
+
+        <mapping resource="Bid.hbm.xml" />
+        <mapping resource="CityDistance.hbm.xml" />
+        <mapping resource="CargoType.hbm.xml" />
+        <mapping resource="SendingPoint.hbm.xml" />
+        <mapping resource="DestinationPoint.hbm.xml" />
+        <mapping resource="Client.hbm.xml" />
+        <mapping resource="Admin.hbm.xml" />
+        <mapping resource="Customer.hbm.xml" />
+        <mapping resource="BidStatus.hbm.xml" />
+        <mapping resource="PaymentStatus.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

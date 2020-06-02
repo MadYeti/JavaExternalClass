@@ -144,18 +144,18 @@ public class BidOrderPriceController {
             httpServletRequest.setAttribute("totalPriceValue", totalPrice);
             if(httpSession.getAttribute("client") != null && submit) {
                 Bid bid = beanFactory.getBean(Bid.class);
-                bid.addClientId(((Client) httpSession.getAttribute("client")).getId())
+                bid.addClient(((Client) httpSession.getAttribute("client")))
                         .addWeight(weightValue)
                         .addVolume(volumeValue)
-                        .addCargoType(Integer.parseInt(type))
+                        //.addCargoType(Integer.parseInt(type))
                         .addCargoCost(costValue)
-                        .addSendingPoint(Integer.parseInt(sendingPoint))
-                        .addDestinationPoint(Integer.parseInt(destinationPoint))
+                        //.addSendingPoint(Integer.parseInt(sendingPoint))
+                        //.addDestinationPoint(Integer.parseInt(destinationPoint))
                         .addArrivalDate(DateController.getArrivalDate((int)transferPrice))
                         .addNotes(notes)
                         .addPrice(totalPrice)
-                        .addBidStatus(1)
-                        .addPaymentStatus(1)
+                        //.addBidStatus(1)
+                        //.addPaymentStatus(1)
                         .build();
                 DAO bidDAO = mySqlDAOFactory.createBidDAO();
                 bidDAO.create(bid);

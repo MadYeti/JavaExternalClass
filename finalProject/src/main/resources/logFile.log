@@ -1015,3 +1015,42 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-27 23:50:48 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
 2020-05-27 23:50:56 ERROR    BidOrderPriceController:98 - For input string: "e"
 2020-05-27 23:50:56 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-28 13:56:58 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
+2020-05-28 15:40:48 ERROR    SqlExceptionHelper:142 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-date, notes, price, bid_status_id, payment_status_id, id) values (1, 145.0, 145' at line 1
+2020-05-31 17:39:47 ERROR    SqlExceptionHelper:142 - Unknown column 'sendingpoi0_.city_name_en_UA' in 'field list'
+2020-05-31 17:40:37 ERROR    SqlExceptionHelper:142 - Unknown column 'sendingpoi0_.city_name_en_UA' in 'field list'
+2020-06-02 00:09:24 ERROR    ClientDAO:74 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 00:10:41 ERROR    ClientDAO:74 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 00:12:18 ERROR    ClientDAO:74 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 00:13:06 ERROR    ClientDAO:74 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:15:29 ERROR    ClientDAO:75 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:18:10 ERROR    ClientDAO:74 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:18:27 ERROR    ClientDAO:74 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:21:26 ERROR    ClientDAO:74 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:21:36 ERROR    ClientDAO:75 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:28:46 ERROR    ClientDAO:75 - 
+2020-06-02 00:29:21 ERROR    ClientDAO:74 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 00:29:59 ERROR    ClientDAO:74 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 11:54:15 ERROR    ClientDAO:89 - Unknown entity: org.mycompany.models.client.Customer
+2020-06-02 11:59:45 ERROR    ClientDAO:89 - Unknown entity: org.mycompany.models.client.Customer
+2020-06-02 12:01:14 ERROR    ClientDAO:91 - Unknown entity: org.mycompany.models.client.Customer
+2020-06-02 12:03:17 ERROR    SqlExceptionHelper:142 - Column 'token' cannot be null
+2020-06-02 12:03:17 ERROR    ClientDAO:91 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-06-02 12:13:31 ERROR    ClientDAO:74 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 12:13:50 ERROR    ClientDAO:75 - java.lang.Integer cannot be cast to org.mycompany.models.client.Client
+2020-06-02 12:14:25 ERROR    ClientDAO:75 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 12:15:05 ERROR    ClientDAO:75 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 12:15:38 ERROR    ClientDAO:75 - query did not return a unique result: 3
+2020-06-02 12:17:06 ERROR    ClientDAO:75 - org.hibernate.InstantiationException: Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 12:24:38 ERROR    ClientDAO:76 - org.mycompany.models.client.Customer cannot be cast to org.mycompany.models.client.Admin
+2020-06-02 12:25:15 ERROR    ClientDAO:77 - org.mycompany.models.client.Customer cannot be cast to org.mycompany.models.client.Admin
+2020-06-02 14:24:08 ERROR    BidsHolderImpl:70 - Unable to locate Attribute  with the the given name [clientId] on this ManagedType [org.mycompany.models.bid.Bid]
+2020-06-02 15:24:58 ERROR    SqlExceptionHelper:142 - Column 'client_id' cannot be null
+2020-06-02 15:24:58 ERROR    BidDAO:55 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-06-02 15:25:19 ERROR    SqlExceptionHelper:142 - Column 'client_id' cannot be null
+2020-06-02 15:25:19 ERROR    BidDAO:56 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-06-02 15:35:49 ERROR    BidsHolderImpl:73 - Cannot instantiate abstract class or interface:  : org.mycompany.models.client.Client
+2020-06-02 15:54:11 ERROR    SqlExceptionHelper:142 - Column 'client_id' cannot be null
+2020-06-02 15:54:11 ERROR    BidDAO:56 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-06-02 19:15:42 ERROR    BidDAO:141 - Unable to locate Attribute  with the the given name [sendingPoint] on this ManagedType [org.mycompany.models.cityDistance.CityDistance]
+2020-06-02 19:16:18 ERROR    BidDAO:141 - Unable to locate Attribute  with the the given name [sendingPoint] on this ManagedType [org.mycompany.models.cityDistance.CityDistance]

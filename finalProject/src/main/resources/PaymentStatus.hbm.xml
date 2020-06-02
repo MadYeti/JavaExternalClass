@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
+
+    <class name="org.mycompany.models.paymentStatus.PaymentStatus" table="payment_status">
+        <id name="id" column="id"/>
+        <property name="paymentStatusEN" column="payment_status_en_EN"/>
+        <property name="paymentStatusUA" column="payment_status_uk_UA"/>
+    </class>
+</hibernate-mapping>

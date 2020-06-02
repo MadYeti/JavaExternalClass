@@ -58,7 +58,7 @@ public class BuyingController {
             BidDAO bidDAO = mySqlDAOFactory.createBidDAO();
             bidDAO.updateBidPaymentStatus(id);
             Bid bid = jaxbParser.createObjectBasedOnXML(id);
-            bid.setPaymentStatus(2);
+            //bid.setPaymentStatusId(2);
             jaxbParser.creteXMLBasedOnObject(bid);
             Client client = (Client)httpServletRequest.getSession().getAttribute("client");
             if(client != null) {

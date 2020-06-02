@@ -15,6 +15,7 @@ org\mycompany\controllers\xmlParser\JAXBParser.class
 org\mycompany\controllers\servlets\RegistrationController.class
 org\mycompany\models\repository\BidsHolderImpl$SQLQuery.class
 org\mycompany\controllers\servlets\BuyingController.class
+org\mycompany\models\factory\SessionFactory.class
 org\mycompany\controllers\servlets\AdminPageRedirectController.class
 org\mycompany\controllers\servlets\PasswordRecoveryController.class
 org\mycompany\controllers\filters\LanguageFilter.class
