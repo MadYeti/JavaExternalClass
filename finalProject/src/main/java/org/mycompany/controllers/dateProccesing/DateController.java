@@ -15,7 +15,7 @@ public class DateController {
 
     }
 
-    public static String getArrivalDate(int distance){
+    public String getArrivalDate(int distance){
         Calendar calendar = Calendar.getInstance();
         int arrivalDays = distance / 100;
         calendar.add(Calendar.DAY_OF_MONTH, arrivalDays);

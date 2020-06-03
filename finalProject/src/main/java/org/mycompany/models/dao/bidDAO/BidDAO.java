@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Query;
 import javax.persistence.criteria.*;
 
+
 @Component
 @Scope("prototype")
 public class BidDAO implements DAO, DAOHelper{
@@ -107,16 +108,17 @@ public class BidDAO implements DAO, DAOHelper{
     @Override
     public void updateBidPaymentStatus(int id){
         try(Session session = sessionFactory.openSession()){
-            /*
             session.beginTransaction();
-            CriteriaBuilderImpl criteriaBuilderImpl = new CriteriaBuilderImpl();
-            CriteriaUpdate<Bid> criteriaUpdate = criteriaBuilderImpl.createCriteriaUpdate(Bid.class);
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaUpdate<Bid> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Bid.class);
             Root<Bid> root = criteriaUpdate.from(Bid.class);
-            criteriaUpdate.set(root.get("payment_status_id"), 2);
-            criteriaUpdate.where(criteriaBuilderImpl.equal(root.get("id"), id));
+            criteriaUpdate.set(root.get("paymentStatus").get("id"), 2);
+            criteriaUpdate.where(criteriaBuilder.equal(root.get("id"), id));
             Query query = session.createQuery(criteriaUpdate);
             query.executeUpdate();
-            session.getTransaction().commit();*/
+            session.getTransaction().commit();
+        }catch (Exception e){
+            logger.error(e.getMessage());
         }
     }
 

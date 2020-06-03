@@ -9,6 +9,7 @@ import org.mycompany.models.bid.Bid;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidDAO.DAO;
 import org.mycompany.models.dao.bidDAO.DAOHelper;
+import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class BidOrderPriceController {
     private JAXBParser jaxbParser;
     private BeanFactory beanFactory;
     private DAOFactory mySqlDAOFactory;
+    private ControllerFactory controllerFactory;
 
     static {
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
@@ -33,10 +35,12 @@ public class BidOrderPriceController {
     @Autowired
     public BidOrderPriceController(JAXBParser jaxbParser,
                                    BeanFactory beanFactory,
-                                   DAOFactory mySqlDAOFactory){
+                                   DAOFactory mySqlDAOFactory,
+                                   ControllerFactory controllerFactory){
         this.jaxbParser = jaxbParser;
         this.beanFactory = beanFactory;
         this.mySqlDAOFactory = mySqlDAOFactory;
+        this.controllerFactory = controllerFactory;
     }
 
     @GetMapping("/BidOrderPriceController")
@@ -143,6 +147,7 @@ public class BidOrderPriceController {
             totalPrice = (weightValue + volumeValue + costValue + transferPrice) * coefficient;
             httpServletRequest.setAttribute("totalPriceValue", totalPrice);
             if(httpSession.getAttribute("client") != null && submit) {
+                DateController dateController = controllerFactory.getDateController();
                 Bid bid = beanFactory.getBean(Bid.class);
                 bid.addClient(((Client) httpSession.getAttribute("client")))
                         .addWeight(weightValue)
@@ -151,7 +156,7 @@ public class BidOrderPriceController {
                         .addCargoCost(costValue)
                         //.addSendingPoint(Integer.parseInt(sendingPoint))
                         //.addDestinationPoint(Integer.parseInt(destinationPoint))
-                        .addArrivalDate(DateController.getArrivalDate((int)transferPrice))
+                        .addArrivalDate(dateController.getArrivalDate((int)transferPrice))
                         .addNotes(notes)
                         .addPrice(totalPrice)
                         //.addBidStatus(1)

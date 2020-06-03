@@ -52,18 +52,6 @@ public class AdminBidController {
                         lang = "en_EN";
                     }
                     bidsHolderImpl.setLang(lang);
-                    /*
-                    try {
-                        bidsHolderImpl.getForeignKeyValues(bid,
-                                                           bid.getCargoTypeId(),
-                                                           bid.getSendingPointId(),
-                                                           bid.getDestinationPointId(),
-                                                           bid.getBidStatusId(),
-                                                           bid.getPaymentStatusId());
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        logger.error(e.getMessage());
-                    }*/
                     httpServletRequest.setAttribute("bid", bid);
                     break;
                 case "update":

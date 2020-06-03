@@ -14,19 +14,12 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import javax.persistence.criteria.*;
 
 @Component
 @Scope("prototype")
 public class ClientDAO implements DAO, DAOHelper {
 
-    private Connection connection;
     private BeanFactory beanFactory;
     private SessionFactory sessionFactory;
     private static Logger logger = Logger.getLogger(ClientDAO.class);
@@ -36,15 +29,9 @@ public class ClientDAO implements DAO, DAOHelper {
     }
 
     @Autowired
-    public ClientDAO(Connection connection,
-                     BeanFactory beanFactory,
+    public ClientDAO(BeanFactory beanFactory,
                      SessionFactory sessionFactory){
-        this.connection = connection;
         this.beanFactory = beanFactory;
-        this.sessionFactory = sessionFactory;
-    }
-
-    public ClientDAO(SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
     }
 
@@ -85,7 +72,6 @@ public class ClientDAO implements DAO, DAOHelper {
         client.setEmail(email);
         client.setPassword(RegistrationDataController.getHash(password));
         client.setToken("");
-        System.out.println(client);
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
             session.save(client);
@@ -97,66 +83,38 @@ public class ClientDAO implements DAO, DAOHelper {
 
     @Override
     public String createToken(String email){
-        String token = null;
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.CREATETOKEN.QUERY)){
-            token = RegistrationDataController.getHash(email + System.currentTimeMillis());
-            preparedStatement.setString(1, token);
-            preparedStatement.setString(2, email);
-            preparedStatement.executeUpdate();
-            connection.commit();
-        }catch (SQLException e){
+        String token = RegistrationDataController.getHash(email + System.currentTimeMillis());
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaUpdate<Client> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Client.class);
+            Root<Client> root = criteriaUpdate.from(Client.class);
+            criteriaUpdate.set(root.get("token"), token);
+            criteriaUpdate.where(criteriaBuilder.equal(root.get("email"), email));
+            Query query = session.createQuery(criteriaUpdate);
+            query.executeUpdate();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
         }
         return token;
     }
 
     @Override
     public void resetPasswordAndDeleteToken(String password, String token){
-        try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.RESETPASSWORD.QUERY)){
-            preparedStatement.setString(1, RegistrationDataController.getHash(password));
-            preparedStatement.setString(2, token);
-            preparedStatement.executeUpdate();
-            try(PreparedStatement innerPreparedStatement = connection.prepareStatement(SQLQuery.DELETETOKEN.QUERY)){
-                innerPreparedStatement.setString(1, token);
-                innerPreparedStatement.executeUpdate();
-            }
-            connection.commit();
-        }catch (SQLException e){
+        try(Session session = sessionFactory.openSession()){
+            session.beginTransaction();
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaUpdate<Client> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Client.class);
+            Root<Client> root = criteriaUpdate.from(Client.class);
+            criteriaUpdate.set(root.get("password"), RegistrationDataController.getHash(password));
+            criteriaUpdate.set(root.get("token"), "");
+            criteriaUpdate.where(criteriaBuilder.equal(root.get("token"), token));
+            Query query = session.createQuery(criteriaUpdate);
+            query.executeUpdate();
+            session.getTransaction().commit();
+        }catch (Exception e){
             logger.error(e.getMessage());
-            try {
-                connection.rollback();
-            } catch (SQLException e1) {
-                logger.error(e1.getMessage());
-            }
-        }finally {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                logger.error(e.getMessage());
-            }
-        }
-    }
-
-    enum SQLQuery{
-        CREATETOKEN("UPDATE clients SET token = (?) WHERE email = (?)"),
-        RESETPASSWORD("UPDATE clients SET password = (?) WHERE token = (?)"),
-        DELETETOKEN("UPDATE clients SET token = '' WHERE token = (?)");
-
-        String QUERY;
-
-        SQLQuery(String QUERY){
-            this.QUERY = QUERY;
         }
     }
 

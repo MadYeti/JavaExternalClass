@@ -1054,3 +1054,6 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-06-02 15:54:11 ERROR    BidDAO:56 - org.hibernate.exception.ConstraintViolationException: could not execute statement
 2020-06-02 19:15:42 ERROR    BidDAO:141 - Unable to locate Attribute  with the the given name [sendingPoint] on this ManagedType [org.mycompany.models.cityDistance.CityDistance]
 2020-06-02 19:16:18 ERROR    BidDAO:141 - Unable to locate Attribute  with the the given name [sendingPoint] on this ManagedType [org.mycompany.models.cityDistance.CityDistance]
+2020-06-03 18:33:46 ERROR    BidDAO:121 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
+2020-06-03 18:34:20 ERROR    BidDAO:122 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
+2020-06-03 21:16:16 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid

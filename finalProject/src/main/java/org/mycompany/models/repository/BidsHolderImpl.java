@@ -22,6 +22,7 @@ import java.util.List;
 @Scope("prototype")
 public class BidsHolderImpl implements Repository{
 
+    private BeanFactory beanFactory;
     private String lang;
     private SessionFactory sessionFactory;
     private static Logger logger = Logger.getLogger(BidsHolderImpl.class);
@@ -31,13 +32,15 @@ public class BidsHolderImpl implements Repository{
     }
 
     @Autowired
-    public BidsHolderImpl(SessionFactory sessionFactory){
+    public BidsHolderImpl(SessionFactory sessionFactory,
+                          BeanFactory beanFactory){
         this.sessionFactory = sessionFactory;
+        this.beanFactory = beanFactory;
     }
 
     @Override
     public List<Bid> getWholeBidHistory(int id) {
-        BidsHolder bidsHolder = new BidsHolder();//beanFactory.getBean(BidsHolder.class);
+        BidsHolder bidsHolder = beanFactory.getBean(BidsHolder.class);
         if(lang == null){
             lang = "en_EN";
         }
