@@ -28,8 +28,8 @@ public class BidsDetailsController {
         if(httpSession.getAttribute("client") != null) {
             int id = ((Client) httpSession.getAttribute("client")).getId();
             String lang = (String) httpServletRequest.getSession().getAttribute("lang");
-            Repository bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
-            ((BidsHolderImpl) bidsHolderImpl).setLang(lang);
+            BidsHolderImpl bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
+            bidsHolderImpl.setLang(lang);
             BidsHolder bidsHolder = beanFactory.getBean(BidsHolder.class);
             bidsHolder.setBidsHolder(bidsHolderImpl.getWholeBidHistory(id));
             httpSession.setAttribute("bidsHolder", bidsHolder);

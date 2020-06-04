@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.xmlParser.JAXBParser;
 import org.mycompany.models.bid.Bid;
-import org.mycompany.models.dao.bidDAO.DAO;
+import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.repository.BidsHolderImpl;
 import org.springframework.beans.factory.BeanFactory;
@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import java.sql.SQLException;
 
 @Controller
 public class AdminBidController {
@@ -42,10 +41,10 @@ public class AdminBidController {
         String operation = httpServletRequest.getParameter("operation");
         try {
             int id = Integer.parseInt(bidId);
-            DAO bidDAO = mySqlDAOFactory.createBidDAO();
+            BidDAO bidDAOMySql = mySqlDAOFactory.createBidDAO();
             switch (operation){
                 case "read":
-                    Bid bid = bidDAO.read(id);
+                    Bid bid = bidDAOMySql.read(id);
                     BidsHolderImpl bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
                     String lang = (String) httpServletRequest.getSession().getAttribute("lang");
                     if(lang == null){
@@ -55,10 +54,10 @@ public class AdminBidController {
                     httpServletRequest.setAttribute("bid", bid);
                     break;
                 case "update":
-                    bidDAO.update(jaxbParser.createObjectBasedOnXML(id));
+                    bidDAOMySql.update(jaxbParser.createObjectBasedOnXML(id));
                     break;
                 case "delete":
-                    bidDAO.delete(jaxbParser.createObjectBasedOnXML(id));
+                    bidDAOMySql.delete(jaxbParser.createObjectBasedOnXML(id));
                     break;
                 default:
                     break;

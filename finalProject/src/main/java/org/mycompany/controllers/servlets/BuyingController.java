@@ -7,10 +7,12 @@ import org.mycompany.controllers.xmlParser.JAXBParser;
 import org.mycompany.exceptions.InvalidCreditCardDataException;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.client.Client;
-import org.mycompany.models.dao.bidDAO.BidDAO;
+import org.mycompany.models.dao.bidDAO.BidDAOHelper;
+import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAO;
 import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
 import org.mycompany.models.observer.Subject;
+import org.mycompany.models.paymentStatus.PaymentStatus;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,10 +57,12 @@ public class BuyingController {
         String creditCardCVVCode = httpServletRequest.getParameter("cvv");
         CreditCardDataController creditCardDataController = controllerFactory.getCreditCardController();
         if(!creditCardDataController.validateCreditCardData(creditCardNumber, creditCardExpirationDate, creditCardCVVCode)){
-            BidDAO bidDAO = mySqlDAOFactory.createBidDAO();
-            bidDAO.updateBidPaymentStatus(id);
+            BidDAOHelper bidDAOMySql = mySqlDAOFactory.createBidDAO();
+            bidDAOMySql.updateBidPaymentStatus(id);
             Bid bid = jaxbParser.createObjectBasedOnXML(id);
-            //bid.getPaymentStatus().setPaymentStatusId(2);
+            PaymentStatusDAO paymentStatusDAOMySql = mySqlDAOFactory.createPaymentStatusDAO();
+            PaymentStatus paymentStatus = paymentStatusDAOMySql.read(2);
+            bid.setPaymentStatus(paymentStatus);
             jaxbParser.creteXMLBasedOnObject(bid);
             Client client = (Client)httpServletRequest.getSession().getAttribute("client");
             if(client != null) {

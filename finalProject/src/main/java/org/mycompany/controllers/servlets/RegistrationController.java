@@ -4,10 +4,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.exceptions.RegistrationException;
-import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.dao.clientDAO.ClientDAO;
 import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
-import org.mycompany.models.factory.MySqlDAOFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,8 +43,8 @@ public class RegistrationController {
         String retypedPassword = httpServletRequest.getParameter("retypedPassword");
         RegistrationDataController registrationDataController = controllerFactory.getRegistrationDataController();
         if(!registrationDataController.validateData(email, password, retypedPassword)){
-            DAO clientDAO = mySqlDAOFactory.createClientDAO();
-            clientDAO.addClient(email, password);
+            ClientDAO clientDAOMySql = mySqlDAOFactory.createClientDAO();
+            clientDAOMySql.addClient(email, password);
             return "index";
         }else{
             try {

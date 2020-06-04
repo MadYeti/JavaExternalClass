@@ -5,10 +5,9 @@ import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.authorization.AuthorizationDataController;
 import org.mycompany.controllers.mail.MailController;
 import org.mycompany.exceptions.InvalidEmailInputForPasswordRecoveryException;
-import org.mycompany.models.dao.clientDAO.DAOHelper;
+import org.mycompany.models.dao.clientDAO.ClientDAOHelper;
 import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
-import org.mycompany.models.factory.MySqlDAOFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,8 +41,8 @@ public class PasswordRecoveryController {
     public String getPasswordRecoveryInstruction(HttpServletRequest httpServletRequest){
         String email = httpServletRequest.getParameter("email");
         if(AuthorizationDataController.validateEmail(email)){
-            DAOHelper clientDAO = mySqlDAOFactory.createClientDAO();
-            String token = clientDAO.createToken(email);
+            ClientDAOHelper clientDAOMySql = mySqlDAOFactory.createClientDAO();
+            String token = clientDAOMySql.createToken(email);
             MailController mailController = controllerFactory.getMailController(email, token);
             mailController.sendPasswordRecoveryEmail();
         }else{

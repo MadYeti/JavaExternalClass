@@ -1,19 +1,15 @@
 package org.mycompany.models.factory;
 
-
-import org.mycompany.models.dao.bidDAO.BidDAO;
-import org.mycompany.models.dao.bidStatusDAO.BidStatusDAO;
-import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAO;
-import org.mycompany.models.dao.clientDAO.ClientDAO;
-import org.mycompany.models.dao.destinationPointDAO.DestinationPointDAO;
-import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAO;
-import org.mycompany.models.dao.sendingPointDAO.SendingPointDAO;
+import org.mycompany.models.dao.bidDAO.BidDAOMySql;
+import org.mycompany.models.dao.bidStatusDAO.BidStatusDAOMySql;
+import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAOMySql;
+import org.mycompany.models.dao.clientDAO.ClientDAOMySql;
+import org.mycompany.models.dao.destinationPointDAO.DestinationPointDAOMySql;
+import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAOMySql;
+import org.mycompany.models.dao.sendingPointDAO.SendingPointDAOMySql;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import java.sql.Connection;
 
 @Component
 public class MySqlDAOFactory implements DAOFactory{
@@ -26,37 +22,37 @@ public class MySqlDAOFactory implements DAOFactory{
     }
 
     @Override
-    public ClientDAO createClientDAO() {
-        return beanFactory.getBean(ClientDAO.class);
+    public ClientDAOMySql createClientDAO() {
+        return beanFactory.getBean(ClientDAOMySql.class);
     }
 
     @Override
-    public BidDAO createBidDAO() {
-        return beanFactory.getBean(BidDAO.class);
+    public BidDAOMySql createBidDAO() {
+        return beanFactory.getBean(BidDAOMySql.class);
     }
 
     @Override
-    public BidStatusDAO createBidStatusDAO() {
-        return beanFactory.getBean(BidStatusDAO.class);
+    public BidStatusDAOMySql createBidStatusDAO() {
+        return beanFactory.getBean(BidStatusDAOMySql.class);
     }
 
     @Override
-    public CargoTypeDAO createCargoTypeDAO() {
-        return beanFactory.getBean(CargoTypeDAO.class);
+    public CargoTypeDAOMySql createCargoTypeDAO() {
+        return beanFactory.getBean(CargoTypeDAOMySql.class);
     }
 
     @Override
-    public DestinationPointDAO createDestinationPointDAO() {
-        return beanFactory.getBean(DestinationPointDAO.class);
+    public DestinationPointDAOMySql createDestinationPointDAO() {
+        return beanFactory.getBean(DestinationPointDAOMySql.class);
     }
 
     @Override
-    public PaymentStatusDAO createPaymentStatusDAO() {
-        return beanFactory.getBean(PaymentStatusDAO.class);
+    public PaymentStatusDAOMySql createPaymentStatusDAO() {
+        return beanFactory.getBean(PaymentStatusDAOMySql.class);
     }
 
     @Override
-    public SendingPointDAO createSendingPointDAO() {
-        return beanFactory.getBean(SendingPointDAO.class);
+    public SendingPointDAOMySql createSendingPointDAO() {
+        return beanFactory.getBean(SendingPointDAOMySql.class);
     }
 }

@@ -6,11 +6,21 @@ import org.mycompany.controllers.dateProccesing.DateController;
 import org.mycompany.controllers.xmlParser.JAXBParser;
 import org.mycompany.exceptions.InvalidBidDataException;
 import org.mycompany.models.bid.Bid;
+import org.mycompany.models.bidStatus.BidStatus;
+import org.mycompany.models.cargoType.CargoType;
 import org.mycompany.models.client.Client;
-import org.mycompany.models.dao.bidDAO.DAO;
-import org.mycompany.models.dao.bidDAO.DAOHelper;
+import org.mycompany.models.dao.bidDAO.BidDAO;
+import org.mycompany.models.dao.bidDAO.BidDAOHelper;
+import org.mycompany.models.dao.bidStatusDAO.BidStatusDAO;
+import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAO;
+import org.mycompany.models.dao.destinationPointDAO.DestinationPointDAO;
+import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAO;
+import org.mycompany.models.dao.sendingPointDAO.SendingPointDAO;
+import org.mycompany.models.destinationPoint.DestinationPoint;
 import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
+import org.mycompany.models.paymentStatus.PaymentStatus;
+import org.mycompany.models.sendingPoint.SendingPoint;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -111,7 +121,7 @@ public class BidOrderPriceController {
             typeInputError = true;
         }else{
             httpServletRequest.setAttribute("cargoType", type);
-            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            BidDAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
             typeValue = bidDAOHelper.getCargoTypeValue(Integer.parseInt(type), lang);
             httpServletRequest.setAttribute("cargoTypeValue", typeValue);
         }
@@ -119,7 +129,7 @@ public class BidOrderPriceController {
             sendingPointInputError = true;
         }else{
             httpServletRequest.setAttribute("sendingPoint", sendingPoint);
-            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            BidDAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
             sendingPointValue = bidDAOHelper.getSendingPointValue(Integer.parseInt(sendingPoint), lang);
             httpServletRequest.setAttribute("sendingPointValue", sendingPointValue);
         }
@@ -127,7 +137,7 @@ public class BidOrderPriceController {
             destinationPointInputError = true;
         }else{
             httpServletRequest.setAttribute("destinationPoint", destinationPoint);
-            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
+            BidDAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
             destinationPointValue = bidDAOHelper.getDestinationPointValue(Integer.parseInt(destinationPoint), lang);
             httpServletRequest.setAttribute("destinationPointValue", destinationPointValue);
         }
@@ -140,31 +150,41 @@ public class BidOrderPriceController {
         if (!weightInputError && !volumeInputError && !typeInputError &&
                 !costInputError && !sendingPointInputError && !destinationPointInputError &&
                 !isSendingDestinationPointSame) {
-            DAOHelper bidDAOHelper = mySqlDAOFactory.createBidDAO();
-            transferPrice = bidDAOHelper.getPriceAccordingToCityDistance(Integer.parseInt(sendingPoint), Integer.parseInt(destinationPoint));
-            DAOHelper bidDAOHelper2 = mySqlDAOFactory.createBidDAO();
-            coefficient = bidDAOHelper2.getCargoTypeCoefficient(Integer.parseInt(type));
+            BidDAOHelper bidDAOHelperTransferPrice = mySqlDAOFactory.createBidDAO();
+            transferPrice = bidDAOHelperTransferPrice.getPriceAccordingToCityDistance(Integer.parseInt(sendingPoint), Integer.parseInt(destinationPoint));
+            BidDAOHelper bidDAOHelperCoefficient = mySqlDAOFactory.createBidDAO();
+            coefficient = bidDAOHelperCoefficient.getCargoTypeCoefficient(Integer.parseInt(type));
             totalPrice = (weightValue + volumeValue + costValue + transferPrice) * coefficient;
             httpServletRequest.setAttribute("totalPriceValue", totalPrice);
             if(httpSession.getAttribute("client") != null && submit) {
                 DateController dateController = controllerFactory.getDateController();
+                CargoTypeDAO cargoTypeDAOMySql = mySqlDAOFactory.createCargoTypeDAO();
+                CargoType cargoType = cargoTypeDAOMySql.read(Integer.parseInt(type));
+                SendingPointDAO sendingPointDAOMySql = mySqlDAOFactory.createSendingPointDAO();
+                SendingPoint sendingPointObject = sendingPointDAOMySql.read(Integer.parseInt(sendingPoint));
+                DestinationPointDAO destinationPointDAOMySql = mySqlDAOFactory.createDestinationPointDAO();
+                DestinationPoint destinationPointObject = destinationPointDAOMySql.read(Integer.parseInt(destinationPoint));
+                BidStatusDAO bidStatusDAOMySql = mySqlDAOFactory.createBidStatusDAO();
+                BidStatus bidStatus = bidStatusDAOMySql.read(1);
+                PaymentStatusDAO paymentStatusDAOMySql = mySqlDAOFactory.createPaymentStatusDAO();
+                PaymentStatus paymentStatus = paymentStatusDAOMySql.read(1);
                 Bid bid = beanFactory.getBean(Bid.class);
                 bid.addClient(((Client) httpSession.getAttribute("client")))
                         .addWeight(weightValue)
                         .addVolume(volumeValue)
-                        //.addCargoType(Integer.parseInt(type))
+                        .addCargoType(cargoType)
                         .addCargoCost(costValue)
-                        //.addSendingPoint(Integer.parseInt(sendingPoint))
-                        //.addDestinationPoint(Integer.parseInt(destinationPoint))
+                        .addSendingPoint(sendingPointObject)
+                        .addDestinationPoint(destinationPointObject)
                         .addArrivalDate(dateController.getArrivalDate((int)transferPrice))
                         .addNotes(notes)
                         .addPrice(totalPrice)
-                        //.addBidStatus(1)
-                        //.addPaymentStatus(1)
+                        .addBidStatus(bidStatus)
+                        .addPaymentStatus(paymentStatus)
                         .build();
-                DAO bidDAO = mySqlDAOFactory.createBidDAO();
-                bidDAO.create(bid);
-                DAOHelper bidDAOIndex = mySqlDAOFactory.createBidDAO();
+                BidDAO bidDAOMySql = mySqlDAOFactory.createBidDAO();
+                bidDAOMySql.create(bid);
+                BidDAOHelper bidDAOIndex = mySqlDAOFactory.createBidDAO();
                 bid.setId(bidDAOIndex.getLastInsertedId());
                 jaxbParser.creteXMLBasedOnObject(bid);
                 String role = ((Client) httpSession.getAttribute("client")).getRole();

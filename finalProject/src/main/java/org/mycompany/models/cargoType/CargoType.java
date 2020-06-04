@@ -28,20 +28,20 @@ public class CargoType {
         return cargoTypeEN;
     }
 
-    public void setCargoTypeEN(String cargoTypeEN) {
-        this.cargoTypeEN = cargoTypeEN;
-    }
-
     public String getCargoTypeUA() {
         return cargoTypeUA;
     }
 
-    public void setCargoTypeUA(String cargoTypeUA) {
-        this.cargoTypeUA = cargoTypeUA;
-    }
-
     public double getCoefficient() {
         return coefficient;
+    }
+
+    public void setCargoTypeEN(String cargoTypeEN) {
+        this.cargoTypeEN = cargoTypeEN;
+    }
+
+    public void setCargoTypeUA(String cargoTypeUA) {
+        this.cargoTypeUA = cargoTypeUA;
     }
 
     public void setCoefficient(double coefficient) {

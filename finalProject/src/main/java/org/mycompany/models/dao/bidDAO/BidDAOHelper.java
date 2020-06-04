@@ -1,7 +1,7 @@
 package org.mycompany.models.dao.bidDAO;
 
 
-public interface DAOHelper {
+public interface BidDAOHelper {
 
     int getLastInsertedId();
     void updateBidPaymentStatus(int id);

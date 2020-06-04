@@ -5,7 +5,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.authorization.AuthorizationDataController;
 import org.mycompany.exceptions.AuthorizationException;
 import org.mycompany.models.client.Client;
-import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.dao.clientDAO.ClientDAO;
 import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
 import org.springframework.beans.factory.BeanFactory;
@@ -44,8 +44,8 @@ public class AuthorizationController {
         String rememberMe = httpServletRequest.getParameter("rememberMe");
         AuthorizationDataController authorizationDataController = controllerFactory.getAuthorizationDataController();
         if(authorizationDataController.validateData(email, password)){
-            DAO clientDAO = mySqlDAOFactory.createClientDAO();
-            Client client = clientDAO.getClient(email, password);
+            ClientDAO clientDAOMySql = mySqlDAOFactory.createClientDAO();
+            Client client = clientDAOMySql.getClient(email, password);
             if(client != null){
                 HttpSession httpSession = httpServletRequest.getSession(true);
                 httpSession.setAttribute("client", client);

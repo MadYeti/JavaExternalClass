@@ -4,10 +4,9 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.registration.RegistrationDataController;
 import org.mycompany.exceptions.ResetPasswordException;
-import org.mycompany.models.dao.clientDAO.DAOHelper;
+import org.mycompany.models.dao.clientDAO.ClientDAOHelper;
 import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.DAOFactory;
-import org.mycompany.models.factory.MySqlDAOFactory;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,8 +43,8 @@ public class ResetPasswordController {
         String retypedPassword = httpServletRequest.getParameter("retypedPassword");
         RegistrationDataController registrationDataController = controllerFactory.getRegistrationDataController();
         if(!registrationDataController.validatePasswords(password, retypedPassword)){
-            DAOHelper clientDAO = mySqlDAOFactory.createClientDAO();
-            clientDAO.resetPasswordAndDeleteToken(password, token);
+            ClientDAOHelper clientDAOMySql = mySqlDAOFactory.createClientDAO();
+            clientDAOMySql.resetPasswordAndDeleteToken(password, token);
             httpServletRequest.setAttribute("resetPassword", true);
         }else{
             try {

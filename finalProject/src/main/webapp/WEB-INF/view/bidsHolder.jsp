@@ -1,6 +1,7 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page isELIgnored ="false" %>
 <fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:requestEncoding value="UTF-8" />
@@ -14,6 +15,7 @@
     <body class="bg-light">
         <fmt:bundle basename="messages">
             <c:set var="client" scope="session" value="${sessionScope.client}" />
+            <c:set var="lang" scope="session" value="${sessionScope.lang}" />
             <nav class="site-header sticky-top py-1" style="background-color: #000">
                 <div class="container d-flex flex-column flex-md-row justify-content-between">
                     <a class="py-2" href="/MainPage" aria-label="Logic">
@@ -50,20 +52,47 @@
                                         <td>${bids.volume}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="cargoTypeValue" value="cargoTypeEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="cargoTypeValue" value="cargoType${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.cargoType.label"/></td>
-                                        <td>${bids.cargoTypeValue}</td>
+                                        <td>${bids.cargoType[cargoTypeValue]}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.cargoCost.label"/></td>
                                         <td>${bids.cargoCost}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="sendingPointValue" value="sendingPointEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="sendingPointValue" value="sendingPoint${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.sendingPoint.label"/></td>
-                                        <td>${bids.sendingPointValue}</td>
+                                        <td>${bids.sendingPoint[sendingPointValue]}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="destinationPointValue" value="destinationPointEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="destinationPointValue" value="destinationPoint${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.destinationPoint.label"/></td>
-                                        <td>${bids.destinationPointValue}</td>
+                                        <td>${bids.destinationPoint[destinationPointValue]}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.arrivalDate.label"/></td>
@@ -78,18 +107,36 @@
                                         <td>${bids.price}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="bidStatusValue" value="bidStatusEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="bidStatusValue" value="bidStatus${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.bidStatus.label"/></td>
-                                        <td>${bids.bidStatusValue}</td>
+                                        <td>${bids.bidStatus[bidStatusValue]}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="paymentStatusValue" value="paymentStatusEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="paymentStatusValue" value="paymentStatus${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.paymentStatus.label"/></td>
-                                        <td>${bids.paymentStatusValue}</td>
+                                        <td>${bids.paymentStatus[paymentStatusValue]}</td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <fmt:message key="msg.paymentStatus.notPaid.label" var="notPaidPaymentStatus"/>
-                                <c:if test = "${bids.paymentStatus eq '1'}">
+                                <c:if test = "${bids.paymentStatus.id eq '1'}">
                                     <a href="/buyingPage?pay=${bids.id}"><button class="btn btn-lg btn-block btn-primary" style="width: 120;" type="submit" name="pay" value="${bids.id}"><fmt:message key="msg.payBid.button"/></button></a>
                                 </c:if>
                             </div>

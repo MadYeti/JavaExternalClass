@@ -1,24 +1,22 @@
 package org.mycompany.models.factory;
 
 
-import org.mycompany.models.dao.bidDAO.BidDAO;
-import org.mycompany.models.dao.bidStatusDAO.BidStatusDAO;
-import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAO;
-import org.mycompany.models.dao.clientDAO.ClientDAO;
-import org.mycompany.models.dao.destinationPointDAO.DestinationPointDAO;
-import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAO;
-import org.mycompany.models.dao.sendingPointDAO.SendingPointDAO;
-
-import java.sql.Connection;
+import org.mycompany.models.dao.bidDAO.BidDAOMySql;
+import org.mycompany.models.dao.bidStatusDAO.BidStatusDAOMySql;
+import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAOMySql;
+import org.mycompany.models.dao.clientDAO.ClientDAOMySql;
+import org.mycompany.models.dao.destinationPointDAO.DestinationPointDAOMySql;
+import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAOMySql;
+import org.mycompany.models.dao.sendingPointDAO.SendingPointDAOMySql;
 
 public interface DAOFactory {
 
-    ClientDAO createClientDAO();
-    BidDAO createBidDAO();
-    BidStatusDAO createBidStatusDAO();
-    CargoTypeDAO createCargoTypeDAO();
-    DestinationPointDAO createDestinationPointDAO();
-    PaymentStatusDAO createPaymentStatusDAO();
-    SendingPointDAO createSendingPointDAO();
+    ClientDAOMySql createClientDAO();
+    BidDAOMySql createBidDAO();
+    BidStatusDAOMySql createBidStatusDAO();
+    CargoTypeDAOMySql createCargoTypeDAO();
+    DestinationPointDAOMySql createDestinationPointDAO();
+    PaymentStatusDAOMySql createPaymentStatusDAO();
+    SendingPointDAOMySql createSendingPointDAO();
 
 }
