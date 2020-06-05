@@ -1,6 +1,5 @@
 package org.mycompany.controllers.creditCard;
 
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -66,7 +65,7 @@ public class CreditCardDataController {
         return matcher.find();
     }
 
-    public String getErrorCreditCardNumer() {
+    public String getErrorCreditCardNumber() {
         return errorCreditCardNumber;
     }
 

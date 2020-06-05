@@ -1,6 +1,5 @@
 package org.mycompany.controllers.authorization;
 
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ public class AuthorizationDataController {
                 password.isEmpty() || password.length() < 6 || password.length() > 40);
     }
 
-    public static boolean validateEmail(String email) {
+    public boolean validateEmail(String email) {
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);

@@ -1,18 +1,24 @@
 package org.mycompany.models.client;
 
-
 import org.mycompany.controllers.mail.MailController;
 import org.mycompany.models.observer.Subject;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Observable;
 import java.util.Observer;
 
+@XmlAccessorType(XmlAccessType.NONE)
 public class Client implements Observer{
 
     protected Observable observable;
+    @XmlElement(name = "id")
     protected int id;
+    @XmlElement(name = "email")
     protected String email;
     protected String password;
+    @XmlElement(name = "role")
     protected String role;
     protected String token;
 

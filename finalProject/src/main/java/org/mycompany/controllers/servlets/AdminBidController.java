@@ -45,12 +45,14 @@ public class AdminBidController {
             switch (operation){
                 case "read":
                     Bid bid = bidDAOMySql.read(id);
+                    //todo
                     BidsHolderImpl bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
                     String lang = (String) httpServletRequest.getSession().getAttribute("lang");
                     if(lang == null){
                         lang = "en_EN";
                     }
                     bidsHolderImpl.setLang(lang);
+                    //
                     httpServletRequest.setAttribute("bid", bid);
                     break;
                 case "update":

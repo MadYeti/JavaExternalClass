@@ -1,6 +1,5 @@
 package org.mycompany.models.factory;
 
-
 import org.mycompany.models.dao.bidDAO.BidDAOMySql;
 import org.mycompany.models.dao.bidStatusDAO.BidStatusDAOMySql;
 import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAOMySql;

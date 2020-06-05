@@ -1058,3 +1058,10 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-06-03 18:34:20 ERROR    BidDAO:122 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
 2020-06-03 21:16:16 ERROR    BidOrderPriceController:177 - Invalid bid data to get price or format the bid
 2020-06-04 13:36:05 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid
+2020-06-05 20:38:50 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid
+2020-06-05 20:44:14 ERROR    BuyingController:80 - Invalid credit card data input to pay the bid
+2020-06-05 20:44:25 ERROR    BuyingController:80 - Invalid credit card data input to pay the bid
+2020-06-05 20:46:58 ERROR    BidOrderPriceController:101 - empty String
+2020-06-05 20:46:58 ERROR    BidOrderPriceController:112 - empty String
+2020-06-05 20:46:58 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid
+2020-06-05 20:47:06 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid

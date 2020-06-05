@@ -3,7 +3,6 @@ package org.mycompany.controllers.servlets;
 import org.mycompany.models.bidsHolder.BidsHolder;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.repository.BidsHolderImpl;
-import org.mycompany.models.repository.Repository;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [05/Jun/2020:21:32:08 +0300] "GET /MainPage HTTP/1.1" 200 15376 http-bio-8888-exec-1 1831
+0:0:0:0:0:0:0:1 - - [05/Jun/2020:21:32:19 +0300] "GET /sighIn HTTP/1.1" 200 4744 http-bio-8888-exec-2 153
+0:0:0:0:0:0:0:1 - - [05/Jun/2020:21:32:25 +0300] "POST /AuthorizationController HTTP/1.1" 200 14432 http-bio-8888-exec-3 3343
+0:0:0:0:0:0:0:1 - - [05/Jun/2020:21:32:37 +0300] "GET /BidOrderPriceController?weight=2&volume=2&type=2&cost=2&sendingPoint=1&destinationPoint=10&notes=2&submit=true HTTP/1.1" 200 14005 http-bio-8888-exec-4 2839
+0:0:0:0:0:0:0:1 - - [05/Jun/2020:21:32:39 +0300] "GET /BidsDetailsController HTTP/1.1" 200 30401 http-bio-8888-exec-5 420

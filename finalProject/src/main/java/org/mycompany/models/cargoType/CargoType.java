@@ -3,10 +3,16 @@ package org.mycompany.models.cargoType;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+
 @Component
 @Scope("prototype")
+@XmlAccessorType(XmlAccessType.NONE)
 public class CargoType {
 
+    @XmlElement(name = "id")
     private int id;
     private String cargoTypeEN;
     private String cargoTypeUA;

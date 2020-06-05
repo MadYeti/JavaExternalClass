@@ -52,6 +52,7 @@ public class BuyingController {
     @PostMapping("/BuyingController")
     public String payBid(HttpServletRequest httpServletRequest){
         int id = Integer.parseInt(httpServletRequest.getParameter("bidNumber"));
+        String price = httpServletRequest.getParameter("bidPrice");
         String creditCardNumber = httpServletRequest.getParameter("creditCardNumber");
         String creditCardExpirationDate = httpServletRequest.getParameter("creditCardDate");
         String creditCardCVVCode = httpServletRequest.getParameter("cvv");
@@ -79,8 +80,8 @@ public class BuyingController {
                 logger.error(e.getMessage());
             }
             httpServletRequest.setAttribute("success", false);
-            if(creditCardDataController.getErrorCreditCardNumer() != null){
-                httpServletRequest.setAttribute("errorCreditCardNumber", creditCardDataController.getErrorCreditCardNumer());
+            if(creditCardDataController.getErrorCreditCardNumber() != null){
+                httpServletRequest.setAttribute("errorCreditCardNumber", creditCardDataController.getErrorCreditCardNumber());
             }
             if(creditCardDataController.getErrorCreditCardExpirationDate() != null){
                 httpServletRequest.setAttribute("errorCreditCardExpirationDate", creditCardDataController.getErrorCreditCardExpirationDate());
@@ -89,7 +90,7 @@ public class BuyingController {
                 httpServletRequest.setAttribute("errorCreditCardCVVCode", creditCardDataController.getErrorCreditCardCVVCode());
             }
         }
-        return "forward:/buyingPage?pay=".concat(String.valueOf(id));
+        return "forward:/buyingPage?pay=".concat(String.valueOf(id)).concat("&price=").concat(price);
     }
 
 }

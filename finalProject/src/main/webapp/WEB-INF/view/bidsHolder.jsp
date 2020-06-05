@@ -137,7 +137,7 @@
                             <div class="col-md-4 mb-3">
                                 <fmt:message key="msg.paymentStatus.notPaid.label" var="notPaidPaymentStatus"/>
                                 <c:if test = "${bids.paymentStatus.id eq '1'}">
-                                    <a href="/buyingPage?pay=${bids.id}"><button class="btn btn-lg btn-block btn-primary" style="width: 120;" type="submit" name="pay" value="${bids.id}"><fmt:message key="msg.payBid.button"/></button></a>
+                                    <a href="/buyingPage?pay=${bids.id}&price=${bids.price}"><button class="btn btn-lg btn-block btn-primary" style="width: 120;" type="submit" name="pay" value="${bids.id}"><fmt:message key="msg.payBid.button"/></button></a>
                                 </c:if>
                             </div>
                         </div>

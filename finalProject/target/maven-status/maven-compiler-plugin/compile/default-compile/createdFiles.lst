@@ -51,7 +51,6 @@ org\mycompany\controllers\authorization\AuthorizationDataController.class
 org\mycompany\controllers\servlets\SighInPageRedirectController.class
 org\mycompany\models\dao\clientDAO\ClientDAOHelper.class
 org\mycompany\controllers\servlets\AuthorizationController.class
-org\mycompany\dbConnect\DBCPDataSource.class
 org\mycompany\models\factory\ControllerFactoryImpl.class
 org\mycompany\controllers\dateProccesing\DateController.class
 org\mycompany\models\bid\Bid.class

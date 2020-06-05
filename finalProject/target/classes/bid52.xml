@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>52</id>
+    <client>
+        <email>ivancov13@bigmir.net</email>
+        <id>1</id>
+        <password>-5540a5d6a714897ee70ccea486193fbb</password>
+        <role>customer</role>
+        <token></token>
+    </client>
+    <weight>100.0</weight>
+    <volume>23.0</volume>
+    <cargoType>
+        <cargoTypeEN>Cloth</cargoTypeEN>
+        <cargoTypeUA>Одяг</cargoTypeUA>
+        <coefficient>2.0</coefficient>
+        <id>2</id>
+    </cargoType>
+    <cargoCost>123.0</cargoCost>
+    <sendingPoint>
+        <id>1</id>
+        <sendingPointEN>Kyiv</sendingPointEN>
+        <sendingPointUA>Київ</sendingPointUA>
+    </sendingPoint>
+    <destinationPoint>
+        <destinationPointEN>Amsterdam</destinationPointEN>
+        <destinationPointUA>Амстердам</destinationPointUA>
+        <id>12</id>
+    </destinationPoint>
+    <arrivalDate>24-06-2020</arrivalDate>
+    <notes></notes>
+    <price>4438.0</price>
+    <bidStatus>
+        <bidStatusEN>processing</bidStatusEN>
+        <bidStatusUA>обробляється</bidStatusUA>
+        <id>1</id>
+    </bidStatus>
+    <paymentStatus>
+        <id>1</id>
+        <paymentStatusEN>not paid</paymentStatusEN>
+        <paymentStatusUA>не сплачено</paymentStatusUA>
+    </paymentStatus>
+</Bid>

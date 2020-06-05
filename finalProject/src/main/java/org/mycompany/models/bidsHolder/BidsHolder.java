@@ -25,8 +25,4 @@ public class BidsHolder {
         this.bidsHolder = bidsHolder;
     }
 
-    public void addBid(Bid bid){
-        bidsHolder.add(0, bid);
-    }
-
 }

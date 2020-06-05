@@ -40,7 +40,8 @@ public class PasswordRecoveryController {
     @PostMapping("/PasswordRecoveryController")
     public String getPasswordRecoveryInstruction(HttpServletRequest httpServletRequest){
         String email = httpServletRequest.getParameter("email");
-        if(AuthorizationDataController.validateEmail(email)){
+        AuthorizationDataController authorizationDataController = controllerFactory.getAuthorizationDataController();
+        if(authorizationDataController.validateEmail(email)){
             ClientDAOHelper clientDAOMySql = mySqlDAOFactory.createClientDAO();
             String token = clientDAOMySql.createToken(email);
             MailController mailController = controllerFactory.getMailController(email, token);

@@ -1,6 +1,5 @@
 package org.mycompany.models.bid;
 
-
 import org.mycompany.models.bidStatus.BidStatus;
 import org.mycompany.models.cargoType.CargoType;
 import org.mycompany.models.client.Client;
@@ -16,7 +15,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Bid")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
 @Component
 @Scope("prototype")
 public class Bid {
@@ -154,11 +153,6 @@ public class Bid {
 
     public void setPaymentStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
-    }
-
-    public Bid addId(int id){
-        this.id = id;
-        return this;
     }
 
     public Bid addClient(Client client){

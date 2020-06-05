@@ -31,6 +31,7 @@
             <c:set var="errorCreditCardExpirationDate" scope="request" value="${requestScope.errorCreditCardExpirationDate}" />
             <c:set var="errorCreditCardCVVCode" scope="request" value="${requestScope.errorCreditCardCVVCode}" />
             <c:set var="id" value="${param.pay}" />
+            <c:set var="price" value="${param.price}" />
 
             <div class="container">
 
@@ -45,6 +46,11 @@
                                 <div class="mb-3" style="padding-left: 0px;">
                                     <label><fmt:message key="msg.bidNumber.label"/></label>
                                     <input class="form-control" type="text" name="bidNumber" value="${id}" id="bidNumber" readonly />
+                                </div>
+
+                                <div class="mb-3" style="padding-left: 0px;">
+                                    <label><fmt:message key="msg.bidPrice.label"/></label>
+                                    <input class="form-control" type="text" name="bidPrice" value="${price}" id="bidPrice" readonly />
                                 </div>
 
                                 <div class="mb-3" style="padding-left: 0px;">
