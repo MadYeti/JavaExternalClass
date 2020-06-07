@@ -1065,3 +1065,10 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-06-05 20:46:58 ERROR    BidOrderPriceController:112 - empty String
 2020-06-05 20:46:58 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid
 2020-06-05 20:47:06 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid
+2020-06-06 13:28:23 ERROR    BidDAOMySql:121 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
+2020-06-06 13:34:33 ERROR    BidDAOMySql:121 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
+2020-06-06 13:37:18 ERROR    BidDAOMySql:122 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
+2020-06-06 15:16:52 ERROR    BidDAOMySql:128 - org.hibernate.query.criteria.internal.CriteriaUpdateImpl cannot be cast to javax.persistence.criteria.CriteriaQuery
+2020-06-07 15:45:43 ERROR    BidOrderPriceController:202 - Invalid bid data to get price or format the bid
+2020-06-07 21:42:10 ERROR    BidDAOMySql:138 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
+2020-06-07 21:43:23 ERROR    BidDAOMySql:139 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2

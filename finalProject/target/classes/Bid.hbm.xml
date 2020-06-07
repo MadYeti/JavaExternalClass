@@ -5,7 +5,7 @@
 
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
-    <class name="org.mycompany.models.bid.Bid" table="bids">
+    <class name="org.mycompany.models.bid.Bid" table="bids" dynamic-update="true">
         <id name="id" column="id"/>
         <property name="weight" column="weight"/>
         <property name="volume" column="volume"/>

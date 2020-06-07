@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Bid>
     <id>48</id>
-    <clientId>1</clientId>
     <weight>123.0</weight>
     <volume>123.0</volume>
-    <cargoTypeId>1</cargoTypeId>
     <cargoCost>123.0</cargoCost>
-    <sendingPointId>1</sendingPointId>
-    <destinationPointId>12</destinationPointId>
     <arrivalDate>13-06-2020</arrivalDate>
     <notes>123</notes>
     <price>2810.4</price>
-    <bidStatusId>1</bidStatusId>
-    <paymentStatusId>1</paymentStatusId>
+    <paymentStatus>
+        <id>2</id>
+    </paymentStatus>
 </Bid>
