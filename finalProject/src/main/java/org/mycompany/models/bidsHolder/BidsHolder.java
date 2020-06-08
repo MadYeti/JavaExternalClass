@@ -1,10 +1,14 @@
 package org.mycompany.models.bidsHolder;
 
 import org.mycompany.models.bid.Bid;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
+@Scope("prototype")
 public class BidsHolder {
 
     private List<Bid> bidsHolder = null;
@@ -19,14 +23,6 @@ public class BidsHolder {
 
     public void setBidsHolder(List<Bid> bidsHolder) {
         this.bidsHolder = bidsHolder;
-    }
-
-    public void addBid(Bid bid){
-        bidsHolder.add(0, bid);
-    }
-
-    public void removeBid(Bid bid){
-        bidsHolder.remove(bid);
     }
 
 }

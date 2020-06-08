@@ -1,8 +1,11 @@
 package org.mycompany.models.observer;
 
 
+import org.springframework.stereotype.Component;
+
 import java.util.Observable;
 
+@Component
 public class Subject extends Observable{
 
     private int id;

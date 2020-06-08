@@ -29,7 +29,7 @@
                     <a class="py-2 d-none d-md-inline-block" href="#"><fmt:message key="msg.support.button"/></a>
                     <a class="py-2 d-none d-md-inline-block" href="#"><fmt:message key="msg.pricing.button"/></a>
                     <c:if test = "${client ne null}">
-                        <a class="py-2 d-none d-md-inline-block" href="/LogoutServlet"><fmt:message key="msg.logOut.button"/></a>
+                        <a class="py-2 d-none d-md-inline-block" href="/LogoutController"><fmt:message key="msg.logOut.button"/></a>
                     </c:if>
                 </div>
             </nav>

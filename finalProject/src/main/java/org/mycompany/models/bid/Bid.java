@@ -1,5 +1,13 @@
 package org.mycompany.models.bid;
 
+import org.mycompany.models.bidStatus.BidStatus;
+import org.mycompany.models.cargoType.CargoType;
+import org.mycompany.models.client.Client;
+import org.mycompany.models.destinationPoint.DestinationPoint;
+import org.mycompany.models.paymentStatus.PaymentStatus;
+import org.mycompany.models.sendingPoint.SendingPoint;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,25 +15,27 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "Bid")
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlAccessorType(XmlAccessType.NONE)
+@Component
+@Scope("prototype")
 public class Bid {
 
     @XmlElement(name = "id")
     private int id;
-    @XmlElement(name = "clientId")
-    private int clientId;
+    @XmlElement(name = "client")
+    private Client client;
     @XmlElement(name = "weight")
     private double weight;
     @XmlElement(name = "volume")
     private double volume;
     @XmlElement(name = "cargoType")
-    private String cargoType;
+    private CargoType cargoType;
     @XmlElement(name = "cargoCost")
     private double cargoCost;
     @XmlElement(name = "sendingPoint")
-    private String sendingPoint;
+    private SendingPoint sendingPoint;
     @XmlElement(name = "destinationPoint")
-    private String destinationPoint;
+    private DestinationPoint destinationPoint;
     @XmlElement(name = "arrivalDate")
     private String arrivalDate;
     @XmlElement(name = "notes")
@@ -33,9 +43,9 @@ public class Bid {
     @XmlElement(name = "price")
     private double price;
     @XmlElement(name = "bidStatus")
-    private String bidStatus;
+    private BidStatus bidStatus;
     @XmlElement(name = "paymentStatus")
-    private String paymentStatus;
+    private PaymentStatus paymentStatus;
 
     public Bid(){
 
@@ -47,14 +57,6 @@ public class Bid {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(int clientId) {
-        this.clientId = clientId;
     }
 
     public double getWeight() {
@@ -73,36 +75,12 @@ public class Bid {
         this.volume = volume;
     }
 
-    public String getCargoType() {
-        return cargoType;
-    }
-
-    public void setCargoType(String cargoType) {
-        this.cargoType = cargoType;
-    }
-
     public double getCargoCost() {
         return cargoCost;
     }
 
     public void setCargoCost(double cargoCost) {
         this.cargoCost = cargoCost;
-    }
-
-    public String getSendingPoint() {
-        return sendingPoint;
-    }
-
-    public void setSendingPoint(String sendingPoint) {
-        this.sendingPoint = sendingPoint;
-    }
-
-    public String getDestinationPoint() {
-        return destinationPoint;
-    }
-
-    public void setDestinationPoint(String destinationPoint) {
-        this.destinationPoint = destinationPoint;
     }
 
     public String getArrivalDate() {
@@ -129,29 +107,56 @@ public class Bid {
         this.price = price;
     }
 
-    public String getBidStatus() {
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public CargoType getCargoType() {
+        return cargoType;
+    }
+
+    public void setCargoType(CargoType cargoType) {
+        this.cargoType = cargoType;
+    }
+
+    public SendingPoint getSendingPoint() {
+        return sendingPoint;
+    }
+
+    public void setSendingPoint(SendingPoint sendingPoint) {
+        this.sendingPoint = sendingPoint;
+    }
+
+    public DestinationPoint getDestinationPoint() {
+        return destinationPoint;
+    }
+
+    public void setDestinationPoint(DestinationPoint destinationPoint) {
+        this.destinationPoint = destinationPoint;
+    }
+
+    public BidStatus getBidStatus() {
         return bidStatus;
     }
 
-    public void setBidStatus(String bidStatus) {
+    public void setBidStatus(BidStatus bidStatus) {
         this.bidStatus = bidStatus;
     }
 
-    public String getPaymentStatus() {
+    public PaymentStatus getPaymentStatus() {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(String paymentStatus) {
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
     }
 
-    public Bid addId(int id){
-        this.id = id;
-        return this;
-    }
-
-    public Bid addClientId(int clientId) {
-        this.clientId = clientId;
+    public Bid addClient(Client client){
+        this.client = client;
         return this;
     }
 
@@ -165,7 +170,7 @@ public class Bid {
         return this;
     }
 
-    public Bid addCargoType(String cargoType) {
+    public Bid addCargoType(CargoType cargoType) {
         this.cargoType = cargoType;
         return this;
     }
@@ -175,12 +180,12 @@ public class Bid {
         return this;
     }
 
-    public Bid addSendingPoint(String sendingPoint) {
+    public Bid addSendingPoint(SendingPoint sendingPoint) {
         this.sendingPoint = sendingPoint;
         return this;
     }
 
-    public Bid addDestinationPoint(String destinationPoint) {
+    public Bid addDestinationPoint(DestinationPoint destinationPoint) {
         this.destinationPoint = destinationPoint;
         return this;
     }
@@ -200,12 +205,12 @@ public class Bid {
         return this;
     }
 
-    public Bid addBidStatus(String bidStatus) {
+    public Bid addBidStatus(BidStatus bidStatus) {
         this.bidStatus = bidStatus;
         return this;
     }
 
-    public Bid addPaymentStatus(String paymentStatus) {
+    public Bid addPaymentStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
         return this;
     }
@@ -222,11 +227,11 @@ public class Bid {
         Bid bid = (Bid) o;
 
         if (id != bid.id) return false;
-        if (clientId != bid.clientId) return false;
         if (Double.compare(bid.weight, weight) != 0) return false;
         if (Double.compare(bid.volume, volume) != 0) return false;
         if (Double.compare(bid.cargoCost, cargoCost) != 0) return false;
         if (Double.compare(bid.price, price) != 0) return false;
+        if (client != null ? !client.equals(bid.client) : bid.client != null) return false;
         if (cargoType != null ? !cargoType.equals(bid.cargoType) : bid.cargoType != null) return false;
         if (sendingPoint != null ? !sendingPoint.equals(bid.sendingPoint) : bid.sendingPoint != null) return false;
         if (destinationPoint != null ? !destinationPoint.equals(bid.destinationPoint) : bid.destinationPoint != null)
@@ -242,7 +247,7 @@ public class Bid {
         int result;
         long temp;
         result = id;
-        result = 31 * result + clientId;
+        result = 31 * result + (client != null ? client.hashCode() : 0);
         temp = Double.doubleToLongBits(weight);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(volume);
@@ -265,7 +270,7 @@ public class Bid {
     public String toString() {
         return "Bid{" +
                 "id=" + id +
-                ", clientId=" + clientId +
+                ", client=" + client +
                 ", weight=" + weight +
                 ", volume=" + volume +
                 ", cargoType='" + cargoType + '\'' +

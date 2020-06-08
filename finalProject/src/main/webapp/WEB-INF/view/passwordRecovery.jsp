@@ -36,7 +36,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="col-md-8 order-md-1">
                         <c:if test = "${emailSend eq null || emailSend eq false}">
-                            <form class="form-signin" action="PasswordRecoveryServlet" method="post">
+                            <form class="form-signin" action="PasswordRecoveryController" method="post">
                                 <div class="mb-3">
                                     <label><fmt:message key="msg.email.input.label"/></label>
                                     <input class="form-control" type="text" type="text" name="email" value="" id="email" />

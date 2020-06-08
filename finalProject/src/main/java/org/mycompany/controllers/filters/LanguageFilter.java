@@ -18,11 +18,9 @@ public class LanguageFilter implements Filter{
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-
         if(httpServletRequest.getParameter(LANG_PARAM)!=null){
             httpServletRequest.getSession().setAttribute(LANG_PARAM, httpServletRequest.getParameter(LANG_PARAM));
         }
-
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

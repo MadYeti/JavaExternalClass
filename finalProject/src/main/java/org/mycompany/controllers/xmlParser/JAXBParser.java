@@ -3,6 +3,8 @@ package org.mycompany.controllers.xmlParser;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.models.bid.Bid;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -10,7 +12,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
-
+@Component
 public class JAXBParser {
 
     private static Logger logger = Logger.getLogger(JAXBParser.class);

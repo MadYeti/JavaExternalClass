@@ -19,11 +19,11 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
                     </a>
                     <a class="py-2 d-none d-md-inline-block" href="/MainPage"><fmt:message key="msg.mainPage.button"/></a>
-                    <a class="py-2 d-none d-md-inline-block" href="/BidsDetailsServlet"><fmt:message key="msg.viewBidsDetail.button"/></a>
+                    <a class="py-2 d-none d-md-inline-block" href="/BidsDetailsController"><fmt:message key="msg.viewBidsDetail.button"/></a>
                     <a class="py-2 d-none d-md-inline-block" href="/adminPrivateOffice"><fmt:message key="msg.admin.bidAccess.button"/></a>
                     <a class="py-2 d-none d-md-inline-block" href="#"><fmt:message key="msg.support.button"/></a>
                     <a class="py-2 d-none d-md-inline-block" href="#"><fmt:message key="msg.pricing.button"/></a>
-                    <a class="py-2 d-none d-md-inline-block" href="/LogoutServlet"><fmt:message key="msg.logOut.button"/></a>
+                    <a class="py-2 d-none d-md-inline-block" href="/LogoutController"><fmt:message key="msg.logOut.button"/></a>
                 </div>
             </nav>
             <div class="container">
@@ -42,6 +42,9 @@
                 <c:set var="destinationPointValue" scope="request" value="${requestScope.destinationPointValue}" />
                 <c:set var="totalPriceValue" scope="request" value="${requestScope.totalPriceValue}" />
                 <c:set var="success" scope="request" value="${requestScope.success}" />
+                <c:set var="cargoType" scope="request" value="${requestScope.cargoType}" />
+                <c:set var="sendingPoint" scope="request" value="${requestScope.sendingPoint}" />
+                <c:set var="destinationPoint" scope="request" value="${requestScope.destinationPoint}" />
 
                 <div class="py-5 text-center">
                     <h4 class="mb-3"><fmt:message key="msg.greeting.admin"/></h4>
@@ -53,7 +56,7 @@
                         <h4 class="mb-3"><fmt:message key="msg.serviceCalculator.label"/></h4>
 
                         <div class="my-3 p-3 bg-white rounded shadow-sm">
-                            <form class="needs-validation" action="BidControllerServlet" method="get">
+                            <form class="needs-validation" action="BidOrderPriceController" method="get">
                                 <div class="mb-3" style="padding-left: 0px;">
                                     <label><fmt:message key="msg.weight.label"/></label>
                                     <input type="text" class="form-control" name="weight" value="${weightValue}" id="weight" />
@@ -85,14 +88,43 @@
                                             </c:when>
                                         </c:choose>
                                         <select class="custom-select d-block w-100" size="1" name="type" id="type">
-                                            <option hidden="">${cargoTypeValue}</option>
-                                            <option><fmt:message key="msg.cargoType.field.option.healthAndCare"/></option>
-                                            <option><fmt:message key="msg.cargoType.field.option.cloth"/></option>
-                                            <option><fmt:message key="msg.cargoType.field.option.fmcg"/></option>
-                                            <option><fmt:message key="msg.cargoType.field.option.buildingMaterials"/></option>
-                                            <option><fmt:message key="msg.cargoType.field.option.carParts"/></option>
-                                            <option><fmt:message key="msg.cargoType.field.option.kidsGoods"/></option>
-                                            <option><fmt:message key="msg.cargoType.field.option.other"/></option>
+                                            <c:if test = "${cargoType eq null}">
+                                                <c:set var="cargoType" value="0" />
+                                            </c:if>
+                                            <c:choose>
+                                                <c:when test = "${cargoType eq 0}">
+                                                    <c:set var="cargoTypeValue0" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 1}">
+                                                    <c:set var="cargoTypeValue1" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 2}">
+                                                    <c:set var="cargoTypeValue2" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 3}">
+                                                    <c:set var="cargoTypeValue3" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 4}">
+                                                    <c:set var="cargoTypeValue4" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 5}">
+                                                    <c:set var="cargoTypeValue5" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 6}">
+                                                    <c:set var="cargoTypeValue6" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${cargoType eq 7}">
+                                                    <c:set var="cargoTypeValue7" value="selected" />
+                                                </c:when>
+                                            </c:choose>
+                                            <option value="0" ${cargoTypeValue0} hidden="">${cargoTypeValue}</option>
+                                            <option value="1" ${cargoTypeValue1}><fmt:message key="msg.cargoType.field.option.healthAndCare"/></option>
+                                            <option value="2" ${cargoTypeValue2}><fmt:message key="msg.cargoType.field.option.cloth"/></option>
+                                            <option value="3" ${cargoTypeValue3}><fmt:message key="msg.cargoType.field.option.fmcg"/></option>
+                                            <option value="4" ${cargoTypeValue4}><fmt:message key="msg.cargoType.field.option.buildingMaterials"/></option>
+                                            <option value="5" ${cargoTypeValue5}><fmt:message key="msg.cargoType.field.option.carParts"/></option>
+                                            <option value="6" ${cargoTypeValue6}><fmt:message key="msg.cargoType.field.option.kidsGoods"/></option>
+                                            <option value="7" ${cargoTypeValue7}><fmt:message key="msg.cargoType.field.option.other"/></option>
                                         </select>
                                         <div style="color: #dc3545; font-size: 75%;">
                                             <c:if test = "${typeInputError eq true}">
@@ -123,19 +155,63 @@
                                             </c:when>
                                         </c:choose>
                                         <select class="custom-select d-block w-100" size="1" name="sendingPoint" id="sendingPoint">
-                                            <option hidden="">${sendingPointValue}</option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.kiev"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.london"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.paris"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.berlin"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.rome"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.moscow"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.warsaw"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.oslo"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.helsinki"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.beijing"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.madrid"/></option>
-                                            <option><fmt:message key="msg.sendingPoint.field.option.amsterdam"/></option>
+                                            <c:if test = "${sendingPoint eq null}">
+                                                <c:set var="sendingPoint" value="0" />
+                                            </c:if>
+                                            <c:choose>
+                                                <c:when test = "${sendingPoint eq 0}">
+                                                    <c:set var="sendingPoint0" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 1}">
+                                                    <c:set var="sendingPoint1" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 2}">
+                                                    <c:set var="sendingPoint2" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 3}">
+                                                    <c:set var="sendingPoint3" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 4}">
+                                                    <c:set var="sendingPoint4" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 5}">
+                                                    <c:set var="sendingPoint5" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 6}">
+                                                    <c:set var="sendingPoint6" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 7}">
+                                                    <c:set var="sendingPoint7" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 8}">
+                                                    <c:set var="sendingPoint8" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 9}">
+                                                    <c:set var="sendingPoint9" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 10}">
+                                                    <c:set var="sendingPoint10" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 11}">
+                                                    <c:set var="sendingPoint11" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${sendingPoint eq 12}">
+                                                    <c:set var="sendingPoint12" value="selected" />
+                                                </c:when>
+                                            </c:choose>
+                                            <option value="0" ${sendingPoint0} hidden="">${sendingPointValue}</option>
+                                            <option value="1" ${sendingPoint1}><fmt:message key="msg.sendingPoint.field.option.kiev"/></option>
+                                            <option value="2" ${sendingPoint2}><fmt:message key="msg.sendingPoint.field.option.london"/></option>
+                                            <option value="3" ${sendingPoint3}><fmt:message key="msg.sendingPoint.field.option.paris"/></option>
+                                            <option value="4" ${sendingPoint4}><fmt:message key="msg.sendingPoint.field.option.berlin"/></option>
+                                            <option value="5" ${sendingPoint5}><fmt:message key="msg.sendingPoint.field.option.rome"/></option>
+                                            <option value="6" ${sendingPoint6}><fmt:message key="msg.sendingPoint.field.option.moscow"/></option>
+                                            <option value="7" ${sendingPoint7}><fmt:message key="msg.sendingPoint.field.option.warsaw"/></option>
+                                            <option value="8" ${sendingPoint8}><fmt:message key="msg.sendingPoint.field.option.oslo"/></option>
+                                            <option value="9" ${sendingPoint9}><fmt:message key="msg.sendingPoint.field.option.helsinki"/></option>
+                                            <option value="10" ${sendingPoint10}><fmt:message key="msg.sendingPoint.field.option.beijing"/></option>
+                                            <option value="11" ${sendingPoint11}><fmt:message key="msg.sendingPoint.field.option.madrid"/></option>
+                                            <option value="12" ${sendingPoint12}><fmt:message key="msg.sendingPoint.field.option.amsterdam"/></option>
                                         </select>
                                         <div style="color: #dc3545; font-size: 75%;">
                                             <c:if test = "${sendingPointInputError eq true}">
@@ -157,19 +233,63 @@
                                             </c:when>
                                         </c:choose>
                                         <select class="custom-select d-block w-100" size="1" name="destinationPoint" id="destinationPoint">
-                                            <option hidden="">${destinationPointValue}</option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.kiev"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.london"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.paris"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.berlin"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.rome"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.moscow"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.warsaw"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.oslo"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.helsinki"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.beijing"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.madrid"/></option>
-                                            <option><fmt:message key="msg.destinationPoint.field.option.amsterdam"/></option>
+                                            <c:if test = "${destinationPoint eq null}">
+                                                <c:set var="destinationPoint" value="0" />
+                                            </c:if>
+                                            <c:choose>
+                                                <c:when test = "${destinationPoint eq 0}">
+                                                    <c:set var="destinationPoint0" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 1}">
+                                                    <c:set var="destinationPoint1" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 2}">
+                                                    <c:set var="destinationPoint2" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 3}">
+                                                    <c:set var="destinationPoint3" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 4}">
+                                                    <c:set var="destinationPoint4" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 5}">
+                                                    <c:set var="destinationPoint5" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 6}">
+                                                    <c:set var="destinationPoint6" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 7}">
+                                                    <c:set var="destinationPoint7" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 8}">
+                                                    <c:set var="destinationPoint8" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 9}">
+                                                    <c:set var="destinationPoint9" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 10}">
+                                                    <c:set var="destinationPoint10" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 11}">
+                                                    <c:set var="destinationPoint11" value="selected" />
+                                                </c:when>
+                                                <c:when test = "${destinationPoint eq 12}">
+                                                    <c:set var="destinationPoint12" value="selected" />
+                                                </c:when>
+                                            </c:choose>
+                                            <option value="0" ${destinationPoint0} hidden="">${destinationPointValue}</option>
+                                            <option value="1" ${destinationPoint1}><fmt:message key="msg.destinationPoint.field.option.kiev"/></option>
+                                            <option value="2" ${destinationPoint2}><fmt:message key="msg.destinationPoint.field.option.london"/></option>
+                                            <option value="3" ${destinationPoint3}><fmt:message key="msg.destinationPoint.field.option.paris"/></option>
+                                            <option value="4" ${destinationPoint4}><fmt:message key="msg.destinationPoint.field.option.berlin"/></option>
+                                            <option value="5" ${destinationPoint5}><fmt:message key="msg.destinationPoint.field.option.rome"/></option>
+                                            <option value="6" ${destinationPoint6}><fmt:message key="msg.destinationPoint.field.option.moscow"/></option>
+                                            <option value="7" ${destinationPoint7}><fmt:message key="msg.destinationPoint.field.option.warsaw"/></option>
+                                            <option value="8" ${destinationPoint8}><fmt:message key="msg.destinationPoint.field.option.oslo"/></option>
+                                            <option value="9" ${destinationPoint9}><fmt:message key="msg.destinationPoint.field.option.helsinki"/></option>
+                                            <option value="10" ${destinationPoint10}><fmt:message key="msg.destinationPoint.field.option.beijing"/></option>
+                                            <option value="11" ${destinationPoint11}><fmt:message key="msg.destinationPoint.field.option.madrid"/></option>
+                                            <option value="12" ${destinationPoint12}><fmt:message key="msg.destinationPoint.field.option.amsterdam"/></option>
                                         </select>
                                         <div style="color: #dc3545; font-size: 75%;">
                                             <c:if test = "${destinationPointInputError eq true}">

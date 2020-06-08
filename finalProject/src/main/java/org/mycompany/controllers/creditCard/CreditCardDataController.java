@@ -1,9 +1,13 @@
 package org.mycompany.controllers.creditCard;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
+@Scope("prototype")
 public class CreditCardDataController {
 
     private String errorCreditCardNumber;
@@ -61,7 +65,7 @@ public class CreditCardDataController {
         return matcher.find();
     }
 
-    public String getErrorCreditCardNumer() {
+    public String getErrorCreditCardNumber() {
         return errorCreditCardNumber;
     }
 
