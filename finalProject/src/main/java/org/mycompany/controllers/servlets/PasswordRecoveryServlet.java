@@ -7,6 +7,10 @@ import org.mycompany.controllers.mail.MailController;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.InvalidEmailInputForPasswordRecoveryException;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
+import org.mycompany.models.dao.clientDAO.ClientDAOHelper;
+import org.mycompany.models.dao.clientDAO.ClientDAOMySql;
+import org.mycompany.models.factory.ControllerFactory;
+import org.mycompany.models.factory.ControllerFactoryImpl;
 import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
@@ -36,8 +40,9 @@ public class PasswordRecoveryServlet extends HttpServlet{
         String email = httpServletRequest.getParameter("email");
         if(AuthorizationController.validateEmail(email)){
             ClientDAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
-            String token = clientDAO.createToken(email);
-            MailController mailController = new MailController(email, token);
+            String token = ((ClientDAOHelper)clientDAO).createToken(email);
+            ControllerFactory controllerFactory = new ControllerFactoryImpl();
+            MailController mailController = controllerFactory.getMailController(email, token);
             mailController.sendPasswordRecoveryEmail();
         }else{
             try {

@@ -1,6 +1,5 @@
 package org.mycompany.controllers.servlets;
 
-
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.authorization.AuthorizationController;
@@ -8,7 +7,8 @@ import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.AuthorizationException;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
-import org.mycompany.models.dao.clientDAO.DAO;
+import org.mycompany.models.factory.ControllerFactory;
+import org.mycompany.models.factory.ControllerFactoryImpl;
 import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
@@ -37,17 +37,15 @@ public class AuthorizationServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         RequestDispatcher requestDispatcher;
-        HttpSession httpSession;
-        Client client;
         String email = httpServletRequest.getParameter("email");
         String password = httpServletRequest.getParameter("password");
         String rememberMe = httpServletRequest.getParameter("rememberMe");
-        AuthorizationController authorizationController = new AuthorizationController();
+        AuthorizationController authorizationController = new ControllerFactoryImpl().getAuthorizationController();
         if(authorizationController.validateData(email, password)){
-            DAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
-            client = clientDAO.getClient(email, password);
+            ClientDAO clientDAOMySql = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
+            Client client = clientDAOMySql.getClient(email, password);
             if(client != null){
-                httpSession = httpServletRequest.getSession(true);
+                HttpSession httpSession = httpServletRequest.getSession(true);
                 httpSession.setAttribute("client", client);
                 if(rememberMe != null){
                     httpSession.setMaxInactiveInterval(0);

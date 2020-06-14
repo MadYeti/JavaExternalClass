@@ -19,13 +19,18 @@ public class BidsDetailsServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher;
         HttpSession httpSession = httpServletRequest.getSession();
-        int id = ((Client)httpSession.getAttribute("client")).getId();
-        BidsHolderImpl bidsHolderImpl = new BidsHolderImpl(DBCPDataSource.getConnection());
-        BidsHolder bidsHolder = new BidsHolder();
-        bidsHolder.setBidsHolder(bidsHolderImpl.getWholeBidHistory(id));
-        httpSession.setAttribute("bidsHolder", bidsHolder);
-        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/WEB-INF/view/bidsHolder.jsp");
+        if(httpSession.getAttribute("client") != null) {
+            int id = ((Client) httpSession.getAttribute("client")).getId();
+            BidsHolderImpl bidsHolderImpl = new BidsHolderImpl(DBCPDataSource.getConnection());
+            BidsHolder bidsHolder = new BidsHolder();
+            bidsHolder.setBidsHolder(bidsHolderImpl.getWholeBidHistory(id));
+            httpSession.setAttribute("bidsHolder", bidsHolder);
+            requestDispatcher = httpServletRequest.getRequestDispatcher("/WEB-INF/view/bidsHolder.jsp");
+        }else{
+            requestDispatcher = httpServletRequest.getRequestDispatcher("/WEB-INF/view/notEnoughPrivilegesPage.jsp");
+        }
         requestDispatcher.forward(httpServletRequest, httpServletResponse);
     }
 

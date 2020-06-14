@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>53</id>
+    <client>
+        <id>1</id>
+        <email>ivancov13@bigmir.net</email>
+        <role>customer</role>
+    </client>
+    <weight>111.00</weight>
+    <volume>111.00</volume>
+    <cargoType>
+        <id>2</id>
+    </cargoType>
+    <cargoCost>0.03</cargoCost>
+    <sendingPoint>
+        <id>10</id>
+    </sendingPoint>
+    <destinationPoint>
+        <id>4</id>
+    </destinationPoint>
+    <arrivalDate>2020-09-07</arrivalDate>
+    <notes>123123</notes>
+    <price>17122.16</price>
+    <bidStatus>
+        <id>1</id>
+    </bidStatus>
+    <paymentStatus>
+        <id>2</id>
+    </paymentStatus>
+</Bid>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page isELIgnored ="false" %>
 <fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:requestEncoding value="UTF-8" />
@@ -53,20 +54,47 @@
                                         <td>${bid.volume}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="cargoTypeValue" value="cargoTypeEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="cargoTypeValue" value="cargoType${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.cargoType.label"/></td>
-                                        <td>${bid.cargoType}</td>
+                                        <td>${bid.cargoType[cargoTypeValue]}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.cargoCost.label"/></td>
                                         <td>${bid.cargoCost}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="sendingPointValue" value="sendingPointEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="sendingPointValue" value="sendingPoint${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.sendingPoint.label"/></td>
-                                        <td>${bid.sendingPoint}</td>
+                                        <td>${bid.sendingPoint[sendingPointValue]}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="destinationPointValue" value="destinationPointEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="destinationPointValue" value="destinationPoint${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.destinationPoint.label"/></td>
-                                        <td>${bid.destinationPoint}</td>
+                                        <td>${bid.destinationPoint[destinationPointValue]}</td>
                                     </tr>
                                     <tr>
                                         <td><fmt:message key="msg.arrivalDate.label"/></td>
@@ -81,12 +109,30 @@
                                         <td>${bid.price}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="bidStatusValue" value="bidStatusEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="bidStatusValue" value="bidStatus${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.bidStatus.label"/></td>
-                                        <td>${bid.bidStatus}</td>
+                                        <td>${bid.bidStatus[bidStatusValue]}</td>
                                     </tr>
                                     <tr>
+                                        <c:choose>
+                                            <c:when test = "${lang eq null}">
+                                                <c:set var="paymentStatusValue" value="paymentStatusEN" />
+                                            </c:when>
+                                            <c:when test = "${lang ne null}">
+                                                <c:set var="langValue" value="${fn:substring(lang, 3, 5)}" />
+                                                <c:set var="paymentStatusValue" value="paymentStatus${langValue}" />
+                                            </c:when>
+                                        </c:choose>
                                         <td><fmt:message key="msg.paymentStatus.label"/></td>
-                                        <td>${bid.paymentStatus}</td>
+                                        <td>${bid.paymentStatus[paymentStatusValue]}</td>
                                     </tr>
                                 </table>
                             </div>

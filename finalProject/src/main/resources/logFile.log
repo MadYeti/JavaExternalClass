@@ -516,3 +516,36 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-05-13 18:04:14 ERROR    BidControllerServlet:121 - empty String
 2020-05-13 18:04:14 ERROR    BidControllerServlet:185 - Invalid bid data to get price or format the bid
 2020-05-13 18:05:06 ERROR    BuyingControllerServlet:65 - Invalid credit card data input to pay the bid
+2020-06-14 14:33:30 ERROR    BidOrderPriceServlet:199 - Invalid bid data to get price or format the bid
+2020-06-14 14:33:49 ERROR    BidOrderPriceServlet:199 - Invalid bid data to get price or format the bid
+2020-06-14 14:34:16 ERROR    RegistrationServlet:51 - Invalid input data to register user
+2020-06-14 14:34:27 ERROR    RegistrationServlet:51 - Invalid input data to register user
+2020-06-14 14:34:38 ERROR    ClientDAOMySql:108 - Field 'token' doesn't have a default value
+2020-06-14 14:35:05 ERROR    ClientDAOMySql:108 - Field 'token' doesn't have a default value
+2020-06-14 14:36:54 ERROR    ClientDAOMySql:108 - Field 'token' doesn't have a default value
+2020-06-14 14:37:27 ERROR    ClientDAOMySql:108 - You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''' at line 1
+2020-06-14 14:38:38 ERROR    AuthorizationServlet:62 - Invalid credentials input to log in
+2020-06-14 14:38:42 ERROR    AuthorizationServlet:62 - Invalid credentials input to log in
+2020-06-14 14:39:52 ERROR    BidOrderPriceServlet:199 - Invalid bid data to get price or format the bid
+2020-06-14 14:42:39 ERROR    BuyingControllerServlet:68 - Invalid credit card data input to pay the bid
+2020-06-14 14:42:59 ERROR    JAXBParser:44 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 14:46:01 ERROR    JAXBParser:44 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 14:54:53 ERROR    JAXBParser:44 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 14:57:36 ERROR    JAXBParser:44 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:03:13 ERROR    JAXBParser:44 - 
+2020-06-14 15:03:32 ERROR    JAXBParser:44 - 
+2020-06-14 15:03:39 ERROR    JAXBParser:44 - 
+2020-06-14 15:05:04 ERROR    JAXBParser:44 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:07:19 ERROR    JAXBParser:45 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:08:38 ERROR    JAXBParser:45 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:10:07 ERROR    JAXBParser:45 - 
+2020-06-14 15:10:33 ERROR    JAXBParser:46 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:10:48 ERROR    JAXBParser:46 - 
+2020-06-14 15:10:54 ERROR    JAXBParser:46 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:15:00 ERROR    JAXBParser:56 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:20:13 ERROR    JAXBParser:50 - Unable to create an instance of org.mycompany.models.client.Client
+2020-06-14 15:30:40 ERROR    PasswordRecoveryServlet:51 - Invalid email input
+2020-06-14 15:30:42 ERROR    PasswordRecoveryServlet:51 - Invalid email input
+2020-06-14 15:32:44 ERROR    ResetPasswordServlet:51 - Invalid password/retyped password in recovery password section
+2020-06-14 15:32:46 ERROR    ResetPasswordServlet:51 - Invalid password/retyped password in recovery password section
+2020-06-14 15:33:50 ERROR    BidOrderPriceServlet:199 - Invalid bid data to get price or format the bid

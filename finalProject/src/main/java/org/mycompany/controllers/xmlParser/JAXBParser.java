@@ -3,6 +3,12 @@ package org.mycompany.controllers.xmlParser;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.models.bid.Bid;
+import org.mycompany.models.bidStatus.BidStatus;
+import org.mycompany.models.cargoType.CargoType;
+import org.mycompany.models.client.Client;
+import org.mycompany.models.destinationPoint.DestinationPoint;
+import org.mycompany.models.paymentStatus.PaymentStatus;
+import org.mycompany.models.sendingPoint.SendingPoint;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

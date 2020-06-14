@@ -1,6 +1,5 @@
 package org.mycompany.controllers.creditCard;
 
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,7 +60,7 @@ public class CreditCardDataController {
         return matcher.find();
     }
 
-    public String getErrorCreditCardNumer() {
+    public String getErrorCreditCardNumber() {
         return errorCreditCardNumber;
     }
 

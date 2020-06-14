@@ -21,8 +21,8 @@ public class LogoutServlet extends HttpServlet{
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         RequestDispatcher requestDispatcher;
         HttpSession httpSession = httpServletRequest.getSession();
-        httpServletRequest.removeAttribute("client");
         if(httpSession != null) {
+            httpServletRequest.removeAttribute("client");
             httpSession.invalidate();
         }
         requestDispatcher = httpServletRequest.getRequestDispatcher("/WEB-INF/view/index.jsp");

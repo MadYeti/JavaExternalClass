@@ -1,6 +1,5 @@
 package org.mycompany.models.observer;
 
-
 import java.util.Observable;
 
 public class Subject extends Observable{

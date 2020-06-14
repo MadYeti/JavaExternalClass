@@ -5,11 +5,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.controllers.xmlParser.JAXBParser;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.bid.Bid;
-import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidDAO.BidDAO;
-import org.mycompany.models.dao.bidDAO.DAO;
 import org.mycompany.models.factory.MySqlDAOFactory;
-import org.mycompany.models.observer.Subject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,18 +32,18 @@ public class AdminBidControllerServlet extends HttpServlet{
         String operation = httpServletRequest.getParameter("operation");
         try {
             int id = Integer.parseInt(bidId);
-            DAO bidDAO = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
+            BidDAO bidDAOMySql = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
             JAXBParser jaxbParser = new JAXBParser();
             switch (operation){
                 case "read":
-                    Bid bid = bidDAO.read(id);
+                    Bid bid = bidDAOMySql.read(id);
                     httpServletRequest.setAttribute("bid", bid);
                     break;
                 case "update":
-                    bidDAO.update(jaxbParser.createObjectBasedOnXML(id));
+                    bidDAOMySql.update(jaxbParser.createObjectBasedOnXML(id));
                     break;
                 case "delete":
-                    bidDAO.delete(jaxbParser.createObjectBasedOnXML(id));
+                    bidDAOMySql.delete(jaxbParser.createObjectBasedOnXML(id));
                     break;
                 default:
                     break;

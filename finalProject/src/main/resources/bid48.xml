@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Bid>
+    <id>48</id>
+    <weight>123.0</weight>
+    <volume>123.0</volume>
+    <cargoCost>123.0</cargoCost>
+    <arrivalDate>13-06-2020</arrivalDate>
+    <notes>123</notes>
+    <price>2810.4</price>
+    <paymentStatus>
+        <id>2</id>
+    </paymentStatus>
+</Bid>

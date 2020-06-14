@@ -1,6 +1,5 @@
 package org.mycompany.controllers.mail;
 
-
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 

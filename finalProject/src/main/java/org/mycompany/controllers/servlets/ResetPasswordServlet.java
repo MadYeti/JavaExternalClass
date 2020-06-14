@@ -6,6 +6,9 @@ import org.mycompany.controllers.registration.RegistrationController;
 import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.ResetPasswordException;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
+import org.mycompany.models.dao.clientDAO.ClientDAOHelper;
+import org.mycompany.models.factory.ControllerFactory;
+import org.mycompany.models.factory.ControllerFactoryImpl;
 import org.mycompany.models.factory.MySqlDAOFactory;
 
 import javax.servlet.RequestDispatcher;
@@ -35,10 +38,11 @@ public class ResetPasswordServlet extends HttpServlet{
         String token = httpServletRequest.getParameter("token");
         String password = httpServletRequest.getParameter("password");
         String retypedPassword = httpServletRequest.getParameter("retypedPassword");
-        RegistrationController registrationController = new RegistrationController();
+        ControllerFactory controllerFactory = new ControllerFactoryImpl();
+        RegistrationController registrationController = controllerFactory.getRegistrationController();
         if(!registrationController.validatePasswords(password, retypedPassword)){
             ClientDAO clientDAO = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
-            clientDAO.resetPasswordAndDeleteToken(password, token);
+            ((ClientDAOHelper)clientDAO).resetPasswordAndDeleteToken(password, token);
             httpServletRequest.setAttribute("resetPassword", true);
         }else{
             try {
