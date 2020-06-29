@@ -1,6 +1,5 @@
 package org.mycompany.controllers.creditCard;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,14 +8,14 @@ public class CreditCardDataControllerTest {
     @Test
     public void successValidationCreditCardData(){
         CreditCardDataController creditCardDataController = new CreditCardDataController();
-        boolean result = creditCardDataController.validateCreditCardData("1234567890123456", "16/22", "583");
+        boolean result = creditCardDataController.validateCreditCardData("1234567890123456", "11/22", "583");
         Assert.assertFalse(result);
     }
 
     @Test
     public void failedValidationCreditCardDataWrongCreditCardNumber(){
         CreditCardDataController creditCardDataController = new CreditCardDataController();
-        boolean result = creditCardDataController.validateCreditCardData("123dsf678901234%^", "16/22", "112");
+        boolean result = creditCardDataController.validateCreditCardData("123dsf678901234%^", "10/22", "112");
         Assert.assertTrue(result);
     }
 

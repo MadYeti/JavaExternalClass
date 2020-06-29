@@ -23,6 +23,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of CRUD and helper interface
+ */
 public class BidDAOMySql implements BidDAO, BidDAOHelper{
 
     private Connection connection;
@@ -36,6 +39,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         this.connection = connection;
     }
 
+    /**
+     * Create bid record in bids table in DB
+     * @param bid object that needs to be created in DB
+     */
     @Override
     public void create(Bid bid) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.INSERTBID.QUERY)){
@@ -69,6 +76,11 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         }
     }
 
+    /**
+     * Get bid object from bids table in DB
+     * @param id number of bid that needs to be received
+     * @return bid object from DB
+     */
     @Override
     public Bid read(int id) {
         Bid bid = null;
@@ -123,6 +135,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return bid;
     }
 
+    /**
+     * Update bid record in bids table in DB
+     * @param bid object that needs to be updated
+     */
     @Override
     public void update(Bid bid) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.UPDATEBID.QUERY)){
@@ -157,6 +173,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         }
     }
 
+    /**
+     * Delete bid record from bids table in DB
+     * @param bid objects that need to be deleted
+     */
     @Override
     public void delete(Bid bid) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.DELETEBID.QUERY)){
@@ -191,6 +211,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         }
     }
 
+    /**
+     * Get last inserted id (later that id will be set to bid)
+     * @return last inserted id in bids table in DB
+     */
     @Override
     public int getLastInsertedId(){
         int result = 0;
@@ -218,6 +242,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return result;
     }
 
+    /**
+     * Update bids payment status from '1' ('not paid') to '2' 'paid'
+     * @param id number of bid which payment status needs to be updated
+     */
     @Override
     public void updateBidPaymentStatus(int id){
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.UPDATEBIDPAYMENTSTATUS.QUERY)){
@@ -240,6 +268,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         }
     }
 
+    /**
+     * Get price from city_distance table in DB
+     * @param sendingCityId id of sending point
+     * @param destinationCityId id of destination point
+     * @return price record from DB
+     */
     @Override
     public double getPriceAccordingToCityDistance(int sendingCityId, int destinationCityId) {
         double result = 0;
@@ -269,6 +303,11 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return result;
     }
 
+    /**
+     * Get coefficient from cargo_type table in DB
+     * @param cargoTypeId cargo type id which coefficient needs to be received
+     * @return coefficient of specific cargo type
+     */
     @Override
     public double getCargoTypeCoefficient(int cargoTypeId) {
         double result = 0;
@@ -297,6 +336,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return result;
     }
 
+    /**
+     * Get cargo type value according to lang parameter
+     * @param id cargo type id
+     * @param lang language locale
+     * @return cargo type value of specific lang
+     */
     @Override
     public String getCargoTypeValue(int id, String lang) {
         String result = null;
@@ -329,6 +374,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return result;
     }
 
+    /**
+     * Get sending point value according to lang parameter
+     * @param id sending point id
+     * @param lang language locale
+     * @return sending point value of specific lang
+     */
     @Override
     public String getSendingPointValue(int id, String lang) {
         String result = null;
@@ -361,6 +412,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return result;
     }
 
+    /**
+     * Get destination point value according to lang parameter
+     * @param id destination point id
+     * @param lang language locale
+     * @return destination point value of specific lang
+     */
     @Override
     public String getDestinationPointValue(int id, String lang) {
         String result = null;
@@ -393,6 +450,9 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper{
         return result;
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         INSERTBID("INSERT INTO bids (client_id, " +
                                     "weight, " +

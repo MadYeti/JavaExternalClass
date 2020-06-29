@@ -9,9 +9,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Redirect servlet. Forward to admin.jsp if user is authorize, if not
+ * forward to notEnoughPrivilegesPage.jsp
+ */
 @WebServlet(name = "/admin", urlPatterns = "/admin")
 public class AdminPageRedirectServlet extends HttpServlet{
 
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         RequestDispatcher requestDispatcher;
@@ -24,6 +36,14 @@ public class AdminPageRedirectServlet extends HttpServlet{
         requestDispatcher.forward(httpServletRequest, httpServletResponse);
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         doGet(httpServletRequest, httpServletResponse);

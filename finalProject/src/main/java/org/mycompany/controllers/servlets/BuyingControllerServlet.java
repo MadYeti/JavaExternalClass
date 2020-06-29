@@ -11,7 +11,6 @@ import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.dao.bidDAO.BidDAOHelper;
 import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAO;
-import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.ControllerFactoryImpl;
 import org.mycompany.models.factory.MySqlDAOFactory;
 import org.mycompany.models.observer.Subject;
@@ -25,6 +24,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Implements buying logic. Servlet contains credit cards input field and validate
+ * data after confirm. If data is correct bids payment status is changed from 'not
+ * paid' to 'paid' and mail with confirmation is sent to user email, sends error
+ * otherwise
+ */
 @WebServlet(name = "/BuyingControllerServlet", urlPatterns = "/BuyingControllerServlet")
 public class BuyingControllerServlet extends HttpServlet{
 
@@ -34,6 +39,14 @@ public class BuyingControllerServlet extends HttpServlet{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         int id = Integer.parseInt(httpServletRequest.getParameter("bidNumber"));
@@ -41,8 +54,7 @@ public class BuyingControllerServlet extends HttpServlet{
         String creditCardNumber = httpServletRequest.getParameter("creditCardNumber");
         String creditCardExpirationDate = httpServletRequest.getParameter("creditCardDate");
         String creditCardCVVCode = httpServletRequest.getParameter("cvv");
-        ControllerFactory controllerFactory = new ControllerFactoryImpl();
-        CreditCardDataController creditCardDataController = controllerFactory.getCreditCardController();
+        CreditCardDataController creditCardDataController = new ControllerFactoryImpl().getCreditCardController();
         if(!creditCardDataController.validateCreditCardData(creditCardNumber, creditCardExpirationDate, creditCardCVVCode)){
             BidDAO bidDAOMySql = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
             ((BidDAOHelper)bidDAOMySql).updateBidPaymentStatus(id);
@@ -82,6 +94,14 @@ public class BuyingControllerServlet extends HttpServlet{
         requestDispatcher.forward(httpServletRequest, httpServletResponse);
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         doGet(httpServletRequest, httpServletResponse);

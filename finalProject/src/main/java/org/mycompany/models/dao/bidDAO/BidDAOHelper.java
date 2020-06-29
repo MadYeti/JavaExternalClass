@@ -1,6 +1,9 @@
 package org.mycompany.models.dao.bidDAO;
 
-
+/**
+ * Utility interface that contains methods getting last inserted id,
+ * price and foreign keys values
+ */
 public interface BidDAOHelper {
 
     int getLastInsertedId();

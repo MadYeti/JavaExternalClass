@@ -12,6 +12,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Model class for bid object. Represents by bids table in DB
+ */
 @XmlRootElement(name = "Bid")
 @XmlAccessorType(XmlAccessType.NONE)
 public class Bid {

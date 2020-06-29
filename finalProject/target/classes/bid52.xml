@@ -2,29 +2,27 @@
 <Bid>
     <id>52</id>
     <client>
-        <id>1</id>
-        <email>ivancov13@bigmir.net</email>
-        <role>customer</role>
+        <id>0</id>
     </client>
-    <weight>32.0</weight>
-    <volume>32.0</volume>
+    <weight>75.3</weight>
+    <volume>145.9</volume>
     <cargoType>
-        <id>1</id>
+        <id>2</id>
     </cargoType>
-    <cargoCost>32.0</cargoCost>
+    <cargoCost>101.2</cargoCost>
     <sendingPoint>
-        <id>1</id>
+        <id>7</id>
     </sendingPoint>
     <destinationPoint>
-        <id>12</id>
+        <id>3</id>
     </destinationPoint>
-    <arrivalDate>26-06-2020</arrivalDate>
-    <notes>32</notes>
-    <price>2482.7999999999997</price>
+    <arrivalDate>08-07-2020</arrivalDate>
+    <notes>Main street 1, building #47</notes>
+    <price>3804.8</price>
     <bidStatus>
         <id>1</id>
     </bidStatus>
     <paymentStatus>
-        <id>1</id>
+        <id>2</id>
     </paymentStatus>
 </Bid>

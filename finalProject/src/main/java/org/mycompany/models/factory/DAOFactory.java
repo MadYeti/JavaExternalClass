@@ -10,6 +10,9 @@ import org.mycompany.models.dao.sendingPointDAO.SendingPointDAO;
 
 import java.sql.Connection;
 
+/**
+ * Basic interface for creating DAO objects
+ */
 public interface DAOFactory {
 
     ClientDAO createClientDAO(Connection connection);

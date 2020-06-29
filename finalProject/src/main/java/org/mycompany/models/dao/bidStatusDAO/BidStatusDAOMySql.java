@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of BidStatusDAO interface
+ */
 public class BidStatusDAOMySql implements BidStatusDAO {
 
     private Connection connection;
@@ -22,6 +25,11 @@ public class BidStatusDAOMySql implements BidStatusDAO {
         this.connection = connection;
     }
 
+    /**
+     * Get bid status object from bid_status table in DB
+     * @param id bid status id that needs to be received
+     * @return bid status objects from DB
+     */
     @Override
     public BidStatus read(int id) {
         BidStatus bidStatus = null;
@@ -53,6 +61,9 @@ public class BidStatusDAOMySql implements BidStatusDAO {
         return bidStatus;
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         SELECTBIDSTATUS("SELECT * FROM bid_status WHERE id = (?)");
 

@@ -11,7 +11,6 @@ import org.mycompany.models.bidStatus.BidStatus;
 import org.mycompany.models.cargoType.CargoType;
 import org.mycompany.models.dao.bidDAO.BidDAO;
 import org.mycompany.models.dao.bidDAO.BidDAOHelper;
-import org.mycompany.models.dao.bidDAO.BidDAOMySql;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.bidStatusDAO.BidStatusDAO;
 import org.mycompany.models.dao.cargoTypeDAO.CargoTypeDAO;
@@ -23,7 +22,6 @@ import org.mycompany.models.factory.ControllerFactoryImpl;
 import org.mycompany.models.factory.MySqlDAOFactory;
 import org.mycompany.models.paymentStatus.PaymentStatus;
 import org.mycompany.models.sendingPoint.SendingPoint;
-import org.mycompany.resourceBundle.ResourceBundleConfig;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -32,13 +30,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.net.URLDecoder;
-import java.util.Properties;
-import java.util.ResourceBundle;
 
+/**
+ * This servlet responsible for ordering and price calculation of bids.
+ * Servlet works in both cases if user is authorize or not. Calculate price/order bid
+ * if data is correct, send error otherwise
+ */
 @WebServlet(name = "/BidOrderPriceServlet", urlPatterns = "/BidOrderPriceServlet")
 public class BidOrderPriceServlet extends HttpServlet {
 
@@ -48,6 +46,14 @@ public class BidOrderPriceServlet extends HttpServlet {
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         RequestDispatcher requestDispatcher;
@@ -214,6 +220,14 @@ public class BidOrderPriceServlet extends HttpServlet {
         requestDispatcher.forward(httpServletRequest, httpServletResponse);
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         doGet(httpServletRequest, httpServletResponse);

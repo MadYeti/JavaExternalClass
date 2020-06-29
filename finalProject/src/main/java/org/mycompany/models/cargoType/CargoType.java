@@ -2,6 +2,9 @@ package org.mycompany.models.cargoType;
 
 import javax.xml.bind.annotation.*;
 
+/**
+ * Model class for bids cargo type object. Represents by cargo_type table in DB
+ */
 @XmlAccessorType(XmlAccessType.NONE)
 public class CargoType {
 

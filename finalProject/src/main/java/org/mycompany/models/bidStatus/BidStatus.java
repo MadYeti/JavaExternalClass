@@ -2,6 +2,9 @@ package org.mycompany.models.bidStatus;
 
 import javax.xml.bind.annotation.*;
 
+/**
+ * Model class for bid status object. Represents by bid_status table in DB
+ */
 @XmlAccessorType(XmlAccessType.NONE)
 public class BidStatus {
 

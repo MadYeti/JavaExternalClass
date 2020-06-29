@@ -1,6 +1,8 @@
 package org.mycompany.models.client;
 
-
+/**
+ * Child class of Client class. Already has defined role
+ */
 public class Customer extends Client{
 
     public Customer(){

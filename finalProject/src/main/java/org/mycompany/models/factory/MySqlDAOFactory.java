@@ -17,6 +17,9 @@ import org.mycompany.models.dao.sendingPointDAO.SendingPointDAOMySql;
 
 import java.sql.Connection;
 
+/**
+ * Implementation of DAO factory objects
+ */
 public class MySqlDAOFactory implements DAOFactory{
 
     @Override

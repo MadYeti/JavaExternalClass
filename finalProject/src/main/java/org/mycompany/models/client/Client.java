@@ -9,6 +9,10 @@ import javax.xml.bind.annotation.XmlElement;
 import java.util.Observable;
 import java.util.Observer;
 
+/**
+ * Parent model class for client object. Represents by clients table in DB
+ * Implements interface observer for Observable pattern realization
+ */
 @XmlAccessorType(XmlAccessType.NONE)
 public class Client implements Observer{
 

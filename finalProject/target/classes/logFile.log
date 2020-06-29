@@ -549,3 +549,123 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-06-14 15:32:44 ERROR    ResetPasswordServlet:51 - Invalid password/retyped password in recovery password section
 2020-06-14 15:32:46 ERROR    ResetPasswordServlet:51 - Invalid password/retyped password in recovery password section
 2020-06-14 15:33:50 ERROR    BidOrderPriceServlet:199 - Invalid bid data to get price or format the bid
+2020-06-20 13:33:41 ERROR    AdminBidControllerServlet:61 - null
+2020-06-20 13:39:36 ERROR    AdminBidControllerServlet:61 - null
+2020-06-20 15:59:50 ERROR    AuthorizationServlet:77 - Invalid credentials input to log in
+2020-06-20 16:26:16 ERROR    AuthorizationServlet:77 - Invalid credentials input to log in
+2020-06-21 13:34:07 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:34:07 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:36:13 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:36:13 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:36:24 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:36:24 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:44:42 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:44:42 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:45:18 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:45:18 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:45:53 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:45:53 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:46:35 ERROR    AuthorizationServlet:79 - Invalid credentials input to log in
+2020-06-21 13:46:59 ERROR    AuthorizationServlet:79 - Invalid credentials input to log in
+2020-06-21 13:47:39 ERROR    AuthorizationServlet:79 - Invalid credentials input to log in
+2020-06-21 13:49:44 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:49:44 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:53:50 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:53:50 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:54:25 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:54:25 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 13:57:51 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 13:57:51 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 14:00:53 ERROR    ClientDAOMySql:48 - Connection is null.
+2020-06-21 14:00:53 ERROR    ClientDAOMySql:52 - Connection is null.
+2020-06-21 14:16:26 ERROR    AuthorizationServlet:77 - Invalid credentials input to log in
+2020-06-21 15:54:42 ERROR    AuthorizationServlet:77 - Invalid credentials input to log in
+2020-06-21 16:23:36 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-21 16:24:54 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-21 16:24:54 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:25:54 ERROR    BidOrderPriceServlet:98 - For input string: "5t4r"
+2020-06-21 16:25:55 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:26:27 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:26:38 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:28:06 ERROR    BidOrderPriceServlet:109 - For input string: "$R2"
+2020-06-21 16:28:06 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:29:55 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:30:21 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 16:33:52 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 17:02:43 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-21 17:02:44 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:02:16 ERROR    BidDAOMySql:57 - Cannot add or update a child row: a foreign key constraint fails (`cargo`.`bids`, CONSTRAINT `bids_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`))
+2020-06-21 20:08:39 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-21 20:08:39 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:39 ERROR    BidOrderPriceServlet:109 - For input string: "$R2"
+2020-06-21 20:08:39 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:40 ERROR    BidDAOMySql:57 - Cannot add or update a child row: a foreign key constraint fails (`cargo`.`bids`, CONSTRAINT `bids_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`))
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:98 - For input string: "5t4r"
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:08:40 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-21 20:33:17 ERROR    JAXBParser:43 - 
+2020-06-21 20:35:38 ERROR    JAXBParser:43 - 
+2020-06-21 20:36:04 ERROR    JAXBParser:43 - 
+2020-06-21 20:37:07 ERROR    JAXBParser:43 - 
+2020-06-21 20:37:45 ERROR    JAXBParser:43 - 
+2020-06-21 20:38:10 ERROR    JAXBParser:43 - 
+2020-06-21 20:44:41 ERROR    BuyingControllerServlet:74 - Invalid credit card data input to pay the bid
+2020-06-21 20:44:54 ERROR    BuyingControllerServlet:74 - Invalid credit card data input to pay the bid
+2020-06-23 15:30:24 ERROR    PasswordRecoveryServlet:64 - Invalid email input
+2020-06-23 15:30:50 ERROR    PasswordRecoveryServlet:64 - Invalid email input
+2020-06-23 15:42:08 ERROR    ClientDAOMySql:107 - Duplicate entry 'baracuda75@gmail.com' for key 'email'
+2020-06-23 15:42:08 ERROR    RegistrationServlet:65 - Invalid input data to register user
+2020-06-23 15:43:13 ERROR    ClientDAOMySql:107 - Duplicate entry 'baracuda75@gmail.com' for key 'email'
+2020-06-23 15:43:13 ERROR    RegistrationServlet:65 - Invalid input data to register user
+2020-06-23 15:56:01 ERROR    ResetPasswordServlet:65 - Invalid password/retyped password in recovery password section
+2020-06-23 16:12:47 ERROR    AdminBidControllerServlet:61 - null
+2020-06-23 16:13:15 ERROR    AuthorizationServlet:77 - Invalid credentials input to log in
+2020-06-23 16:13:22 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-23 16:13:22 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:22 ERROR    BidOrderPriceServlet:109 - For input string: "$R2"
+2020-06-23 16:13:22 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:22 ERROR    BidDAOMySql:57 - Cannot add or update a child row: a foreign key constraint fails (`cargo`.`bids`, CONSTRAINT `bids_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`))
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:87 - For input string: "abc"
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:98 - For input string: "5t4r"
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:23 ERROR    BidOrderPriceServlet:200 - Invalid bid data to get price or format the bid
+2020-06-23 16:13:39 ERROR    BuyingControllerServlet:74 - Invalid credit card data input to pay the bid
+2020-06-23 16:14:31 ERROR    PasswordRecoveryServlet:64 - Invalid email input
+2020-06-23 16:15:08 ERROR    ClientDAOMySql:107 - Duplicate entry 'baracuda75@gmail.com' for key 'email'
+2020-06-23 16:15:08 ERROR    RegistrationServlet:65 - Invalid input data to register user
+2020-06-23 16:15:25 ERROR    ResetPasswordServlet:65 - Invalid password/retyped password in recovery password section
+2020-06-23 18:27:33 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:27:33 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.
+2020-06-23 18:44:25 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:44:25 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.
+2020-06-23 18:47:07 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:47:07 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.
+2020-06-23 18:47:20 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:47:20 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.
+2020-06-23 18:47:43 ERROR    BidDAOMySql:180 - No operations allowed after connection closed.
+2020-06-23 18:47:43 ERROR    BidDAOMySql:184 - No operations allowed after connection closed.
+2020-06-23 18:48:41 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:48:41 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.
+2020-06-23 18:49:26 ERROR    BidDAOMySql:180 - No operations allowed after connection closed.
+2020-06-23 18:49:26 ERROR    BidDAOMySql:184 - No operations allowed after connection closed.
+2020-06-23 18:49:40 ERROR    BidDAOMySql:180 - No operations allowed after connection closed.
+2020-06-23 18:49:40 ERROR    BidDAOMySql:184 - No operations allowed after connection closed.
+2020-06-23 18:49:57 ERROR    BidDAOMySql:180 - No operations allowed after connection closed.
+2020-06-23 18:49:57 ERROR    BidDAOMySql:184 - No operations allowed after connection closed.
+2020-06-23 18:52:36 ERROR    BidDAOMySql:57 - Column 'arrival_date' cannot be null
+2020-06-23 18:52:36 ERROR    BidDAOMySql:61 - Can''t call rollback when autocommit=true
+2020-06-23 18:52:36 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:52:36 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.
+2020-06-23 18:53:14 ERROR    BidDAOMySql:57 - Column 'arrival_date' cannot be null
+2020-06-23 18:53:14 ERROR    BidDAOMySql:61 - Can''t call rollback when autocommit=true
+2020-06-23 18:53:14 ERROR    BidDAOMySql:179 - No operations allowed after connection closed.
+2020-06-23 18:53:14 ERROR    BidDAOMySql:183 - No operations allowed after connection closed.

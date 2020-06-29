@@ -10,6 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of CargoTypeDAO interface
+ */
 public class CargoTypeDAOMySql implements CargoTypeDAO {
 
     private Connection connection;
@@ -23,7 +26,11 @@ public class CargoTypeDAOMySql implements CargoTypeDAO {
         this.connection = connection;
     }
 
-
+    /**
+     * Get cargo type object from cargo_type table in DB
+     * @param id cargo type id that needs to be received
+     * @return cargo type objects from DB
+     */
     @Override
     public CargoType read(int id) {
         CargoType cargoType = null;
@@ -56,6 +63,9 @@ public class CargoTypeDAOMySql implements CargoTypeDAO {
         return cargoType;
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         SELECTCARGOTYPE("SELECT * FROM cargo_type WHERE id = (?)");
 

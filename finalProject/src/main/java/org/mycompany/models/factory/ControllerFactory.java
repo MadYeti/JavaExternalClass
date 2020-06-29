@@ -6,6 +6,9 @@ import org.mycompany.controllers.dateProccesing.DateController;
 import org.mycompany.controllers.mail.MailController;
 import org.mycompany.controllers.registration.RegistrationController;
 
+/**
+ * Basic interface for creating controllers
+ */
 public interface ControllerFactory {
 
     AuthorizationController getAuthorizationController();

@@ -1,6 +1,5 @@
 package org.mycompany.controllers.registration;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 

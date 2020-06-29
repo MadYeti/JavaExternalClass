@@ -2,6 +2,9 @@ package org.mycompany.models.observer;
 
 import java.util.Observable;
 
+/**
+ * Utility class that uses in pattern Observable
+ */
 public class Subject extends Observable{
 
     private int id;

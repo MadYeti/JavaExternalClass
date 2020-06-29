@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of SendingPointDAO interface
+ */
 public class SendingPointDAOMySql implements SendingPointDAO {
 
     private Connection connection;
@@ -22,6 +25,11 @@ public class SendingPointDAOMySql implements SendingPointDAO {
         this.connection = connection;
     }
 
+    /**
+     * Get sending point object from sending_points table in DB
+     * @param id sending point id that needs to be received
+     * @return sending point objects from DB
+     */
     @Override
     public SendingPoint read(int id) {
         SendingPoint sendingPoint = null;
@@ -53,6 +61,9 @@ public class SendingPointDAOMySql implements SendingPointDAO {
         return sendingPoint;
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         SELECTSENDINGPOINT("SELECT * FROM sending_points WHERE id = (?)");
 

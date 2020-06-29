@@ -2,7 +2,6 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\clientDAO\ClientDAOHelper.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\bidDAO\BidDAOMySql.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\SighInPageRedirectServlet.java
-C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\cityDistance\CityDistance.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Customer.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\bidStatusDAO\BidStatusDAO.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidCreditCardDataException.java
@@ -26,7 +25,6 @@ C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\j
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\factory\DAOFactory.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\exceptions\InvalidBidDataException.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\dao\cargoTypeDAO\CargoTypeDAO.java
-C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\resourceBundle\ResourceBundleConfig.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\mail\MailController.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\controllers\servlets\ResetPasswordServlet.java
 C:\Users\MadYeti\intelijidea-workspace\JavaExternalClass\finalProject\src\main\java\org\mycompany\models\client\Client.java

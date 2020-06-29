@@ -11,6 +11,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Controller used for sending mails to users email
+ */
 public class MailController {
 
     private static Logger logger = Logger.getLogger(MailController.class);
@@ -46,6 +49,9 @@ public class MailController {
         this.emailSenderPassword = mailCredentialsProperties.getProperty("mail.address.password");
     }
 
+    /**
+     * Sends mail to user with password recovery link that contains token
+     */
     public void sendPasswordRecoveryEmail(){
         Session session = Session.getDefaultInstance(mailConfigProperties, new Authenticator() {
 
@@ -71,6 +77,10 @@ public class MailController {
         }
     }
 
+    /**
+     * Sends mail to user to notice that bid has been payed
+     * @param id bid id that has been payed
+     */
     public void sendPaymentNotificationEmail(int id){
         Session session = Session.getDefaultInstance(mailConfigProperties, new Authenticator() {
 

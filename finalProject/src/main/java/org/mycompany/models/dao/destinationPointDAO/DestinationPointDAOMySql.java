@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of DestinationPointDAO interface
+ */
 public class DestinationPointDAOMySql implements DestinationPointDAO {
 
     private Connection connection;
@@ -22,6 +25,11 @@ public class DestinationPointDAOMySql implements DestinationPointDAO {
         this.connection = connection;
     }
 
+    /**
+     * Get destination point object from destination_points table in DB
+     * @param id destination point id that needs to be received
+     * @return destination point objects from DB
+     */
     @Override
     public DestinationPoint read(int id) {
         DestinationPoint destinationPoint = null;
@@ -53,6 +61,9 @@ public class DestinationPointDAOMySql implements DestinationPointDAO {
         return destinationPoint;
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         SELECTDESTINATIONPOINT("SELECT * FROM destination_points WHERE id = (?)");
 

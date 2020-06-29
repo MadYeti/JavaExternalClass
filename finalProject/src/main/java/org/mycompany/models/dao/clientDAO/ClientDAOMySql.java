@@ -12,7 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+/**
+ * Implementation of CRUD and helper interface
+ */
 public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
 
     private Connection connection;
@@ -26,6 +28,12 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         this.connection = connection;
     }
 
+    /**
+     * Get client object from clients table in DB
+     * @param email email of client that needs to be received
+     * @param password password of client that needs to be received
+     * @return client object from DB
+     */
     @Override
     public Client getClient(String email, String password) {
         Client client = null;
@@ -62,6 +70,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         return client;
     }
 
+    /**
+     * Get client object from clients table in DB
+     * @param id client id that needs to be received
+     * @return client object from DB
+     */
     @Override
     public Client read(int id) {
         Client client = null;
@@ -97,6 +110,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         return client;
     }
 
+    /**
+     * Create client record in clients table in DB
+     * @param email client email that needs to be stored in DB
+     * @param password client password that needs to be stored in DB
+     */
     @Override
     public void addClient(String email, String password) {
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.INSERTCLIENT.QUERY)){
@@ -120,6 +138,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         }
     }
 
+    /**
+     * Create random token of specific client
+     * @param email client email for whom creating the token
+     * @return token of specific client
+     */
     @Override
     public String createToken(String email){
         String token = null;
@@ -146,6 +169,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         return token;
     }
 
+    /**
+     * Method reset new password and delete token record in DB of specific client
+     * @param password new password that needs to be reset
+     * @param token token that needs to be deleted
+     */
     @Override
     public void resetPasswordAndDeleteToken(String password, String token){
         try(PreparedStatement preparedStatement = connection.prepareStatement(SQLQuery.RESETPASSWORD.QUERY)){
@@ -173,6 +201,9 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         }
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         INSERTCLIENT("INSERT INTO clients (email, password, role, token) VALUES ((?), (?), 'customer', '')"),
         SELECTCLIENT("SELECT * FROM clients WHERE email = (?) AND password = (?)"),

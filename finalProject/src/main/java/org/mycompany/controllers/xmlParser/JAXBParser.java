@@ -3,12 +3,6 @@ package org.mycompany.controllers.xmlParser;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.mycompany.models.bid.Bid;
-import org.mycompany.models.bidStatus.BidStatus;
-import org.mycompany.models.cargoType.CargoType;
-import org.mycompany.models.client.Client;
-import org.mycompany.models.destinationPoint.DestinationPoint;
-import org.mycompany.models.paymentStatus.PaymentStatus;
-import org.mycompany.models.sendingPoint.SendingPoint;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -16,7 +10,9 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
-
+/**
+ * Class responsible for marshalling adn unmarshalling bids.
+ */
 public class JAXBParser {
 
     private static Logger logger = Logger.getLogger(JAXBParser.class);
@@ -29,6 +25,10 @@ public class JAXBParser {
 
     }
 
+    /**
+     * Method create XML file based on bid
+     * @param bid that needs to be marshalling
+     */
     public void creteXMLBasedOnObject(Bid bid){
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Bid.class);
@@ -40,6 +40,11 @@ public class JAXBParser {
         }
     }
 
+    /**
+     * Method create bid by reading XML file
+     * @param id suffix of XML file that needs to be unmarshalling
+     * @return bid created by unmarshaller
+     */
     public Bid createObjectBasedOnXML(int id){
         Bid bid = null;
         try {

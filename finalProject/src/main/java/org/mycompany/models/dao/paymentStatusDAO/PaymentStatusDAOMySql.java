@@ -9,6 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Implementation of PaymentStatusDAO interface
+ */
 public class PaymentStatusDAOMySql implements PaymentStatusDAO {
 
     private Connection connection;
@@ -22,6 +25,11 @@ public class PaymentStatusDAOMySql implements PaymentStatusDAO {
         this.connection = connection;
     }
 
+    /**
+     * Get payment status object from payment_status table in DB
+     * @param id payment status id that needs to be received
+     * @return payment status objects from DB
+     */
     @Override
     public PaymentStatus read(int id) {
         PaymentStatus paymentStatus = null;
@@ -53,6 +61,9 @@ public class PaymentStatusDAOMySql implements PaymentStatusDAO {
         return paymentStatus;
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         SELECTPAYMENTSTATUS("SELECT * FROM payment_status WHERE id = (?)");
 

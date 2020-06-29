@@ -6,8 +6,8 @@
         <email>ivancov13@bigmir.net</email>
         <role>customer</role>
     </client>
-    <weight>0.02</weight>
-    <volume>0.03</volume>
+    <weight>111.00</weight>
+    <volume>111.00</volume>
     <cargoType>
         <id>2</id>
     </cargoType>

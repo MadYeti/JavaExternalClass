@@ -6,6 +6,9 @@ import org.mycompany.controllers.dateProccesing.DateController;
 import org.mycompany.controllers.mail.MailController;
 import org.mycompany.controllers.registration.RegistrationController;
 
+/**
+ * Implementation of controller factory
+ */
 public class ControllerFactoryImpl implements ControllerFactory{
 
     public ControllerFactoryImpl() {

@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [21/Jun/2020:13:36:06 +0300] "GET /MainPage HTTP/1.1" 200 15382 http-bio-8888-exec-1 1915
+0:0:0:0:0:0:0:1 - - [21/Jun/2020:13:36:06 +0300] "GET /images/britainFlag.png HTTP/1.1" 200 9746 http-bio-8888-exec-2 5
+0:0:0:0:0:0:0:1 - - [21/Jun/2020:13:36:06 +0300] "GET /images/ukraineFlag.png HTTP/1.1" 200 562 http-bio-8888-exec-3 5
+0:0:0:0:0:0:0:1 - - [21/Jun/2020:13:36:06 +0300] "GET /images/truck.svg HTTP/1.1" 200 417 http-bio-8888-exec-4 1
+0:0:0:0:0:0:0:1 - - [21/Jun/2020:13:36:07 +0300] "GET /favicon.ico HTTP/1.1" 404 3217 http-bio-8888-exec-7 193

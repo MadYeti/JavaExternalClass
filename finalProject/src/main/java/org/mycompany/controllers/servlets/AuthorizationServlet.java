@@ -7,7 +7,6 @@ import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.exceptions.AuthorizationException;
 import org.mycompany.models.client.Client;
 import org.mycompany.models.dao.clientDAO.ClientDAO;
-import org.mycompany.models.factory.ControllerFactory;
 import org.mycompany.models.factory.ControllerFactoryImpl;
 import org.mycompany.models.factory.MySqlDAOFactory;
 
@@ -20,6 +19,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Implements authorization logic. Validate input data. If data is correct
+ * authorize user and sets session, sends error otherwise
+ */
 @WebServlet(name = "/AuthorizationServlet", urlPatterns = "/AuthorizationServlet")
 public class AuthorizationServlet extends HttpServlet{
 
@@ -29,11 +32,27 @@ public class AuthorizationServlet extends HttpServlet{
         PropertyConfigurator.configure("src/main/resources/logConfig.properties");
     }
 
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         doPost(httpServletRequest, httpServletResponse);
     }
 
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param httpServletRequest servlet request
+     * @param httpServletResponse servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         RequestDispatcher requestDispatcher;
@@ -45,7 +64,7 @@ public class AuthorizationServlet extends HttpServlet{
             ClientDAO clientDAOMySql = new MySqlDAOFactory().createClientDAO(DBCPDataSource.getConnection());
             Client client = clientDAOMySql.getClient(email, password);
             if(client != null){
-                HttpSession httpSession = httpServletRequest.getSession(true);
+                HttpSession httpSession = httpServletRequest.getSession();
                 httpSession.setAttribute("client", client);
                 if(rememberMe != null){
                     httpSession.setMaxInactiveInterval(0);

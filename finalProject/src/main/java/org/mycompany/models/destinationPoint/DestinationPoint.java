@@ -4,6 +4,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * Model class for destination point object. Represents by destination_points table in DB
+ */
 @XmlAccessorType(XmlAccessType.NONE)
 public class DestinationPoint {
 

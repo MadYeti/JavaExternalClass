@@ -5,6 +5,10 @@ import org.mycompany.models.bid.Bid;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model class for bids holder objects. Contains list
+ * to hold bids
+ */
 public class BidsHolder {
 
     private List<Bid> bidsHolder = null;

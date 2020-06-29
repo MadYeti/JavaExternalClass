@@ -25,6 +25,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Implementation of Repository interface. Main goal of this class
+ * is to return DAO objects that works with not a single entities
+ */
 public class BidsHolderImpl implements Repository{
 
     private Connection connection;
@@ -38,6 +42,12 @@ public class BidsHolderImpl implements Repository{
         this.connection = connection;
     }
 
+    /**
+     * Gets all ordered bids of specific client
+     * @param id the number of client which ordered bid list
+     *           needs to be received
+     * @return the list of ordered bids of specific client
+     */
     @Override
     public List<Bid> getWholeBidHistory(int id) {
         Bid bid;
@@ -92,6 +102,9 @@ public class BidsHolderImpl implements Repository{
         return bidsHolder.getBidsHolder();
     }
 
+    /**
+     * Enum class that encapsulate SQL queries
+     */
     enum SQLQuery{
         GETWHOLEBIDHISTORY("SELECT * FROM bids WHERE client_id = (?)");
 
