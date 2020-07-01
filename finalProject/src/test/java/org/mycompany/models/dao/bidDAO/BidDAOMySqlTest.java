@@ -66,6 +66,7 @@ public class BidDAOMySqlTest {
     @Test
     public void updateBid(){
         bidList.add(bid);
+        doCallRealMethod().when(bidDAOMySql).update(bid);
         bid = bidList.get(0);
         PaymentStatus paymentStatus = new PaymentStatus();
         paymentStatus.setId(2);
@@ -76,6 +77,7 @@ public class BidDAOMySqlTest {
     @Test
     public void deleteBid(){
         bidList.add(bid);
+        doCallRealMethod().when(bidDAOMySql).delete(bid);
         bidList.remove(bid);
         Assert.assertTrue(bidList.size() == 0);
     }
