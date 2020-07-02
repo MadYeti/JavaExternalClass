@@ -1,6 +1,9 @@
 package org.mycompany.models.cityDistance;
 
-
+/**
+ * Model class that uses for mapping DB table to class by hibernate to get data
+ * from DB. Represents by city_distance table in DB
+ */
 public class CityDistance {
 
     private int id;

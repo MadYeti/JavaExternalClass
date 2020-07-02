@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Implements registration logic. Validate input data. If data is correct
+ * create record in DB with such credentials, sends error otherwise
+ */
 @Controller
 public class RegistrationController {
 
@@ -36,6 +40,13 @@ public class RegistrationController {
         this.mySqlDAOFactory = mySqlDAOFactory;
     }
 
+    /**
+     * Validate input data. If data is correct create record in DB
+     * sets error otherwise
+     * @param httpServletRequest servlet request
+     * @return index jsp name if data is correct, sighUp
+     * jsp name otherwise
+     */
     @PostMapping("/RegistrationController")
     public String registrateClient(HttpServletRequest httpServletRequest){
         String email = httpServletRequest.getParameter("email");

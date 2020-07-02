@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of DestinationPointDAO interface
+ */
 @Component
 @Scope("prototype")
 public class DestinationPointDAOMySql implements DestinationPointDAO {
@@ -25,6 +28,11 @@ public class DestinationPointDAOMySql implements DestinationPointDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Get destination point object from destination_points table in DB
+     * @param id destination point id that needs to be received
+     * @return destination point objects from DB
+     */
     @Override
     public DestinationPoint read(int id) {
         DestinationPoint destinationPoint = null;

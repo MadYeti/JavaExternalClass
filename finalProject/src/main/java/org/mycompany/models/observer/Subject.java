@@ -1,10 +1,12 @@
 package org.mycompany.models.observer;
 
-
 import org.springframework.stereotype.Component;
 
 import java.util.Observable;
 
+/**
+ * Utility class that uses in pattern Observable
+ */
 @Component
 public class Subject extends Observable{
 

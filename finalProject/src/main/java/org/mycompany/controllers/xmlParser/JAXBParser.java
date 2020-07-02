@@ -12,6 +12,9 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 
+/**
+ * Class responsible for marshalling adn unmarshalling bids.
+ */
 @Component
 public class JAXBParser {
 
@@ -25,6 +28,10 @@ public class JAXBParser {
 
     }
 
+    /**
+     * Method create XML file based on bid
+     * @param bid that needs to be marshalling
+     */
     public void creteXMLBasedOnObject(Bid bid){
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Bid.class);
@@ -36,6 +43,11 @@ public class JAXBParser {
         }
     }
 
+    /**
+     * Method create bid by reading XML file
+     * @param id suffix of XML file that needs to be unmarshalling
+     * @return bid created by unmarshaller
+     */
     public Bid createObjectBasedOnXML(int id){
         Bid bid = null;
         try {

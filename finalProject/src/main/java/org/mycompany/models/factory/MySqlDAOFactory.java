@@ -11,6 +11,9 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of DAO factory objects
+ */
 @Component
 public class MySqlDAOFactory implements DAOFactory{
 

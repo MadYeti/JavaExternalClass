@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of BidStatusDAO interface
+ */
 @Component
 @Scope("prototype")
 public class BidStatusDAOMySql implements BidStatusDAO {
@@ -25,6 +28,11 @@ public class BidStatusDAOMySql implements BidStatusDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Get bid status object from bid_status table in DB
+     * @param id bid status id that needs to be received
+     * @return bid status objects from DB
+     */
     @Override
     public BidStatus read(int id) {
         BidStatus bidStatus = null;

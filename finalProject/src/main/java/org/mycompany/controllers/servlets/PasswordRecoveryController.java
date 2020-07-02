@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Validate input email. If data is correct send to email link with password
+ * recovery instructions, sends error otherwise
+ */
 @Controller
 public class PasswordRecoveryController {
 
@@ -37,6 +41,12 @@ public class PasswordRecoveryController {
         this.controllerFactory = controllerFactory;
     }
 
+    /**
+     * Validate input email. If data is correct send to email link with
+     * password recovery instructions
+     * @param httpServletRequest servlet request
+     * @return passwordRecovery jsp name
+     */
     @PostMapping("/PasswordRecoveryController")
     public String getPasswordRecoveryInstruction(HttpServletRequest httpServletRequest){
         String email = httpServletRequest.getParameter("email");

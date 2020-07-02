@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of CargoTypeDAO interface
+ */
 @Component
 @Scope("prototype")
 public class CargoTypeDAOMySql implements CargoTypeDAO {
@@ -25,7 +28,11 @@ public class CargoTypeDAOMySql implements CargoTypeDAO {
         this.sessionFactory = sessionFactory;
     }
 
-
+    /**
+     * Get cargo type object from cargo_type table in DB
+     * @param id cargo type id that needs to be received
+     * @return cargo type objects from DB
+     */
     @Override
     public CargoType read(int id) {
         CargoType cargoType = null;

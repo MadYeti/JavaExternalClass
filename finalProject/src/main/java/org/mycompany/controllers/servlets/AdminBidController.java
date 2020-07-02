@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Implements CRUD operations by admin. If data is correct implements specific operation,
+ * otherwise send error
+ */
 @Controller
 public class AdminBidController {
 
@@ -35,6 +39,12 @@ public class AdminBidController {
         this.mySqlDAOFactory = mySqlDAOFactory;
     }
 
+    /**
+     * Perform CRUD operation if input data is correct
+     * set error otherwise
+     * @param httpServletRequest servlet request
+     * @return adminPrivateOffice jsp name
+     */
     @GetMapping("/AdminBidController")
     public String crudOperations(HttpServletRequest httpServletRequest){
         String bidId = httpServletRequest.getParameter("bidId");
@@ -45,14 +55,14 @@ public class AdminBidController {
             switch (operation){
                 case "read":
                     Bid bid = bidDAOMySql.read(id);
-                    //todo
+                    /*
                     BidsHolderImpl bidsHolderImpl = beanFactory.getBean(BidsHolderImpl.class);
                     String lang = (String) httpServletRequest.getSession().getAttribute("lang");
                     if(lang == null){
                         lang = "en_EN";
                     }
                     bidsHolderImpl.setLang(lang);
-                    //
+                    */
                     httpServletRequest.setAttribute("bid", bid);
                     break;
                 case "update":

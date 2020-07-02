@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Implements authorization logic. Validate input data. If data is correct
+ * authorize user and sets session, sends error otherwise
+ */
 @Controller
 public class AuthorizationController {
 
@@ -37,6 +41,11 @@ public class AuthorizationController {
         this.controllerFactory = controllerFactory;
     }
 
+    /**
+     * Perform authorization if data ic correct sets error otherwise
+     * @param httpServletRequest servlet request
+     * @return sighIn jsp name
+     */
     @PostMapping("/AuthorizationController")
     public String authorizeClient(HttpServletRequest httpServletRequest){
         String email = httpServletRequest.getParameter("email");

@@ -3,6 +3,9 @@ package org.mycompany.models.client;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Child class of Client class. Already has defined role
+ */
 @Component
 @Scope("prototype")
 public class Customer extends Client{

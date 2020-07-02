@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of SendingPointDAO interface
+ */
 @Component
 @Scope("prototype")
 public class SendingPointDAOMySql implements SendingPointDAO {
@@ -25,6 +28,11 @@ public class SendingPointDAOMySql implements SendingPointDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Get sending point object from sending_points table in DB
+     * @param id sending point id that needs to be received
+     * @return sending point objects from DB
+     */
     @Override
     public SendingPoint read(int id) {
         SendingPoint sendingPoint = null;

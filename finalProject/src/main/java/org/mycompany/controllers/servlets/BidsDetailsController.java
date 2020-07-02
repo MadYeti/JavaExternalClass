@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Controller output all bids ordered by specific user. Output nothing
+ * if user has not ordered a single bid
+ */
 @Controller
 public class BidsDetailsController {
 
@@ -21,6 +25,12 @@ public class BidsDetailsController {
         this.beanFactory = beanFactory;
     }
 
+    /**
+     * Output all bids ordered by specific user
+     * @param httpServletRequest servlet request
+     * @return bidsHolder jsp name if client is authorized,
+     * notEnoughPrivilegesPage jsp name otherwise
+     */
     @GetMapping("/BidsDetailsController")
     public String getAllOrderedBids(HttpServletRequest httpServletRequest){
         HttpSession httpSession = httpServletRequest.getSession();

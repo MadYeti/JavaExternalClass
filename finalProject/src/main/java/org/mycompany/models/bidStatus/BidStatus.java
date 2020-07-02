@@ -7,6 +7,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * Model class for bid status object. Represents by bid_status table in DB
+ */
 @Component
 @Scope("prototype")
 @XmlAccessorType(XmlAccessType.NONE)

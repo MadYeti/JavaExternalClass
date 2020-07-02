@@ -12,6 +12,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Controller used for validate registration data and password reset data
+ */
 @Component
 @Scope("prototype")
 public class RegistrationDataController {
@@ -31,6 +34,11 @@ public class RegistrationDataController {
 
     }
 
+    /**
+     * Creates md5 hash of input password
+     * @param data users password
+     * @return md5 hash of input data
+     */
     public static String getHash(String data){
         MessageDigest md5 = null;
         try {
@@ -44,6 +52,11 @@ public class RegistrationDataController {
         return hash;
     }
 
+    /**
+     * Checks if password matches with regex
+     * @param password users password
+     * @return true if password matches with regex, false otherwise
+     */
     public static boolean validatePassword(String password) {
         String passwordRegex = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[~!*()_<>@#$%^&+=]).{6,}";
         Pattern pattern = Pattern.compile(passwordRegex);
@@ -51,6 +64,11 @@ public class RegistrationDataController {
         return matcher.find();
     }
 
+    /**
+     * Checks if email matches with regex
+     * @param email users email
+     * @return true if email matches with regex, false otherwise
+     */
     public static boolean validateEmail(String email) {
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern pattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
@@ -58,6 +76,14 @@ public class RegistrationDataController {
         return matcher.find();
     }
 
+    /**
+     * Validate input registration data and sets error number to errorEmailMessage,
+     * errorPasswordMessage or errorRetypedPasswordMessage if such errors occurred
+     * @param email users email input
+     * @param password users password input
+     * @param retypedPassword users retyped password input
+     * @return true if data is correct, false otherwise
+     */
     public boolean validateData(String email, String password, String retypedPassword){
 
         if(email.isEmpty()) {
@@ -96,6 +122,13 @@ public class RegistrationDataController {
         return error;
     }
 
+    /**
+     * Validate input password reset data and sets number to errorPasswordMessage or
+     * errorRetypedPasswordMessage if such errors occurred
+     * @param password users password input
+     * @param retypedPassword users retyped password input
+     * @return true if data is correct, false otherwise
+     */
     public boolean validatePasswords(String password, String retypedPassword){
         if(password.isEmpty()) {
             error = true;

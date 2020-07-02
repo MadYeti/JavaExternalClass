@@ -21,7 +21,9 @@ import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.Query;
 
-
+/**
+ * Implementation of CRUD and helper interface
+ */
 @Component
 @Scope("prototype")
 public class BidDAOMySql implements BidDAO, BidDAOHelper {
@@ -38,6 +40,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Create bid record in bids table in DB
+     * @param bid object that needs to be created in DB
+     */
     @Override
     public void create(Bid bid) {
         try (Session session = sessionFactory.openSession()) {
@@ -49,6 +55,11 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         }
     }
 
+    /**
+     * Get bid object from bids table in DB
+     * @param id number of bid that needs to be received
+     * @return bid object from DB
+     */
     @Override
     public Bid read(int id) {
         Bid bid = null;
@@ -70,6 +81,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         return bid;
     }
 
+    /**
+     * Update bid record in bids table in DB
+     * @param bid object that needs to be updated
+     */
     @Override
     public void update(Bid bid) {
         try (Session session = sessionFactory.openSession()) {
@@ -81,6 +96,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         }
     }
 
+    /**
+     * Delete bid record from bids table in DB
+     * @param bid objects that need to be deleted
+     */
     @Override
     public void delete(Bid bid) {
         try (Session session = sessionFactory.openSession()) {
@@ -92,6 +111,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         }
     }
 
+    /**
+     * Get last inserted id (later that id will be set to bid)
+     * @return last inserted id in bids table in DB
+     */
     @Override
     public int getLastInsertedId(){
         int result = 0;
@@ -109,6 +132,10 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         return result;
     }
 
+    /**
+     * Update bids payment status from '1' ('not paid') to '2' 'paid'
+     * @param id number of bid which payment status needs to be updated
+     */
     @Override
     public void updateBidPaymentStatus(int id){
         try(Session session = sessionFactory.openSession()){
@@ -126,6 +153,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         }
     }
 
+    /**
+     * Get price from city_distance table in DB
+     * @param sendingPoint id of sending point
+     * @param destinationPoint id of destination point
+     * @return price record from DB
+     */
     @Override
     public double getPriceAccordingToCityDistance(int sendingPoint, int destinationPoint) {
         double result = 0;
@@ -148,6 +181,11 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         return result;
     }
 
+    /**
+     * Get coefficient from cargo_type table in DB
+     * @param cargoTypeId cargo type id which coefficient needs to be received
+     * @return coefficient of specific cargo type
+     */
     @Override
     public double getCargoTypeCoefficient(int cargoTypeId) {
         double result = 0;
@@ -167,6 +205,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         return result;
     }
 
+    /**
+     * Get cargo type value according to lang parameter
+     * @param id cargo type id
+     * @param lang language locale
+     * @return cargo type value of specific lang
+     */
     @Override
     public String getCargoTypeValue(int id, String lang) {
         String result = null;
@@ -191,6 +235,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         return result;
     }
 
+    /**
+     * Get sending point value according to lang parameter
+     * @param id sending point id
+     * @param lang language locale
+     * @return sending point value of specific lang
+     */
     @Override
     public String getSendingPointValue(int id, String lang) {
         String result = null;
@@ -215,6 +265,12 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
         return result;
     }
 
+    /**
+     * Get destination point value according to lang parameter
+     * @param id destination point id
+     * @param lang language locale
+     * @return destination point value of specific lang
+     */
     @Override
     public String getDestinationPointValue(int id, String lang) {
         String result = null;

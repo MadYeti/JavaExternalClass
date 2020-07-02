@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Implements reset password logic. Validate input data. If data is correct reset
+ * password to a new one, sends error otherwise
+ */
 @Controller
 public class ResetPasswordController {
 
@@ -36,6 +40,12 @@ public class ResetPasswordController {
         this.controllerFactory = controllerFactory;
     }
 
+    /**
+     * Validate input data. If data is correct sets password to a new one,
+     * sets error otherwise
+     * @param httpServletRequest servlet request
+     * @return resetPassword jsp name
+     */
     @PostMapping("/ResetPasswordController")
     public String resetPassword(HttpServletRequest httpServletRequest){
         String token = httpServletRequest.getParameter("token");

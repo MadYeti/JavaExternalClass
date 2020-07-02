@@ -20,6 +20,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Implements buying logic. Controller contains credit cards input field and validate
+ * data after confirm. If data is correct bids payment status is changed from 'not
+ * paid' to 'paid' and mail with confirmation is sent to user email, sends error
+ * otherwise
+ */
 @Controller
 public class BuyingController {
 
@@ -49,6 +55,12 @@ public class BuyingController {
         this.controllerFactory = controllerFactory;
     }
 
+    /**
+     * Perform input credit card data validation. If data is correct
+     * perform buying logic, sets error otherwise
+     * @param httpServletRequest servlet request
+     * @return buyingPage jsp name with parameter 'pay' and 'price'
+     */
     @PostMapping("/BuyingController")
     public String payBid(HttpServletRequest httpServletRequest){
         int id = Integer.parseInt(httpServletRequest.getParameter("bidNumber"));

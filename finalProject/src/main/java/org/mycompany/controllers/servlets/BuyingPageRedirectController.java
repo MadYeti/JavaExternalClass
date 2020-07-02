@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * Redirect controller. Forward to buyingPage.jsp if user is authorize, if not
+ * forward to notEnoughPrivilegesPage.jsp
+ */
 @Controller
 public class BuyingPageRedirectController {
 

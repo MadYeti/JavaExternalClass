@@ -16,6 +16,9 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Query;
 import javax.persistence.criteria.*;
 
+/**
+ * Implementation of CRUD and helper interface
+ */
 @Component
 @Scope("prototype")
 public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
@@ -35,6 +38,12 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Get client object from clients table in DB
+     * @param email email of client that needs to be received
+     * @param password password of client that needs to be received
+     * @return client object from DB
+     */
     @Override
     public Client getClient(String email, String password) {
         Client client = null;
@@ -66,6 +75,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         return client;
     }
 
+    /**
+     * Create client record in clients table in DB
+     * @param email client email that needs to be stored in DB
+     * @param password client password that needs to be stored in DB
+     */
     @Override
     public void addClient(String email, String password) {
         Client client = beanFactory.getBean(Customer.class);
@@ -81,6 +95,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         }
     }
 
+    /**
+     * Create random token of specific client
+     * @param email client email for whom creating the token
+     * @return token of specific client
+     */
     @Override
     public String createToken(String email){
         String token = RegistrationDataController.getHash(email + System.currentTimeMillis());
@@ -100,6 +119,11 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         return token;
     }
 
+    /**
+     * Method reset new password and delete token record in DB of specific client
+     * @param password new password that needs to be reset
+     * @param token token that needs to be deleted
+     */
     @Override
     public void resetPasswordAndDeleteToken(String password, String token){
         try(Session session = sessionFactory.openSession()){

@@ -29,6 +29,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * This controller responsible for ordering and price calculation of bids.
+ * Controller works in both cases if user is authorize or not. Calculate price/order bid
+ * if data is correct, send error otherwise
+ */
 @Controller
 public class BidOrderPriceController {
 
@@ -53,6 +58,14 @@ public class BidOrderPriceController {
         this.controllerFactory = controllerFactory;
     }
 
+    /**
+     * Perform data validation and bid price calculation/order if data
+     * is correct
+     * @param httpServletRequest servlet request
+     * @return index/(role) jsp name if data is correct and user is
+     * not authorize/authorize or return same pages with set error if
+     * data isn't correct
+     */
     @GetMapping("/BidOrderPriceController")
     public String estimateOrderBid(HttpServletRequest httpServletRequest){
         String weight = httpServletRequest.getParameter("weight");

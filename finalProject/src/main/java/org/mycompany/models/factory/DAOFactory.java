@@ -8,6 +8,9 @@ import org.mycompany.models.dao.destinationPointDAO.DestinationPointDAOMySql;
 import org.mycompany.models.dao.paymentStatusDAO.PaymentStatusDAOMySql;
 import org.mycompany.models.dao.sendingPointDAO.SendingPointDAOMySql;
 
+/**
+ * Basic interface for creating DAO objects
+ */
 public interface DAOFactory {
 
     ClientDAOMySql createClientDAO();

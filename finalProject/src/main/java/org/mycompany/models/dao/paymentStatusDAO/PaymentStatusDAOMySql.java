@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+/**
+ * Implementation of PaymentStatusDAO interface
+ */
 @Component
 @Scope("prototype")
 public class PaymentStatusDAOMySql implements PaymentStatusDAO {
@@ -25,6 +28,11 @@ public class PaymentStatusDAOMySql implements PaymentStatusDAO {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Get payment status object from payment_status table in DB
+     * @param id payment status id that needs to be received
+     * @return payment status objects from DB
+     */
     @Override
     public PaymentStatus read(int id) {
         PaymentStatus paymentStatus = null;

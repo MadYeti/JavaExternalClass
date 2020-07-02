@@ -19,6 +19,10 @@ import javax.persistence.criteria.Root;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Implementation of Repository interface. Main goal of this class
+ * is to return DAO objects that works with not a single entities
+ */
 @Component
 @Scope("prototype")
 public class BidsHolderImpl implements Repository{
@@ -39,6 +43,12 @@ public class BidsHolderImpl implements Repository{
         this.beanFactory = beanFactory;
     }
 
+    /**
+     * Gets all ordered bids of specific client
+     * @param id the number of client which ordered bid list
+     *           needs to be received
+     * @return the list of ordered bids of specific client
+     */
     @Override
     public List<Bid> getWholeBidHistory(int id) {
         BidsHolder bidsHolder = beanFactory.getBean(BidsHolder.class);

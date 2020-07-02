@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model class for bids holder objects. Contains list
+ * to hold bids
+ */
 @Component
 @Scope("prototype")
 public class BidsHolder {
