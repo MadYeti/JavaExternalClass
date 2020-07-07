@@ -84,11 +84,9 @@ public class Client implements Observer{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
         Client client = (Client) o;
 
-        if (id != client.id) return false;
         if (email != null ? !email.equals(client.email) : client.email != null) return false;
         if (password != null ? !password.equals(client.password) : client.password != null) return false;
         return role != null ? role.equals(client.role) : client.role == null;

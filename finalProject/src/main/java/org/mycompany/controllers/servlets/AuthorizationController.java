@@ -56,7 +56,7 @@ public class AuthorizationController {
             ClientDAO clientDAOMySql = mySqlDAOFactory.createClientDAO();
             Client client = clientDAOMySql.getClient(email, password);
             if(client != null){
-                HttpSession httpSession = httpServletRequest.getSession(true);
+                HttpSession httpSession = httpServletRequest.getSession();
                 httpSession.setAttribute("client", client);
                 if(rememberMe != null){
                     httpSession.setMaxInactiveInterval(0);

@@ -1,6 +1,5 @@
 package org.mycompany.controllers.authorization;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -8,14 +7,16 @@ public class AuthorizationDataControllerTest {
 
     @Test
     public void correctEmailRegexValidation(){
-        //boolean result = AuthorizationDataController.validateEmail("ivancov13@bigmir.net");
-        //Assert.assertTrue(result);
+        AuthorizationDataController authorizationDataController = new AuthorizationDataController();
+        boolean result = authorizationDataController.validateEmail("ivancov13@bigmir.net");
+        Assert.assertTrue(result);
     }
 
     @Test
     public void incorrectEmailRegexValidation(){
-        //boolean result = AuthorizationDataController.validateEmail("baraba@.net");
-        //Assert.assertFalse(result);
+        AuthorizationDataController authorizationDataController = new AuthorizationDataController();
+        boolean result = authorizationDataController.validateEmail("baraba@.net");
+        Assert.assertFalse(result);
     }
 
     @Test

@@ -69,7 +69,6 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
             }
             session.getTransaction().commit();
         }catch (Exception e){
-            e.printStackTrace();
             logger.error(e.getMessage());
         }
         return client;

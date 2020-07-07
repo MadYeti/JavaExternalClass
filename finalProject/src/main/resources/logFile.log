@@ -1073,3 +1073,226 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-06-07 21:42:10 ERROR    BidDAOMySql:138 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
 2020-06-07 21:43:23 ERROR    BidDAOMySql:139 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
 2020-06-07 21:46:32 ERROR    BidDAOMySql:140 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
+2020-07-05 20:36:19 ERROR    AdminBidController:79 - null
+2020-07-05 20:42:24 ERROR    AdminBidController:71 - null
+2020-07-05 21:14:28 ERROR    AuthorizationController:73 - 
+2020-07-05 21:27:22 ERROR    AuthorizationController:73 - 
+2020-07-05 21:34:32 ERROR    BidOrderPriceController:103 - For input string: "abc"
+2020-07-05 21:39:35 ERROR    BidOrderPriceController:103 - For input string: "abc"
+2020-07-05 21:39:35 ERROR    BidOrderPriceController:215 - 
+2020-07-05 21:41:01 ERROR    BidOrderPriceController:114 - For input string: "5t4r"
+2020-07-05 21:41:01 ERROR    BidOrderPriceController:215 - 
+2020-07-05 21:41:41 ERROR    BidOrderPriceController:215 - 
+2020-07-05 21:42:31 ERROR    BidOrderPriceController:125 - For input string: "$R2"
+2020-07-05 21:42:31 ERROR    BidOrderPriceController:215 - 
+2020-07-05 21:43:02 ERROR    BidOrderPriceController:215 - 
+2020-07-05 21:43:32 ERROR    BidOrderPriceController:215 - 
+2020-07-05 21:44:27 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:00:19 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:00:34 ERROR    BidOrderPriceController:103 - For input string: "abc"
+2020-07-05 22:00:34 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:103 - For input string: "abc"
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:114 - For input string: "5t4r"
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:125 - For input string: "$R2"
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:103 - For input string: "abc"
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-05 22:20:16 ERROR    BidOrderPriceController:215 - 
+2020-07-07 14:47:59 ERROR    BuyingController:92 - 
+2020-07-07 14:48:07 ERROR    BuyingController:92 - 
+2020-07-07 14:51:08 ERROR    BuyingController:92 - 
+2020-07-07 15:13:40 ERROR    PasswordRecoveryController:63 - 
+2020-07-07 15:43:44 ERROR    RegistrationController:64 - 
+2020-07-07 15:50:43 ERROR    ResetPasswordController:63 - 
+2020-07-07 18:36:57 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 18:36:57 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:38:29 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 18:38:29 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:44:06 ERROR    SqlExceptionHelper:142 - Duplicate entry '48' for key 'PRIMARY'
+2020-07-07 18:44:06 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:44:21 ERROR    SqlExceptionHelper:142 - Duplicate entry '48' for key 'PRIMARY'
+2020-07-07 18:44:21 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:44:50 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:44:50 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:48:02 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:48:02 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:48:51 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:48:51 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:51:46 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:51:46 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:54:42 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:54:42 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:55:32 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:55:32 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:57:01 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:57:01 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:57:22 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:57:23 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:58:48 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:58:48 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 18:59:18 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 18:59:18 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:00:51 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:00:51 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:01:11 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:01:11 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:01:37 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:01:37 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:01:59 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:01:59 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:02:53 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:02:53 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:03:30 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:03:30 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:04:32 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:04:32 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:07:25 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:07:25 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:08:16 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:08:16 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:09:04 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:09:04 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:09:41 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:09:41 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:09:59 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:09:59 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:10:15 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:10:15 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:10:31 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:10:31 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:11:04 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:11:04 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:11:22 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:11:22 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:11:37 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:11:37 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:12:12 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:12:12 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:14:07 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:14:07 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:15:42 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:15:42 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:18:31 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:18:31 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:19:46 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:19:46 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:20:22 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:20:22 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:21:43 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:21:43 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:22:43 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:22:43 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:23:01 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:23:01 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:24:04 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:24:04 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:24:13 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:24:13 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:25:52 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:25:52 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:26:45 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:26:45 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:27:16 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:27:16 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 19:27:38 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 19:27:38 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:46:19 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:46:19 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:48:10 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:48:10 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:48:25 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:48:25 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:49:29 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:49:29 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:50:20 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:50:20 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:51:20 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:51:20 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:51:58 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:51:58 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:52:54 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:52:54 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 21:57:31 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 21:57:31 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:03:12 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 22:03:12 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:09:16 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 22:09:16 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:09:35 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 22:09:35 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:11:49 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 22:11:49 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:14:59 ERROR    SqlExceptionHelper:142 - Duplicate entry '52' for key 'PRIMARY'
+2020-07-07 22:14:59 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:17:18 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:17:18 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:17:52 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:17:52 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:21:27 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:21:27 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:22:34 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:22:34 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:23:43 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:23:43 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:23:43 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:23:43 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:24:54 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:24:56 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:24:56 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:24:56 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:26:08 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:26:08 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:26:08 ERROR    BidDAOMySql:95 - Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect) : [org.mycompany.models.bid.Bid#1]
+2020-07-07 22:27:29 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:27:29 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:27:29 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:27:29 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:32:25 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:32:25 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:32:25 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:32:25 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:33:07 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:33:07 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:33:07 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:33:07 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:38:59 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:38:59 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:38:59 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:38:59 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:39:39 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:39:39 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:39:39 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:39:39 ERROR    BidDAOMySql:95 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:43:57 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:43:57 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:44:29 ERROR    SqlExceptionHelper:142 - Column 'arrival_date' cannot be null
+2020-07-07 22:44:29 ERROR    BidDAOMySql:55 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:45:32 ERROR    SqlExceptionHelper:142 - Column 'notes' cannot be null
+2020-07-07 22:45:32 ERROR    BidDAOMySql:55 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:46:45 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:46:45 ERROR    BidDAOMySql:55 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:47:18 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:47:18 ERROR    BidDAOMySql:55 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:47:52 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:47:52 ERROR    BidDAOMySql:55 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:49:37 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:49:37 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:50:10 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:50:10 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:55:47 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:55:47 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 22:57:58 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 22:57:58 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 23:03:36 ERROR    SqlExceptionHelper:142 - Duplicate entry '53' for key 'PRIMARY'
+2020-07-07 23:03:36 ERROR    BidDAOMySql:54 - org.hibernate.exception.ConstraintViolationException: could not execute statement
+2020-07-07 23:12:01 ERROR    ClientDAOMySql:73 - No entity found for query
+2020-07-07 23:13:18 ERROR    ClientDAOMySql:73 - No entity found for query
+2020-07-07 23:45:58 ERROR    ClientDAOMySql:73 - No entity found for query
+2020-07-07 23:47:09 ERROR    ClientDAOMySql:73 - No entity found for query
+2020-07-07 23:47:51 ERROR    ClientDAOMySql:73 - No entity found for query
+2020-07-07 23:50:09 ERROR    ClientDAOMySql:73 - No entity found for query
