@@ -31,6 +31,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /**
  * This servlet responsible for ordering and price calculation of bids.
@@ -157,7 +159,9 @@ public class BidOrderPriceServlet extends HttpServlet {
             BidDAO bidDAOHelperCoefficient = new MySqlDAOFactory().createBidDAO(DBCPDataSource.getConnection());
             coefficient = ((BidDAOHelper)bidDAOHelperCoefficient).getCargoTypeCoefficient(Integer.parseInt(type));
             totalPrice = (weightValue + volumeValue + costValue + transferPrice) * coefficient;
-            httpServletRequest.setAttribute("totalPriceValue", totalPrice);
+            DecimalFormat decimalFormat = new DecimalFormat("############.##");
+            decimalFormat.setRoundingMode(RoundingMode.CEILING);
+            httpServletRequest.setAttribute("totalPriceValue", decimalFormat.format(totalPrice));
             if(httpSession.getAttribute("client") != null && submit) {
                 DateController dateController = new ControllerFactoryImpl().getDateController();
                 CargoTypeDAO cargoTypeDAOMySql = new MySqlDAOFactory().createCargoTypeDAO(DBCPDataSource.getConnection());
