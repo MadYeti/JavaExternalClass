@@ -4,8 +4,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.client.Client;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,55 +16,44 @@ import static org.mockito.Mockito.mock;
 
 public class ClientDAOMySqlTest {
 
-    private ClientDAO clientDAOMySql = mock(ClientDAOMySql.class);
+    private ClientDAO clientDAOMySql;
     private Client client;
-    private List<Client> clientList;
 
     @Before
     public void before(){
-        clientList = new ArrayList<>();
-        client = new Client();
+        clientDAOMySql = new ClientDAOMySql(DBCPDataSource.getConnection());
     }
 
     @After
     public void after(){
-        clientList.remove(client);
+        try {
+            DBCPDataSource.getConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void getClientByEmailAndPassword(){
         String email = "ivancov13@bigmir.net";
         String password = "zzzZ1!";
-        Client result = null;
-        client.setEmail("ivancov13@bigmir.net");
-        client.setPassword("zzzZ1!");
-        clientList.add(client);
-        doCallRealMethod().when(clientDAOMySql).getClient(email, password);
-        for(Client clients: clientList){
-            if(clients.getEmail().equals(email) && clients.getPassword().equals(password)){
-                result = clients;
-            }
-        }
-        Assert.assertTrue(result != null);
+        client = clientDAOMySql.getClient(email, password);
+        Assert.assertNotNull(client);
     }
 
     @Test
     public void readClient(){
-        clientList.add(client);
-        doCallRealMethod().when(clientDAOMySql).read(0);
-        Client result = clientList.get(0);
-        Assert.assertTrue(result != null);
+        client = clientDAOMySql.read(1);
+        Assert.assertNotNull(client);
     }
 
     @Test
     public void addClientByEmailAndPassword(){
-        String email = "ivancov13@bigmir.net";
-        String password = "zzzZ1!";
-        doCallRealMethod().when(clientDAOMySql).addClient(email, password);
-        client.setEmail("ivancov13@bigmir.net");
-        client.setPassword("zzzZ1!");
-        clientList.add(client);
-        Assert.assertTrue(clientList.size() == 1);
+        String email = "ivancov123@bigmir.net";
+        String password = "qqq!1Z";
+        clientDAOMySql.addClient(email, password);
+        client = new ClientDAOMySql(DBCPDataSource.getConnection()).getClient(email, password);
+        Assert.assertNotNull(client);
     }
 
 }

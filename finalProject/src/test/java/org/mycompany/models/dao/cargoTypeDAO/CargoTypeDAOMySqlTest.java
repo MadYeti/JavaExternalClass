@@ -4,8 +4,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.cargoType.CargoType;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,27 +16,27 @@ import static org.mockito.Mockito.mock;
 
 public class CargoTypeDAOMySqlTest {
 
-    private CargoTypeDAO cargoTypeDAOMySql = mock(CargoTypeDAOMySql.class);
+    private CargoTypeDAO cargoTypeDAOMySql;
     private CargoType cargoType;
-    private List<CargoType> cargoTypeList;
 
     @Before
     public void before(){
-        cargoTypeList = new ArrayList<>();
-        cargoType = new CargoType();
+        cargoTypeDAOMySql = new CargoTypeDAOMySql(DBCPDataSource.getConnection());
     }
 
     @After
     public void after(){
-        cargoTypeList.remove(cargoType);
+        try {
+            DBCPDataSource.getConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
-    public void readBidStatus(){
-        cargoTypeList.add(cargoType);
-        doCallRealMethod().when(cargoTypeDAOMySql).read(0);
-        CargoType result = cargoTypeList.get(0);
-        Assert.assertTrue(result != null);
+    public void readCargoType(){
+        cargoType = cargoTypeDAOMySql.read(1);
+        Assert.assertNotNull(cargoType);
     }
 
 }

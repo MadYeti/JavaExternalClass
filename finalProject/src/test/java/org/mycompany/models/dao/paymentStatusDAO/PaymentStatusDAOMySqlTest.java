@@ -4,37 +4,34 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.paymentStatus.PaymentStatus;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.mockito.Mockito.doCallRealMethod;
-import static org.mockito.Mockito.mock;
+import java.sql.SQLException;
 
 public class PaymentStatusDAOMySqlTest {
 
-    private PaymentStatusDAO paymentStatusDAOMySql = mock(PaymentStatusDAOMySql.class);
+    private PaymentStatusDAO paymentStatusDAOMySql;
     private PaymentStatus paymentStatus;
-    private List<PaymentStatus> paymentStatusList;
 
     @Before
     public void before(){
-        paymentStatusList = new ArrayList<>();
-        paymentStatus = new PaymentStatus();
+        paymentStatusDAOMySql = new PaymentStatusDAOMySql(DBCPDataSource.getConnection());
     }
 
     @After
     public void after(){
-        paymentStatusList.remove(paymentStatus);
+        try {
+            DBCPDataSource.getConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void readDestinationPoint(){
-        paymentStatusList.add(paymentStatus);
-        doCallRealMethod().when(paymentStatusDAOMySql).read(0);
-        PaymentStatus result = paymentStatusList.get(0);
-        Assert.assertTrue(result != null);
+        paymentStatus = paymentStatusDAOMySql.read(1);
+        Assert.assertNotNull(paymentStatus);
     }
 
 }

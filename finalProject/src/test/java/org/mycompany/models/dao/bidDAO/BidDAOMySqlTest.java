@@ -4,82 +4,91 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mycompany.dbConnect.DBCPDataSource;
 import org.mycompany.models.bid.Bid;
 import org.mycompany.models.bidStatus.BidStatus;
 import org.mycompany.models.cargoType.CargoType;
 import org.mycompany.models.client.Client;
-import org.mycompany.models.client.Customer;
 import org.mycompany.models.destinationPoint.DestinationPoint;
 import org.mycompany.models.paymentStatus.PaymentStatus;
 import org.mycompany.models.sendingPoint.SendingPoint;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.mockito.Mockito.doCallRealMethod;
-import static org.mockito.Mockito.mock;
+import java.sql.SQLException;
 
 public class BidDAOMySqlTest {
 
-    private BidDAO bidDAOMySql = mock(BidDAOMySql.class);
+    private BidDAO bidDAOMySql;
     private Bid bid;
-    private List<Bid> bidList;
 
     @Before
     public void before(){
-        bidList = new ArrayList<>();
-        Client client = new Customer();
+        bidDAOMySql = new BidDAOMySql(DBCPDataSource.getConnection());
+        bid = new Bid();
+        Client client = new Client();
         CargoType cargoType = new CargoType();
         SendingPoint sendingPoint = new SendingPoint();
         DestinationPoint destinationPoint = new DestinationPoint();
         BidStatus bidStatus = new BidStatus();
         PaymentStatus paymentStatus = new PaymentStatus();
-        bid = new Bid();
-        bid.setClient(client);
-        bid.setCargoType(cargoType);
-        bid.setSendingPoint(sendingPoint);
-        bid.setDestinationPoint(destinationPoint);
-        bid.setBidStatus(bidStatus);
-        bid.setPaymentStatus(paymentStatus);
+        client.setId(1);
+        client.setEmail("ivancov13@bigmir.net");
+        client.setPassword("-5540a5d6a714897ee70ccea486193fbb");
+        cargoType.setId(1);
+        sendingPoint.setId(1);
+        destinationPoint.setId(12);
+        bidStatus.setId(1);
+        paymentStatus.setId(2);
+        bid.addClient(client)
+                .addBidStatus(bidStatus)
+                .addCargoType(cargoType)
+                .addDestinationPoint(destinationPoint)
+                .addSendingPoint(sendingPoint)
+                .addArrivalDate("26-06-2020")
+                .addPaymentStatus(paymentStatus)
+                .addNotes("Khreschatyk street 1")
+                .build();
+        bid.setId(58);
     }
 
     @After
     public void after(){
-        bidList.remove(bid);
+        try {
+            DBCPDataSource.getConnection().close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
     public void createBid(){
-        doCallRealMethod().when(bidDAOMySql).create(bid);
-        bidList.add(bid);
-        Assert.assertTrue(bidList.size() == 1);
+        bidDAOMySql.create(bid);
+        Bid result = new BidDAOMySql(DBCPDataSource.getConnection()).read(bid.getId());
+        Assert.assertEquals(bid.getClient().getEmail(), result.getClient().getEmail());
+        Assert.assertEquals(bid.getClient().getPassword(), result.getClient().getPassword());
     }
 
     @Test
     public void readBid(){
-        bidList.add(bid);
-        doCallRealMethod().when(bidDAOMySql).read(0);
-        Bid result = bidList.get(0);
-        Assert.assertTrue(result != null);
+        Assert.assertNotNull(bidDAOMySql.read(53));
     }
 
     @Test
     public void updateBid(){
-        bidList.add(bid);
-        doCallRealMethod().when(bidDAOMySql).update(bid);
-        bid = bidList.get(0);
-        PaymentStatus paymentStatus = new PaymentStatus();
-        paymentStatus.setId(2);
-        bid.setPaymentStatus(paymentStatus);
-        Assert.assertEquals(2, bid.getPaymentStatus().getId());
+        bidDAOMySql.create(bid);
+        bid.setWeight(192.80);
+        new BidDAOMySql(DBCPDataSource.getConnection()).update(bid);
+        Bid result = new BidDAOMySql(DBCPDataSource.getConnection()).read(bid.getId());
+        Assert.assertTrue(result.getWeight() == 192.80);
     }
 
     @Test
     public void deleteBid(){
-        bidList.add(bid);
-        doCallRealMethod().when(bidDAOMySql).delete(bid);
-        bidList.remove(bid);
-        Assert.assertTrue(bidList.size() == 0);
+        bidDAOMySql.create(bid);
+        Bid before = new BidDAOMySql(DBCPDataSource.getConnection()).read(bid.getId());
+        new BidDAOMySql(DBCPDataSource.getConnection()).delete(bid);
+        Bid after = new BidDAOMySql(DBCPDataSource.getConnection()).read(bid.getId());
+        Assert.assertNotNull(before);
+        Assert.assertNull(after);
     }
 
 }
