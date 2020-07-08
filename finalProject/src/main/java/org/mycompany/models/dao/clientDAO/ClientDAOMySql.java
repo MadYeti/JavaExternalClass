@@ -58,7 +58,7 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
             criteriaQuery.select(root);
             criteriaQuery.where(finalPredicate);
             Query query = session.createQuery(criteriaQuery);
-            client = (Customer)query.getSingleResult();
+            client = (Customer) query.getSingleResult();
             if(client.getRole().equals("admin")){
                 Client admin = beanFactory.getBean(Admin.class);
                 admin.setId(client.getId());
@@ -105,12 +105,15 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         try(Session session = sessionFactory.openSession()){
             session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-            CriteriaUpdate<Client> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Client.class);
-            Root<Client> root = criteriaUpdate.from(Client.class);
-            criteriaUpdate.set(root.get("token"), token);
-            criteriaUpdate.where(criteriaBuilder.equal(root.get("email"), email));
-            Query query = session.createQuery(criteriaUpdate);
-            query.executeUpdate();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<Customer> root = criteriaQuery.from(Customer.class);
+            Predicate predicateForEmail = criteriaBuilder.equal(root.get("email"), email);
+            criteriaQuery.select(root);
+            criteriaQuery.where(predicateForEmail);
+            Query query = session.createQuery(criteriaQuery);
+            Client client = (Customer) query.getSingleResult();
+            client.setToken(token);
+            session.update(client);
             session.getTransaction().commit();
         }catch (Exception e){
             logger.error(e.getMessage());
@@ -128,13 +131,16 @@ public class ClientDAOMySql implements ClientDAO, ClientDAOHelper {
         try(Session session = sessionFactory.openSession()){
             session.beginTransaction();
             CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-            CriteriaUpdate<Client> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Client.class);
-            Root<Client> root = criteriaUpdate.from(Client.class);
-            criteriaUpdate.set(root.get("password"), RegistrationDataController.getHash(password));
-            criteriaUpdate.set(root.get("token"), "");
-            criteriaUpdate.where(criteriaBuilder.equal(root.get("token"), token));
-            Query query = session.createQuery(criteriaUpdate);
-            query.executeUpdate();
+            CriteriaQuery<Object> criteriaQuery = criteriaBuilder.createQuery(Object.class);
+            Root<Customer> root = criteriaQuery.from(Customer.class);
+            Predicate predicateForToken = criteriaBuilder.equal(root.get("token"), token);
+            criteriaQuery.select(root);
+            criteriaQuery.where(predicateForToken);
+            Query query = session.createQuery(criteriaQuery);
+            Client client = (Customer) query.getSingleResult();
+            client.setPassword(RegistrationDataController.getHash(password));
+            client.setToken("");
+            session.update(client);
             session.getTransaction().commit();
         }catch (Exception e){
             logger.error(e.getMessage());

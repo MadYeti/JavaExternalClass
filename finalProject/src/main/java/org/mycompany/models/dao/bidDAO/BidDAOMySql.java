@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.CriteriaUpdate;
 import javax.persistence.criteria.Root;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.Query;
@@ -140,15 +139,11 @@ public class BidDAOMySql implements BidDAO, BidDAOHelper {
     public void updateBidPaymentStatus(int id){
         try(Session session = sessionFactory.openSession()){
             session.beginTransaction();
-            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
-            CriteriaUpdate<Bid> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Bid.class);
-            Root<Bid> root = criteriaUpdate.from(Bid.class);
-            criteriaUpdate.set(root.get("paymentStatus").get("id"), 2);
-            criteriaUpdate.where(criteriaBuilder.equal(root.get("id"), id));
-            Query query = session.createQuery(criteriaUpdate);
-            query.executeUpdate();
+            Bid bid = this.read(id);
+            bid.getPaymentStatus().setId(2);
+            this.update(bid);
+            session.getTransaction().commit();
         }catch (Exception e){
-            e.printStackTrace();
             logger.error(e.getMessage());
         }
     }

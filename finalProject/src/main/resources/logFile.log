@@ -1296,3 +1296,15 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-07-07 23:47:09 ERROR    ClientDAOMySql:73 - No entity found for query
 2020-07-07 23:47:51 ERROR    ClientDAOMySql:73 - No entity found for query
 2020-07-07 23:50:09 ERROR    ClientDAOMySql:73 - No entity found for query
+2020-07-08 12:00:22 ERROR    BidDAOMySql:165 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
+2020-07-08 12:04:17 ERROR    BidDAOMySql:166 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
+2020-07-08 12:05:27 ERROR    BidDAOMySql:166 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
+2020-07-08 12:12:30 ERROR    BidDAOMySql:167 - org.hibernate.HibernateException: identifier of an instance of org.mycompany.models.paymentStatus.PaymentStatus was altered from 1 to 2
+2020-07-08 12:37:40 ERROR    ClientDAOMySql:74 - query did not return a unique result: 3
+2020-07-08 12:39:47 ERROR    ClientDAOMySql:80 - query did not return a unique result: 3
+2020-07-08 12:40:19 ERROR    ClientDAOMySql:80 - query did not return a unique result: 3
+2020-07-08 12:40:43 ERROR    ClientDAOMySql:81 - query did not return a unique result: 3
+2020-07-08 12:41:20 ERROR    ClientDAOMySql:81 - query did not return a unique result: 3
+2020-07-08 12:42:23 ERROR    ClientDAOMySql:84 - 
+2020-07-08 12:43:14 ERROR    ClientDAOMySql:84 - 
+2020-07-08 12:43:47 ERROR    ClientDAOMySql:84 - 
