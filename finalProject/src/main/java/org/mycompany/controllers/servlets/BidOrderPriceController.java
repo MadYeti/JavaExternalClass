@@ -28,6 +28,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /**
  * This controller responsible for ordering and price calculation of bids.
@@ -168,7 +170,9 @@ public class BidOrderPriceController {
             BidDAOHelper bidDAOHelperCoefficient = mySqlDAOFactory.createBidDAO();
             coefficient = bidDAOHelperCoefficient.getCargoTypeCoefficient(Integer.parseInt(type));
             totalPrice = (weightValue + volumeValue + costValue + transferPrice) * coefficient;
-            httpServletRequest.setAttribute("totalPriceValue", totalPrice);
+            DecimalFormat decimalFormat = new DecimalFormat("##############.##");
+            decimalFormat.setRoundingMode(RoundingMode.CEILING);
+            httpServletRequest.setAttribute("totalPriceValue", decimalFormat.format(totalPrice));
             if(httpSession.getAttribute("client") != null && submit) {
                 DateController dateController = controllerFactory.getDateController();
                 CargoTypeDAO cargoTypeDAOMySql = mySqlDAOFactory.createCargoTypeDAO();
