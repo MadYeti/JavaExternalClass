@@ -1,0 +1,11 @@
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:37 +0300] "GET /MainPage HTTP/1.1" 200 15376 http-bio-8888-exec-1 1392
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:38 +0300] "GET /MainPage?lang=uk_UA HTTP/1.1" 200 16076 http-bio-8888-exec-2 20
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:39 +0300] "GET /MainPage?lang=en_EN HTTP/1.1" 200 15376 http-bio-8888-exec-3 21
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:40 +0300] "GET /MainPage?lang=uk_UA HTTP/1.1" 200 16076 http-bio-8888-exec-4 7
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:41 +0300] "GET /sighIn HTTP/1.1" 200 4965 http-bio-8888-exec-5 111
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:48 +0300] "POST /AuthorizationController HTTP/1.1" 200 15036 http-bio-8888-exec-7 2894
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:53 +0300] "GET /BidOrderPriceController?weight=&volume=&type=0&cost=&sendingPoint=0&destinationPoint=0&notes=&submit=false HTTP/1.1" 200 15952 http-bio-8888-exec-9 21
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:56 +0300] "GET /BidsDetailsController HTTP/1.1" 200 13075 http-bio-8888-exec-10 614
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:33:58 +0300] "GET /MainPage HTTP/1.1" 200 16111 http-bio-8888-exec-10 6
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:34:01 +0300] "GET /MainPage?lang=en_EN HTTP/1.1" 200 15417 http-bio-8888-exec-10 5
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:08:34:01 +0300] "GET /LogoutController HTTP/1.1" 200 15376 http-bio-8888-exec-4 7

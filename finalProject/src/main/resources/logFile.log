@@ -1308,3 +1308,7 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 2020-07-08 12:42:23 ERROR    ClientDAOMySql:84 - 
 2020-07-08 12:43:14 ERROR    ClientDAOMySql:84 - 
 2020-07-08 12:43:47 ERROR    ClientDAOMySql:84 - 
+2020-07-09 08:33:53 ERROR    BidOrderPriceController:105 - empty String
+2020-07-09 08:33:53 ERROR    BidOrderPriceController:116 - empty String
+2020-07-09 08:33:53 ERROR    BidOrderPriceController:127 - empty String
+2020-07-09 08:33:53 ERROR    BidOrderPriceController:219 - Invalid bid data to get price or format the bid
